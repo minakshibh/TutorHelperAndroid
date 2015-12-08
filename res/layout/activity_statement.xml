@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    >
+    
+
+       <LinearLayout
+                  android:id="@+id/lay_full"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical"
+                >
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/header_layout" />
+    
+     <LinearLayout
+                
+                 android:layout_width="fill_parent"
+                 android:orientation="vertical"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/listing_bg"
+                    android:padding="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                 android:layout_height="wrap_content">
+    <LinearLayout
+                  android:id="@+id/lay_startdate"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="10dp"
+                 android:layout_marginRight="10dp"
+              
+                 android:orientation="horizontal"
+                >
+
+                 <TextView
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="4"
+                     android:text="Start Date : "
+                     android:textColor="@color/black"
+                     android:textStyle="bold" />
+
+                 <TextView
+                     android:id="@+id/txt_startdate"
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="6"
+                     android:text="select Lesson Date"
+                     android:textColor="@color/appBlue" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                       android:id="@+id/lay_enddate"
+                       android:layout_width="fill_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginRight="10dp"
+                       android:orientation="horizontal"
+                       android:layout_marginTop="20dp"
+                       android:padding="5dp"
+                     >
+
+                       <TextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="4"
+                           android:text="End Date : "
+                           android:textColor="@color/black"
+                           android:textStyle="bold" />
+
+                       <TextView
+                           android:id="@+id/txt_enddate"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="6"
+                            android:text="Lesson end Date"
+                           android:textColor="@color/appBlue" />
+
+            </LinearLayout>
+            </LinearLayout>
+                 <Spinner
+                     android:layout_marginTop="20dp"
+                    android:id="@+id/parentSpinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/edittext_bg" />
+
+</LinearLayout>
+
+       <Button
+           android:id="@+id/btn_generate"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="30dp"
+           android:layout_marginRight="30dp"
+           android:background="@drawable/blue_btn"
+           android:layout_alignParentBottom="true"
+           android:layout_centerHorizontal="true"
+           android:layout_marginBottom="14dp"
+           android:gravity="center"
+           android:textColor="@color/white"
+           android:textSize="18sp"
+           android:text="Generate Statement" />
+
+</RelativeLayout>

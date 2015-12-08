@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical" >
+    
+     <include
+        android:id="@+id/headerLayout"
+        layout="@layout/header_layout" />
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/listview_bg"
+    android:orientation="vertical" >
+<!-- <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="5dp"
+     android:layout_marginTop="10dp"
+     android:orientation="horizontal" >
+
+     <TextView
+      
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="ID:"
+         android:textColor="@color/black"
+         android:textStyle="bold" />
+
+     <TextView
+         android:id="@+id/textView8"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="10dp"
+         android:text="TextView"
+         android:textColor="@color/black" />
+ </LinearLayout> -->
+    <LinearLayout
+     android:id="@+id/lay_tid"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="vertical" >
+    <!-- <TextView
+        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        
+        android:textStyle="bold"
+        android:text="Tutor Id :" /> -->
+<TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/appBlue"
+        android:layout_marginLeft="10dp"
+      	android:textSize="18sp"
+        android:text="TextView" />
+  <TextView
+         android:id="@+id/textView3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="10dp"
+         android:text="TextView"
+         android:textColor="@color/appBlue"
+      
+      	android:textSize="18sp" />
+</LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/lay_tname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tutor Name :"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="TextView"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    
+<!-- <LinearLayout
+       android:id="@+id/lay_pid"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="5dp"
+      android:orientation="horizontal" >
+
+     <TextView
+      
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Parent Id :"
+         android:textColor="@color/black"
+         android:textStyle="bold" />
+
+   
+    
+ </LinearLayout> -->
+ <LinearLayout
+        android:id="@+id/lay_pname"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="5dp"
+     android:orientation="horizontal" >
+
+     <TextView
+      
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Parent Name :"
+         android:textColor="@color/black"
+         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="TextView"
+        android:textColor="@color/black" />
+    </LinearLayout>
+    <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="5dp"
+     android:orientation="horizontal" >
+
+     <TextView
+      
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Payment mode :"
+         android:textColor="@color/black"
+         android:textStyle="bold" />
+
+     <TextView
+         android:id="@+id/textView7"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="10dp"
+         android:text="TextView"
+         android:textColor="@color/black" />
+ </LinearLayout>
+  <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="5dp"
+     android:orientation="horizontal" >
+
+     <TextView
+      
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Last Update :"
+         android:textColor="@color/black"
+         android:textStyle="bold" />
+
+     <TextView
+         android:id="@+id/textView9"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="10dp"
+         android:text="date"
+         android:textColor="@color/black" />
+ </LinearLayout>
+  
+    <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="5dp"
+     android:orientation="horizontal" >
+
+     <TextView
+      
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Remarks :"
+         android:textColor="@color/black"
+         android:textStyle="bold" />
+
+     <TextView
+         android:id="@+id/textView6"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="10dp"
+         android:text="TextView"
+         android:textColor="@color/black" />
+ </LinearLayout>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="5dp"
+     android:orientation="horizontal" >
+
+     <TextView
+      
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Fees:"
+         android:textColor="@color/black"
+         android:textStyle="bold" />
+
+     <TextView
+         android:id="@+id/textView5"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="6dp"
+         android:text="TextView"
+         android:textColor="@color/black" />
+ </LinearLayout>
+ 
+
+  
+</LinearLayout>
+
+</LinearLayout>

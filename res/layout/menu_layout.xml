@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="right"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <include
+            layout="@layout/header_layout"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:src="@drawable/menudot_icon" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/menuLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#535353"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:id="@+id/tutor_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/name_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/user_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".85"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/use_id_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/without_separator_menu"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/user_menuua"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/user_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/id_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuuws"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".85"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/box_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box_menu"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:text="NOTIFICATIONS"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/connection_request_alout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/user_menuuxc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/connection_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu12d"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/connectionRequests"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="Connection Requests"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuud3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/student_re_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/user_menuugi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/request_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuuu77"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/studentRequests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="Student Requests"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuuc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lesson_request_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/user_menuuopo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/request_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuue"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/lessonRequests"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="Lesson Requests"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/newsFeed_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/without_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/news_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/news_feedText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="News Feed"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/myacount_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box_menu"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/acc_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:text="MY ACCOUNT"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+ <LinearLayout
+            android:id="@+id/addstudent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+               
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/add_student_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+              
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/addstudent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="Add Student"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+            
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/mylesson_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+              
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/my_lesson_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/myLesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="My Lessons"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+     
+        
+        
+       
+        <LinearLayout
+            android:id="@+id/myprofile_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+         
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                   
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/user_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+            
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/myProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="My Profile"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+             
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/myconnections_layouts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+               
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                  
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/connection_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+             
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tuterList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="My Connections"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+             
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/parnetmerg_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+              
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/merge_perant_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/Parentmerge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="Merge Parent"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/merg_student_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/merge_perant_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/Studentmerge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="Merge Students"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mystudent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/connection_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/mystu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="My Students"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/can_request_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/cancel_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/can_request"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="Cancellation Requests"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".2"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/credit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/credit_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/txt_credit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="Credit"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logout_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/with_separator_menu"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".15"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/logout_menu"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".65"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/logOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:text="Logout"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_menuu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".20"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

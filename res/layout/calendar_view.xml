@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calendar_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/calendarview_common"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/calendar_title_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/appBlue"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp" >
+
+            <RelativeLayout
+                android:id="@+id/calendar_left_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/calendar_left_arrow" >
+                </ImageView>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/calendar_month_year_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:textIsSelectable="true"
+                android:textSize="18sp" />
+
+            <RelativeLayout
+                android:id="@+id/calendar_right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:padding="10dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/calendar_right_arrow" >
+                </ImageView>
+            </RelativeLayout>
+      
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/weekday_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:numColumns="7"
+            android:stretchMode="columnWidth" >
+        </GridView>
+
+        <com.antonyt.infiniteviewpager.InfiniteViewPager
+            android:id="@+id/months_infinite_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/transparent" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/headerLayout"
+        layout="@layout/header_layout" />
+
+    <AutoCompleteTextView
+        android:id="@+id/editText_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/search_bg"
+        android:hint="Search by Parent Id or Parent Name"
+        android:maxLines="1"
+        android:paddingLeft="40dp"
+        android:textSize="13sp"
+        android:visibility="visible" >
+
+        <requestFocus />
+    </AutoCompleteTextView>
+    <LinearLayout 
+   		android:id="@+id/layout_credit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+<LinearLayout 
+   	
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+    
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Credit : "
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/total_credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="$ 0"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:text="Transaction Details"
+    android:textColor="@color/black"
+    android:layout_marginTop="10dp"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+        <TextView
+    android:layout_width="fill_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_height="0.5dp"
+  android:background="@color/black"
+   />
+    </LinearLayout>
+<ListView
+        android:id="@+id/listView_lesson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp" >
+    </ListView>
+
+</LinearLayout>
