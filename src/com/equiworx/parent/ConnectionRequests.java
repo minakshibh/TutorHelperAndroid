@@ -176,7 +176,7 @@ private void fetchlConnectionList() {
 	@Override
 	public void processFinish(String output, String methodName) {
 		Log.e("connection=", output);
-		if(methodName.equals("fetch-connection-request")){
+		if(methodName.equalsIgnoreCase("fetch-connection-request")){
 			array_connection=new ArrayList<Connection>();
 		
 			array_connection = parser.getConnectionInfo(output);
@@ -201,7 +201,7 @@ private void fetchlConnectionList() {
 			connection_listview.setAdapter(adapter);
 			}
 		}
-		else if(methodName.equals("approve-connection-request")){
+		else if(methodName.equalsIgnoreCase("approve-connection-request")){
 			//fetchlConnectionList();
 			try {
 

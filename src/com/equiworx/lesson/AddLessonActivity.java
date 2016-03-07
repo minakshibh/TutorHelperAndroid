@@ -2370,6 +2370,7 @@ public class AddLessonActivity extends Activity implements AsyncResponseForTutor
 //				}}
 		}
 	public void processFinish(String output, String methodName) {
+		System.err.println(output);
 		if(methodName.equals("create-lesson"))
 		{
 			try {

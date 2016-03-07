@@ -59,7 +59,7 @@ public class TutorDashboard extends FragmentActivity implements AsyncResponseFor
 	private ImageView menuIcon,back;
 	private TextView tv_title,activestudents,feesdue,feesCollected,tutorid,tutorname;
 	private TextView connectionRequests, studentRequests,lessonRequests,myLesson,myProfile,tuterList, 
-	logout,mystudent,studentmerge,parentmerge,tutor_requests;
+	logout,mystudent,studentmerge,parentmerge,tutor_requests,invoice_ext;
 	private LinearLayout activeStudentsLayout, feesLayout, newStudentLayout, newLessonLayout;
 	private LinearLayout menuLayout,calendar_layout,calInfoLayout;
 	private ArrayList<LessonDetails> arraylist_lessondetails=new ArrayList<LessonDetails>();
@@ -69,8 +69,9 @@ public class TutorDashboard extends FragmentActivity implements AsyncResponseFor
 	private String SelectedDate;
 	private LinearLayout merge_layout,newsFeed_layout;
 	private TutorHelperDatabaseHandler dbHandler;
-	private LinearLayout calendarlayout,can_request_layout,connection_request_alout,student_re_layout,lesson_request_layout,mystudent_layout,mylesson_layout,myprofile_layout,myconnections_layouts,
-	parnetmerg_layout,merg_student_layout,credit_layout,logout_layout,addstudent;
+	private LinearLayout calendarlayout,can_request_layout,connection_request_alout,student_re_layout,
+	lesson_request_layout,mystudent_layout,mylesson_layout,myprofile_layout,myconnections_layouts,
+	parnetmerg_layout,merg_student_layout,credit_layout,logout_layout,addstudent,invoice_layout;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -159,6 +160,9 @@ public class TutorDashboard extends FragmentActivity implements AsyncResponseFor
 		newStudentLayout = (LinearLayout)findViewById(R.id.addStudentlayout);
 		newLessonLayout = (LinearLayout)findViewById(R.id.addLessonLayout);
 		newsFeed_layout = (LinearLayout) findViewById(R.id.newsFeed_layout);
+		/*invoice_layout = (LinearLayout)findViewById(R.id.invoice_layout);
+		invoice_layout.setVisibility(View.GONE);
+		invoice_ext= (TextView) findViewById(R.id.invoice_ext);*/
 		tutor_requests= (TextView)findViewById(R.id.can_request);
 		
 		menuIcon = (ImageView)findViewById(R.id.menuIcon);
@@ -442,6 +446,7 @@ public class TutorDashboard extends FragmentActivity implements AsyncResponseFor
 				editor.clear();
 				editor.commit();
 				Intent intent = new Intent(TutorDashboard.this, HomeAcitivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 				startActivity(intent);
 				finish();
 			}else if (v==newsFeed_layout) {

@@ -77,7 +77,7 @@ public class Payment_Activity  extends Activity implements AsyncResponseForTutor
 		
 		initailiselayout();
 		onClickListeners();
-		fetchpayment();
+		
 		
 	}
 
@@ -306,7 +306,12 @@ public class Payment_Activity  extends Activity implements AsyncResponseForTutor
 		}
 		
 	}
-
+@Override
+protected void onResume() {
+	// TODO Auto-generated method stub
+	super.onResume();
+	fetchpayment();
+}
 	private void onClickListeners() {
 		// TODO Auto-generated method stub
 		back.setOnClickListener(new OnClickListener() {

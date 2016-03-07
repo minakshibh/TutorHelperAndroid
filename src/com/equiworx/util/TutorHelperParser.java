@@ -1680,26 +1680,31 @@ public class TutorHelperParser {
 		
 		// TODO Auto-generated method stub
 		
-		String result, message,pageToken,fees_due,fee_collected;
+		String result, message;
 		ArrayList<InvoiceModel> getbasicdetailStatement = new ArrayList<InvoiceModel>();
 		
 		try {
 			JSONObject jsonChildNode = new JSONObject(output);
 			result = jsonChildNode.getString("result").toString();
-			fees_due= jsonChildNode.getString("message").toString();
+			message= jsonChildNode.getString("message").toString();
 		
 			if (result.equals("0")) {
-				String InvoiceArray = jsonChildNode.getString("invoices");
-				JSONArray jsonArray1 = new JSONArray(InvoiceArray);
+				
+				JSONArray jsonArrayInvoices = new JSONArray(jsonChildNode.getString("invoices"));
 		        
-				for (int i = 0; i < jsonArray1.length(); i++) {
+				for (int i = 0; i < jsonArrayInvoices.length(); i++) {
 
 					InvoiceModel invoice = new InvoiceModel();
-					JSONObject jsonObj1 = jsonArray1.getJSONObject(i);
-					
-					invoice.setMonthName(jsonObj1.getString("month").toString());
-					String invoiceUrl=jsonObj1.getString("InvoiceUrl");
-					invoice.setInvoiceUrl(invoiceUrl);
+					JSONObject jsonObj1 = jsonArrayInvoices.getJSONObject(i);
+					invoice.setYearName(jsonObj1.getString("year").toString());
+					JSONArray jsonArraymonths = new JSONArray(jsonObj1.getString("months"));
+			        
+					for (int j = 0; j < jsonArraymonths.length(); j++) {
+						JSONObject jsonObj2 = jsonArraymonths.getJSONObject(j);
+						invoice.setMonthName(jsonObj2.getString("month").toString());
+						invoice.setInvoiceUrl(jsonObj2.getString("invoicelink").toString());
+						}
+				
 					
 										
 					getbasicdetailStatement.add(invoice);

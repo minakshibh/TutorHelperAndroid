@@ -17,6 +17,7 @@ import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
@@ -35,6 +36,7 @@ public class InvoiceActivity extends Activity implements AsyncResponseForTutorHe
 	private TutorHelperParser parser;
 	private InvoiceModel invoice;
 	private ArrayList<InvoiceModel> invoiceArrayList;
+	private RelativeLayout back_layout;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,6 +47,7 @@ public class InvoiceActivity extends Activity implements AsyncResponseForTutorHe
 		ParentId=tutorPrefs.getString("parentID", "");
 		
 	    setUI();
+	    setOnClickListener();
 	    getInvoiceDetails();
 		
 	}
@@ -73,31 +76,42 @@ public class InvoiceActivity extends Activity implements AsyncResponseForTutorHe
 		// TODO Auto-generated method stub
 		parser = new TutorHelperParser(InvoiceActivity.this);
 		invoiceList = (ListView)findViewById(R.id.invoiceList);
-		InvoiceAdapter = new  InvoiceAdapter();
+		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
+	}
+	public void setOnClickListener()
+	{
+		back_layout.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 	}
 
 	@Override
 	public void processFinish(String output, String methodName) {
 		// TODO Auto-generated method stub
 		invoiceArrayList = parser.getInvoiceDetails(output);
+		InvoiceAdapter adapter = new  InvoiceAdapter(this,invoiceArrayList);
+		invoiceList.setAdapter(adapter);
 	}
 
 	//adapter class for invoice..
 	public class InvoiceAdapter extends BaseAdapter {
 		private Context context;
-		private TextView monthName, noLession, feeDue, outstandingBalance;
+		private TextView monthName, yearname_text, txtInvoiveUrl, outstandingBalance;
 		private FeesDetail historyNode;
-		private ArrayList<FeesDetail> parentList = new ArrayList<FeesDetail>();
+		private ArrayList<InvoiceModel> parentList = new ArrayList<InvoiceModel>();
 		private LinearLayout yearname_layout;
 		private String byMonth;
 		private LinearLayout month_layout;
 
 		public InvoiceAdapter(Context ctx,
-				ArrayList<FeesDetail> historyDetail, String month) {
+				ArrayList<InvoiceModel> invoiceArrayList) {
 			context = ctx;
-			this.parentList = historyDetail;
-			byMonth = month;
-
+			this.parentList = invoiceArrayList;
 		}
 
 		public int getCount() {
@@ -129,15 +143,18 @@ public class InvoiceActivity extends Activity implements AsyncResponseForTutorHe
 			}
 			month_layout = (LinearLayout) convertView.findViewById(R.id.month_layout);
 			yearname_layout = (LinearLayout) convertView.findViewById(R.id.yearname_layout);
-			FeesDetail ei = parentList.get(position);yearname_layout.setVisibility(View.GONE);
-			month_layout.setVisibility(View.VISIBLE);
 			
-			monthName = (TextView) convertView.findViewById(R.id.studentname);
-			noLession = (TextView) convertView.findViewById(R.id.noLesson);
-			feeDue = (TextView) convertView.findViewById(R.id.dueFess);
-			outstandingBalance = (TextView) convertView.findViewById(R.id.outstandingBalnce);
+			InvoiceModel ei = parentList.get(position);
+						
+			monthName = (TextView) convertView.findViewById(R.id.txtMonthName);
+			yearname_text = (TextView) convertView.findViewById(R.id.yearname_text);
+			txtInvoiveUrl = (TextView) convertView.findViewById(R.id.txtInvoiveUrl);
 			
-	
+			
+			yearname_text.setText(ei.getYearName());
+			monthName.setText(ei.getMonthName());
+			txtInvoiveUrl.setText(ei.getInvoiceUrl());
+			
 			return convertView;
 		}
 

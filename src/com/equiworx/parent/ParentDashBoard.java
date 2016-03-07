@@ -71,14 +71,14 @@ public class ParentDashBoard extends FragmentActivity implements
 			connection_request_alout, student_re_layout, lesson_request_layout,
 			mystudent_layout, mylesson_layout, myprofile_layout,
 			myconnections_layouts, parnetmerg_layout, merg_student_layout,
-			credit_layout, logout_layout,addstudent_layout;
+			credit_layout, logout_layout,addstudent_layout,invoice_layout,invoice_layoutall;
 	private SharedPreferences tutorPrefs;
 	private RelativeLayout parentdashboard;
 	private LinearLayout newStudentLayout, payment_historyLayout,
 			newsFeed_layout;
 	private TextView connectionRequests, studentRequests, myStudent,
 			lessonRequests, myLesson, parentid, name, myProfile, tuterList,
-			logout, studentmerge, parentmerge, tutor_requests, txt_credit,addstudent;
+			logout, studentmerge, parentmerge, tutor_requests, txt_credit,addstudent,invoice_ext;
 	private ArrayList<Lesson_Booked> array_lessonbooked=new ArrayList<Lesson_Booked>();
 	private String str_date;
 	private ArrayList<Parent> arraybasicDetail = new ArrayList<Parent>();
@@ -88,7 +88,9 @@ public class ParentDashBoard extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.parent_dashboard);
+		
 		initializeLayout();
+		menuLayoutGone();
 		setClickListeners();
 		getnotification();
 	}
@@ -119,6 +121,10 @@ public class ParentDashBoard extends FragmentActivity implements
 		merg_student_layout = (LinearLayout) findViewById(R.id.merg_student_layout);
 		can_request_layout = (LinearLayout) findViewById(R.id.can_request_layout);
 		newsFeed_layout = (LinearLayout) findViewById(R.id.newsFeed_layout);
+		invoice_layoutall= (LinearLayout) findViewById(R.id.invoice_layoutall);
+		invoice_layoutall.setVisibility(View.VISIBLE);
+		invoice_layout = (LinearLayout)findViewById(R.id.invoice_layout);
+		invoice_ext= (TextView) findViewById(R.id.invoice_ext);
 		newsFeed_layout.setVisibility(View.GONE);
 		can_request_layout.setVisibility(View.GONE);
 
@@ -135,6 +141,7 @@ public class ParentDashBoard extends FragmentActivity implements
 		studentRequests = (TextView) findViewById(R.id.studentRequests);
 		lessonRequests = (TextView) findViewById(R.id.lessonRequests);
 		// student=(TextView)findViewById(R.id.student);
+	
 		myLesson = (TextView) findViewById(R.id.myLesson);
 		menuIcon = (ImageView) findViewById(R.id.menuIcon);
 		menuLayout = (LinearLayout) findViewById(R.id.menuLayout);
@@ -210,7 +217,8 @@ public class ParentDashBoard extends FragmentActivity implements
 		myProfile.setOnClickListener(listener);
 		tuterList.setOnClickListener(listener);
 		myStudent.setOnClickListener(listener);
-
+		invoice_layout.setOnClickListener(listener);
+		invoice_ext.setOnClickListener(listener);
 		studentmerge.setOnClickListener(listener);
 		parentmerge.setOnClickListener(listener);
 		logout.setOnClickListener(listener);
@@ -304,7 +312,7 @@ public class ParentDashBoard extends FragmentActivity implements
 
 			Log.e("date select", nameValuePairs.toString());
 			AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(
-					ParentDashBoard.this, "getbasicdetail-parent", nameValuePairs, true,
+					ParentDashBoard.this, "getbasicdetail-parent", nameValuePairs, false,
 					"Please wait...");
 			mLogin.delegate = (AsyncResponseForTutorHelper) ParentDashBoard.this;
 			mLogin.execute();
@@ -402,8 +410,7 @@ public class ParentDashBoard extends FragmentActivity implements
 				Editor editor = tutorPrefs.edit();
 				editor.clear();
 				editor.commit();
-				Intent intent = new Intent(ParentDashBoard.this,
-						HomeAcitivity.class);
+				Intent intent = new Intent(ParentDashBoard.this,HomeAcitivity.class);
 				startActivity(intent);
 				finish();
 			} else if (v == payment_historyLayout) {// txt_credit
@@ -417,10 +424,10 @@ public class ParentDashBoard extends FragmentActivity implements
 
 			} else if (v == credit_layout | v == txt_credit) {// txt_credit
 
-				Intent intent = new Intent(ParentDashBoard.this,
-						Payment_Activity.class);
+				Intent intent = new Intent(ParentDashBoard.this,Payment_Activity.class);
 				intent.putExtra("check", "credit");
 				startActivity(intent);
+				menuLayoutGone();
 
 			} else if (v == addstudent_layout| v == addstudent) {
 				
@@ -437,6 +444,14 @@ public class ParentDashBoard extends FragmentActivity implements
 				intent.putExtra("trigger", "parent");
 				intent.putExtra("parentID", parentId);
 				startActivity(intent);
+				menuLayoutGone();
+			}
+			else if (v == invoice_layout | v == invoice_ext) {
+				Intent intent = new Intent(ParentDashBoard.this,InvoiceActivity.class);
+				//intent.putExtra("check", "credit");
+				startActivity(intent);
+				menuLayoutGone();
+
 			}
 		}
 	};

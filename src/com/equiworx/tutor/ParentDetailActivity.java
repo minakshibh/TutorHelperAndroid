@@ -225,7 +225,10 @@ public class ParentDetailActivity extends Activity implements AsyncResponseForTu
 		tutorId  = tutorPrefs.getString("tutorID", "0");
 		txt_parentid.setText("Parent Id : "+parentId);
 		
-		txtNotes.setText(tutorPrefs.getString("p_notes", "0"));
+		if(!tutorPrefs.getString("p_notes", "null").equalsIgnoreCase("null"))
+		{
+			txtNotes.setText(tutorPrefs.getString("p_notes", ""));
+			}
 	}
 	public class StudentAdapter extends BaseAdapter
 	{			
@@ -276,7 +279,10 @@ public class ParentDetailActivity extends Activity implements AsyncResponseForTu
 			
 			tv_name.setText(studentlist.getName());
 			tv_email.setText(": "+studentlist.getEmail());
-			tv_note.setText(": "+studentlist.getNotes());
+			if(studentlist.getNotes()!=null | studentlist.getNotes().equalsIgnoreCase("null"))
+			{
+				tv_note.setText(": "+studentlist.getNotes());
+				}
 		
 			//System.err.println("adpter name="+studentlist.getName());
 			img_edit.setOnClickListener(new View.OnClickListener() {

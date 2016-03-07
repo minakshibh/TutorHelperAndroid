@@ -157,7 +157,7 @@ public class LessonRequestActivity extends Activity implements
 						false);
 			}
 
-			lesson = arraylist_lesson.get(position);
+			
 
 			TextView approve = (TextView) convertView.findViewById(R.id.imageView_connect);
 			TextView reject = (TextView) convertView.findViewById(R.id.imageView_reject);
@@ -177,6 +177,7 @@ public class LessonRequestActivity extends Activity implements
 			// TextView stime = (TextView)convertView.findViewById(R.id.stime);
 			TextView etime = (TextView) convertView.findViewById(R.id.etime);
 
+			lesson = arraylist_lesson.get(position);
 			//
 			name.setText(lesson.getTutername()+ " has send you lesson request for "+ lesson.getStudentname());
 			description.setText(": " + lesson.getLessonDescription());
@@ -328,7 +329,7 @@ public class LessonRequestActivity extends Activity implements
 		}
 		// accept-lesson-request
 		else if (methodName.equals("accept-lesson-request")) {
-			
+			System.err.println(output);
 			try {
 
 				JSONObject jsonChildNode = new JSONObject(output);

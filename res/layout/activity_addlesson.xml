@@ -88,11 +88,13 @@
                         android:id="@+id/desription"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_margin="5dp"
                        	android:hint="Enter description"
+                       	android1:gravity="top|left"
                         android:background="@drawable/edittext_bg"
                         android:maxLines="2"
                         android:textSize="15sp"
+                        android1:padding="10dp"
                         android:minLines="2" />
                 </LinearLayout>
 <LinearLayout

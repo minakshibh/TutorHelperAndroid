@@ -104,6 +104,7 @@
         <activity android:name="com.equiworx.parent.ConnectionRequests" android:screenOrientation="portrait"></activity>
         <activity android:name="com.equiworx.student.StudentRequestActivity" android:screenOrientation="portrait"></activity> 
         <activity android:name="com.equiworx.parent.ParentMerge_Activity" android:screenOrientation="portrait"></activity>
+         <activity android:name="com.equiworx.parent.InvoiceActivity" android:screenOrientation="portrait"></activity>
         
          <activity android:name="com.equiworx.notification.NotificationParentActivity"   android:theme="@android:style/Theme.Dialog" android:screenOrientation="portrait"></activity>
          

@@ -230,11 +230,13 @@ public class ServerUtilities extends Activity {
 
 			}
 
+			try{
 			mContext.registerReceiver(mHandleMessageReceiver, new IntentFilter(Notification_Util.DISPLAY_MESSAGE_ACTION));
 			regId = GCMRegistrar.getRegistrationId(mContext);
 		
 			GCMRegistrar.register(mContext, Notification_Util.SENDER_ID);// //
-																					// by
+			}catch(Exception e)
+			{}// by
 			new RegisterTask().execute(); // by server
 			
 		}
