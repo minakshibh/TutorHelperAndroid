@@ -8,11 +8,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -32,8 +30,6 @@ import android.widget.TextView;
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
 import com.equiworx.model.Cancellation;
-import com.equiworx.parent.ConnectionRequests;
-import com.equiworx.parent.ConnectionRequests.ConnectionAdapter;
 import com.equiworx.tutorhelper.R;
 import com.equiworx.util.TutorHelperParser;
 import com.equiworx.util.Util;
@@ -74,8 +70,6 @@ public class CancellationActivity extends Activity implements AsyncResponseForTu
 	}
 
 	private void SetUI() {
-		// TODO Auto-generated method stub
-
 		parser = new TutorHelperParser(CancellationActivity.this);
 		listView = (ListView) findViewById(R.id.listview);
 		title=(TextView)findViewById(R.id.title);
@@ -87,7 +81,7 @@ public class CancellationActivity extends Activity implements AsyncResponseForTu
 	}
 
 	private void fetchTutorRequestList() {
-		// TODO Auto-generated method stub
+	
 		if (Util.isNetworkAvailable(CancellationActivity.this)) {
 
 			ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
@@ -108,8 +102,7 @@ public class CancellationActivity extends Activity implements AsyncResponseForTu
 
 	public class TuturRequestAdpter extends BaseAdapter {
 		private Context context;
-		private TextView parentName, studentCount, lessonCount,
-				outstandingBalance, parentid;
+		private TextView parentName;
 		private TextView accept_request, reject_request;
 		private Cancellation cancel;
 		private String requestId; 
@@ -152,7 +145,6 @@ public class CancellationActivity extends Activity implements AsyncResponseForTu
 
 			cancel = arraylist.get(position);
 
-			parentid = (TextView) convertView.findViewById(R.id.id);
 			parentName = (TextView) convertView.findViewById(R.id.name);
 			accept_request = (TextView) convertView.findViewById(R.id.imageView_connect);
 			reject_request = (TextView) convertView.findViewById(R.id.imageView_reject);
@@ -244,11 +236,8 @@ public class CancellationActivity extends Activity implements AsyncResponseForTu
 		 			e.printStackTrace();
 		 		}
 		 		
-		 		//shtimeformatter = new SimpleDateFormat("HH:mm:ss");
 		 	
-		     	//btn_editst.setText(str_starttime);
-		 	
-		 		etime.setText(stime +" - "+endtime);
+		 	etime.setText(stime +" - "+endtime);
 		//	etime.setText(cancel.getLesson_start_time() +" - "+cancel.getLesson_end_time());
 			TextView reason=(TextView)convertView.findViewById(R.id.reason);
 			//time.setVisibility(View.GONE);

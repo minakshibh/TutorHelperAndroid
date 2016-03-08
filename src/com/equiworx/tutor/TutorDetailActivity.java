@@ -2,10 +2,7 @@ package com.equiworx.tutor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-
 import com.equiworx.lesson.AddLessonActivity;
-import com.equiworx.model.StudentIdFee;
 import com.equiworx.model.StudentList;
 import com.equiworx.parent.TutorCalenderView;
 import com.equiworx.tutorhelper.R;
@@ -22,7 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -31,21 +27,14 @@ import android.widget.TextView;
 
 public class TutorDetailActivity extends Activity {
 
-	private ImageView back;
+
 	private TextView name, email,  address, contact, studentid;
 	private TutorHelperDatabaseHandler dbHandler;
 	private StudentAdapter adapter;
 	private ListView listview;
 	private LinearLayout btn_addlist,button_calendar;
-	private StudentIdFee studentIdFee;
 	private RelativeLayout back_layout;
-	
-	//private Tutor tutor;
-//	private ArrayList<String> temp;
-//	private ArrayList<StudentIdFee> arraylist = new ArrayList<StudentIdFee>();
 	private ArrayList<StudentList> arraylist_student = new ArrayList<StudentList>();
-	private ArrayList<StudentList> checkarraylist_student = new ArrayList<StudentList>();
-
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -61,7 +50,6 @@ public class TutorDetailActivity extends Activity {
 		
 		dbHandler = new TutorHelperDatabaseHandler(TutorDetailActivity.this);
 		listview = (ListView) findViewById(R.id.listview);
-		back = (ImageView) findViewById(R.id.back);
 		btn_addlist = (LinearLayout) findViewById(R.id.button_addlesson);
 		button_calendar= (LinearLayout) findViewById(R.id.button_calendar);
 		name = (TextView) findViewById(R.id.name);
@@ -130,9 +118,6 @@ public class TutorDetailActivity extends Activity {
 		content1.setSpan(new UnderlineSpan(), 0, str1.length(), 0);
 		contact.setText(content1);
 
-		// fees.setText(""+getIntent().getStringExtra("fees"));
-		// notes.setText(getIntent().getStringExtra("notes"));
-		// parentame.setText(""+getIntent().getStringExtra("parentid"));
 		studentid.setText("Tutor Id :" + getIntent().getStringExtra("tutorid"));
 	}
 
@@ -218,26 +203,7 @@ public class TutorDetailActivity extends Activity {
 			tv_note.setText(": " + studentlist.getAddress());
 			tv_name.setText(studentlist.getName());
 			img_edit.setVisibility(View.GONE);
-			/*
-			 * img_edit.setOnClickListener(new View.OnClickListener() { public
-			 * void onClick(View v) { // studentlist =
-			 * arraylist_student.get(position); Intent i=new
-			 * Intent(MyStudentList.this,EditStudentActivity.class);
-			 * i.putExtra("trigger", "parent"); i.putExtra("name",
-			 * studentlist.getName()); i.putExtra("address",
-			 * studentlist.getAddress()); i.putExtra("email",
-			 * studentlist.getEmail()); i.putExtra("contactno",
-			 * studentlist.getContactInfo()); i.putExtra("fees",
-			 * studentlist.getFees()); i.putExtra("notes",
-			 * studentlist.getNotes()); i.putExtra("gender",
-			 * studentlist.getGender()); i.putExtra("parentid",
-			 * studentlist.getParentId()); i.putExtra("studentid",
-			 * studentlist.getStudentId());
-			 * 
-			 * startActivity(i);
-			 * 
-			 * } });
-			 */
+			
 			return convertView;
 		}
 	}

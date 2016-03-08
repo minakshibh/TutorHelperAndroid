@@ -17,13 +17,9 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-
-import com.equiworx.lesson.LessonRequestActivity;
-import com.equiworx.lesson.MyLessonActivity;
 import com.equiworx.notification.NotificationParentActivity;
 import com.equiworx.notification.NotificationTutorActivity;
 import com.equiworx.parent.ParentDashBoard;
-import com.equiworx.tutor.CancellationActivity;
 import com.equiworx.tutor.TutorDashboard;
 import com.google.android.gcm.GCMBaseIntentService;
 import com.google.android.gcm.GCMRegistrar;

@@ -47,7 +47,6 @@ public class ServerUtilities extends Activity {
 	       private static String udid;
 	       private String regId;
 	       static String checkpolicy;
-	       private String str_tutorid="";
 	       private String str_userid="";
 	       private String str_role="";
 	     public static SharedPreferences tutorPrefs; 

@@ -80,20 +80,7 @@ public class ForgotPasswordActivity extends Activity implements AsyncResponseFor
 						mLogin.delegate = (AsyncResponseForTutorHelper) ForgotPasswordActivity.this;
 						mLogin.execute();
 						
-						/*ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-						nameValuePairs.add(new BasicNameValuePair("trigger", "android"));
-						nameValuePairs.add(new BasicNameValuePair("role", "tutor"));
-						nameValuePairs.add(new BasicNameValuePair("reg_id", "APA91bFFXY1QZNjtzPSiO3hK2U55LZVSNidvwR1SWHGNEY_Nd6kNs4FYpq6SVIG_bC_z7AhsXZFJSXTBGGniE-D78_ZkdviBnCH5eZclOreYJ64Mp3rOSrNLoOfhgRpEHPRfyIB4IIrlOkWhhoser2CATZsIa7ogJw"));
-						nameValuePairs.add(new BasicNameValuePair("user_id", "tnav37"));
-						nameValuePairs.add(new BasicNameValuePair("ud_id", "352985055963959"));*/
-						
-						//There is no time out alert message when loader stuck in sending the request to server 
-						//while operating the Forget password.
-						/*AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(ForgotPasswordActivity.this, "insert-device", nameValuePairs, true, "Please wait...");
-						mLogin.delegate = (AsyncResponseForTutorHelper) ForgotPasswordActivity.this;
-						mLogin.execute();*/
-						
-						
+										
 					}else {
 						Util.alertMessage(ForgotPasswordActivity.this,
 								"Please check your internet connection");
@@ -108,15 +95,14 @@ public class ForgotPasswordActivity extends Activity implements AsyncResponseFor
 	public void processFinish(String output, String methodName) {
 //		Util.alertMessage(ForgotPasswordActivity.this, output);
 		//TutorHelperParser parser = new TutorHelperParser(ForgotPasswordActivity.this);
-		String message=null,result = null;//= parser.parseResponse(output);
+		String result = null;//= parser.parseResponse(output);
 		
 		try {
 
 			JSONObject jsonChildNode = new JSONObject(output);	
 			
 			result = jsonChildNode.getString("result").toString();
-			message = jsonChildNode.getString("message").toString();
-						
+								
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -137,10 +123,6 @@ public class ForgotPasswordActivity extends Activity implements AsyncResponseFor
 		else
 		{
 			Util.alertMessage(ForgotPasswordActivity.this, "Invalid email address");
-		}
-		
-		
-		/*if(tutor != null)
-			Util.alertMessage(ForgotPasswordActivity.this, "Welcome "+tutor.getName());*/
+			}
 	}
 }

@@ -14,7 +14,6 @@ import com.equiworx.parent.ConnectionRequests;
 import com.equiworx.parent.ParentDashBoard;
 import com.equiworx.student.MyStudentActivity;
 import com.equiworx.student.StudentRequestActivity;
-import com.equiworx.tutor.TutorDashboard;
 import com.equiworx.tutorhelper.R;
 
 

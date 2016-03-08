@@ -1,16 +1,9 @@
 package com.equiworx.lesson;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -22,7 +15,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -39,12 +31,8 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
-import com.equiworx.model.FeesDetail;
-import com.equiworx.model.Parent;
 import com.equiworx.model.Payment;
 import com.equiworx.tutor.AddCreditsActivity;
-import com.equiworx.tutor.HistoryDetails;
-import com.equiworx.tutor.HistoryDetails.HistoryDetailByParentAdapter;
 import com.equiworx.tutorhelper.R;
 import com.equiworx.util.TutorHelperParser;
 import com.equiworx.util.Util;
@@ -61,12 +49,9 @@ public class Payment_Activity  extends Activity implements AsyncResponseForTutor
 	public static ArrayList<Payment> arraylist_credit=new ArrayList<Payment>();
 	private PaymentAdapter adapter;
 	private CreditAdapter credit_adapter;
-	//private RelativeLayout payment_layout,credit_layouts;
 	private String  check="";
 	private Payment payment;
 	private RelativeLayout menu_button,back_layout;
-	private PopupMenu popup;
-	private AlertDialog levelDialog;
 	private EditText autocomp_txtview;
 	private LinearLayout layout_credit;
 	@Override
@@ -132,100 +117,7 @@ public class Payment_Activity  extends Activity implements AsyncResponseForTutor
 			//autocomp_txtview.setVisibility(View.GONE);
 			searchCredit();
 			}
-//		menu_button.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				 popup = new PopupMenu(Payment_Activity.this,
-//						menu_button);
-//				// Inflating the Popup using xml file
-//				popup.getMenuInflater().inflate(R.menu.chat_list_item_popup,
-//						popup.getMenu());
-//
-//				// registering popup with OnMenuItemClickListener
-//				popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//					public boolean onMenuItemClick(MenuItem item) {
-//
-//						if (item.getTitle().equals("Filters")) {
-//
-//							final CharSequence[] items = { "Tutor Id ","Tutor Name" };
-//
-//							// Creating and Building the Dialog
-//							AlertDialog.Builder builder = new AlertDialog.Builder(
-//									Payment_Activity.this);
-//							builder.setTitle("Select Filter order");
-//							builder.setSingleChoiceItems(items, -1,
-//									new DialogInterface.OnClickListener() {
-//										public void onClick(
-//												DialogInterface dialog, int item) {
-//
-//											switch (item) {
-//											case 0:
-//												SortedSet<Payment> personss3 = new TreeSet<Payment>(
-//														new Comparator<Payment>() {
-//															@Override
-//															public int compare(Payment arg0,
-//																	Payment arg1) {
-//																return arg0.getTutor_id().compareTo(arg1.getTutor_id());
-//															}
-//														});
-//
-//												Iterator<Payment> iterator3 = arraylist_payment.iterator();
-//												while (iterator3.hasNext()) {
-//													personss3.add(iterator3.next());
-//												}
-//												
-//												arraylist_payment.clear();
-//												arraylist_payment.addAll(personss3);
-//												listView.setAdapter(null);
-//												adapter = new PaymentAdapter(Payment_Activity.this,arraylist_payment);;
-//												listView.invalidateViews();
-//												listView.setAdapter(adapter);
-//												break;
-//											case 1:
-//												
-//												SortedSet<Payment> personss31 = new TreeSet<Payment>(
-//														new Comparator<Payment>() {
-//															@Override
-//															public int compare(Payment arg0,
-//																	Payment arg1) {
-//																return arg0.getTutor_name().compareTo(arg1.getTutor_name());
-//															}
-//														});
-//
-//												Iterator<Payment> iterator31 = arraylist_payment.iterator();
-//												while (iterator31.hasNext()) {
-//													personss31.add(iterator31.next());
-//												}
-//												
-//												arraylist_payment.clear();
-//												arraylist_payment.addAll(personss31);
-//												listView.setAdapter(null);
-//												adapter = new PaymentAdapter(Payment_Activity.this,arraylist_payment);
-//												listView.invalidateViews();
-//												listView.setAdapter(adapter);
-//												// Your code when 4th option
-//												// seletced
-//												break;
-//											//
-//											}
-//											levelDialog.dismiss();
-//										}
-//									});
-//							levelDialog = builder.create();
-//							levelDialog.show();
-//						} 
-//						return true;
-//					}
-//
-//				});
-//
-//				popup.show();
-//
-//			}
-//		});
-//		
+		
 		back_layout.setOnClickListener(new OnClickListener() {
 			
 			@Override

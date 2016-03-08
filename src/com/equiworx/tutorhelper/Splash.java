@@ -65,31 +65,5 @@ public class Splash extends Activity {
     	Intent mIntent=new Intent(Splash.this,HomeAcitivity.class);
 		Splash.this.finish();
 		startActivity(mIntent);
-    }
-	/*private void initializeLayout() {
-		// TODO Auto-generated method stub
-		next = (Button)findViewById(R.id.next);
-		skip = (Button)findViewById(R.id.skip);
+    	}
 	}
-
-	private void setClickListeners() {
-		// TODO Auto-generated method stub
-		next.setOnClickListener(listener);
-		skip.setOnClickListener(listener);
-	}
-
-	private View.OnClickListener listener = new View.OnClickListener() {
-		
-		@Override
-		public void onClick(View v) {
-			if(v == next){
-				
-			}else if(v == skip){
-				Intent intent = new Intent(Splash.this, HomeAcitivity.class);
-				startActivity(intent);
-				finish();
-			}
-		}
-	};
-   */
-}

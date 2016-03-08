@@ -15,13 +15,12 @@ import com.equiworx.tutorhelper.R;
 public class PaymentdetailsActivity extends Activity {
 	
 	private SharedPreferences tutorPrefs;
-	private ImageView back;
-	private TextView    title;
+	private TextView  title;
 	private TextView tv_pid,tv_pname,tv_tid,tv_tname,tv_fees,tv_remarks,tv_paymentmode,tv_lastupdate;
-	String check="";
+	private String check="";
 	private LinearLayout lay_pname,lay_tname;
-	TextView lay_pid,lay_tid;
-	RelativeLayout back_layout;
+	private TextView lay_pid,lay_tid;
+	private RelativeLayout back_layout;
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -47,8 +46,7 @@ public class PaymentdetailsActivity extends Activity {
 	private void initailiselayout() {
 		// TODO Auto-generated method stub
 		tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
-		back=(ImageView)findViewById(R.id.back);
-		title=(TextView)findViewById(R.id.title);
+	    title=(TextView)findViewById(R.id.title);
 		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
 		//tv_id=(TextView)findViewById(R.id.textView8);
 		tv_pid=(TextView)findViewById(R.id.textView3);
@@ -62,8 +60,7 @@ public class PaymentdetailsActivity extends Activity {
 		tv_lastupdate=(TextView)findViewById(R.id.textView9);
 		lay_pname=(LinearLayout)findViewById(R.id.lay_pname);
 		lay_tname=(LinearLayout)findViewById(R.id.lay_tname);
-		//lay_pid=(TextView)findViewById(R.id.lay_pid);
-		//lay_tid=(TextView)findViewById(R.id.lay_tid);
+		
 		
 		check=getIntent().getStringExtra("check");
 			if(check.equalsIgnoreCase("payment")){
@@ -87,8 +84,7 @@ public class PaymentdetailsActivity extends Activity {
 	}
 
 	private void fetchpayment() {
-		//Editor ed=tutorPrefs.edit();
-		//tv_id.setText(getIntent().getStringExtra("ID"));
+		
 		tv_pid.setText(getIntent().getStringExtra("p_id"));
 		tv_pname.setText(getIntent().getStringExtra("p_name"));
 		tv_tname.setText(getIntent().getStringExtra("t_name"));

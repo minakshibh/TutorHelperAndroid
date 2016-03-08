@@ -15,8 +15,7 @@ public class LessonDetailsActivity extends Activity {
 	private TextView tv_title,tv_name,tv_description,tv_stime,tv_duration,
 	tv_sdate,tv_edate,tv_recuring,note,lbl_student;
 	private TextView 	sun ,mon ,tue ,wed ,thur,fri ,sat ;
-	private ImageView back;
-    private RelativeLayout back_layout;
+	private RelativeLayout back_layout;
 	private LinearLayout student_row,main_layout,lay_notes;
 	private StudentList studentlist;
 	
@@ -48,7 +47,6 @@ public class LessonDetailsActivity extends Activity {
 		
 		tv_title=(TextView)findViewById(R.id.title);
 	
-		back=(ImageView)findViewById(R.id.back);
 		student_row=(LinearLayout)findViewById(R.id.student_row);
 		main_layout=(LinearLayout)findViewById(R.id.main_layout);
 		lay_notes=(LinearLayout)findViewById(R.id.lay_notes);

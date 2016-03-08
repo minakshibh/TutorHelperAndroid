@@ -2,8 +2,6 @@ package com.roomorama.caldroid;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 

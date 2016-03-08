@@ -142,33 +142,10 @@ public class PdfGenerateActivity extends Activity
 			addEmptyLine(paragraph6, 2);
 			document.add(paragraph6);
 			
-			
-	    	
-	    	/*Paragraph preface_Right = new Paragraph();
-	      	preface_Right.add(new Paragraph("Generate Date : "+getCurrentDateTime(), subFont));
-	    	preface_Right.add(new Paragraph("Tutor Id : "+tutorid, subFont));
-	    	preface_Right.add(new Paragraph("Tutor Name : "+tutorname, subFont));
-	    	preface_Right.setAlignment(Element.ALIGN_RIGHT);
-	    	addEmptyLine(preface_Right, 2);
-
-	    	document.add(preface_Right);*/
-	    	
-
 	    	Paragraph table = new Paragraph("", subFont);
 	      
-	      //   Anchor anchor = new Anchor("Table", catFont);
-	       // anchor.setName("ESTIMATING APP");
-	       // Chapter catPart = new Chapter(new Paragraph(anchor), 1);
-	        //Section subCatPart = catPart.addSection(subPara);
-	        createTable(table);
-	       /* preface.add(new Paragraph(
-	                "This document is a preliminary version and not subject to your license agreement or anycvcxvcxvcxvcxvcxvvcxvvcxcxv" +
-	                "vcx" +
-	        
-	                "        vbclbclkbfgkkfgfgkfgk other agreement with vogella.de ;-).",
-	                redFont));*/
-
-	      
+	       createTable(table);
+	   
 	       
 	        document.add(table);
 	        // Start a new page
@@ -176,50 +153,7 @@ public class PdfGenerateActivity extends Activity
 	        
 	    }
 
-	   /* private static void addContent(Document document) throws DocumentException {
-	        Anchor anchor = new Anchor("ESTIMATING APP", catFont);
-	        anchor.setName("ESTIMATING APP");
-
-	        // Second parameter is the number of the chapter
-	        Chapter catPart = new Chapter(new Paragraph(anchor), 1);
-
-	        Paragraph subPara = new Paragraph("Subcategory 1", subFont);
-	        Section subCatPart = catPart.addSection(subPara);
-	        subCatPart.add(new Paragraph("Hello"));
-
-	        subPara = new Paragraph("Subcategory 2", subFont);
-	        subCatPart = catPart.addSection(subPara);
-	        subCatPart.add(new Paragraph("Paragraph 1"));
-	        subCatPart.add(new Paragraph("Paragraph 2"));
-	        subCatPart.add(new Paragraph("Paragraph 3"));
-
-	        // Add a list
-	    //    createList(subCatPart);
-	        Paragraph paragraph = new Paragraph();
-	        addEmptyLine(paragraph, 2);
-	        subCatPart.add(paragraph);
-
-	        // Add a table
-	        createTable(subCatPart);
-
-	        // Now add all this to the document
-	        document.add(catPart);
-
-	        // Next section
-	        anchor = new Anchor("Second Chapter", catFont);
-	        anchor.setName("Second Chapter");
-
-	        // Second parameter is the number of the chapter
-	        catPart = new Chapter(new Paragraph(anchor), 1);
-
-	        subPara = new Paragraph("Subcategory", subFont);
-	        subCatPart = catPart.addSection(subPara);
-	        subCatPart.add(new Paragraph("This is a very important message"));
-
-	        // Now add all this to the document
-	        document.add(catPart);
-
-	    }*/
+	  
 
 	    private static void createTable(Paragraph subCatPart)
 	            throws BadElementException {

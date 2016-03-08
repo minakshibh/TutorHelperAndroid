@@ -4,27 +4,19 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
-import com.equiworx.lesson.Payment_Activity;
-import com.equiworx.lesson.Payment_Activity.PaymentAdapter;
 import com.equiworx.model.NewFeed;
-import com.equiworx.model.Payment;
 import com.equiworx.tutorhelper.R;
 import com.equiworx.util.TutorHelperParser;
 import com.equiworx.util.Util;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,7 +34,7 @@ public class NewsFeedActivity extends Activity implements
 	private ListView newsfeedList;
 	private RelativeLayout back_layout;
 	private SharedPreferences tutorPrefs;
-	String str_parentid;
+	private String str_parentid;
 	private TutorHelperParser parser;
 
 	@Override
@@ -179,9 +171,6 @@ public class NewsFeedActivity extends Activity implements
 			
 		   message_date.setText(part1);
 		}
-			
-			
-
 			return convertView;
 		}
 

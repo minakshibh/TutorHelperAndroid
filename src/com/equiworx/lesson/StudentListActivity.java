@@ -38,17 +38,14 @@ import com.equiworx.util.Util;
 
 public class StudentListActivity extends Activity implements AsyncResponseForTutorHelper{
 	private  ArrayList<StudentList> arraylist_student=new ArrayList<StudentList>();
-	//public static ArrayList<Integer> arraylist_checkbox=new ArrayList<Integer>();
 	private MyCustomAdapter adapter;
 	private ListView listView;
 	private  Button  btnselect;
 	private String str_parentid="",str_tuterid="";
 	private SharedPreferences tutorPrefs;
 	private TextView tv_title,tv_cancel;
-	 //HashMap<String , String>
 	private TutorHelperParser parser;
-	RelativeLayout back_layout;
-	private int count=0;
+	
 	public void onCreate(Bundle savedInstanceState){
 	super.onCreate(savedInstanceState);
 	requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -70,8 +67,6 @@ public class StudentListActivity extends Activity implements AsyncResponseForTut
 		tv_title=(TextView)findViewById(R.id.title);
 		tv_title.setText("Add Students");
 		listView=(ListView)findViewById(R.id.listView);
-		//AddLesson.str_students_list="";
-		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
 		btnselect=(Button)findViewById(R.id.button_done);
 		tv_cancel=(TextView)findViewById(R.id.textView_cancel);
 
@@ -85,25 +80,14 @@ public class StudentListActivity extends Activity implements AsyncResponseForTut
 		
 		for (StudentList gdf : adapter.getBox()) {
 			if (gdf.box) {
-
-				//if (studemtID.equalsIgnoreCase("")) {
-
 					studemtID = gdf.getStudentId();
 					Log.d("&&&&&&&", "recieveridsssfirst==" + studemtID);
 					AddLessonActivity.arraylist_addstu.add(studemtID);
-				/*}
-
-				else {
-
-					studemtID = studemtID + "," + gdf.getStudentId();
-					Log.d("&&&&&&&", "recieveridssssecong" + "d=="+ studemtID);
-				}*/
 					Log.d("&&&&&&&", "recieveridssssecong"+	AddLessonActivity.arraylist_addstu.toString());
 			}
 		}	
 		
-		//finish();
-		 
+			 
 		if(AddLessonActivity.arraylist_addstu.size()==0)
 		{	
 			Util.alertMessage(StudentListActivity.this, "Please select Students");
@@ -125,8 +109,7 @@ public class StudentListActivity extends Activity implements AsyncResponseForTut
 			}
 		});
 	
-	
-	
+		
 	}
 	
 	private void fetchlStudentList() {

@@ -46,8 +46,6 @@ public class LessonRequestActivity extends Activity implements
 	private LessonAdapter adapter;
 	private ListView listView;
 	private TextView tv_title;
-	private ImageView back;
-
 	private String str_trigger = "", str_parentid = "", str_tutorid = "";
 	private TutorHelperParser parser;
 	private SharedPreferences tutorPrefs;
@@ -80,7 +78,6 @@ public class LessonRequestActivity extends Activity implements
 		tv_title = (TextView) findViewById(R.id.title);
 		tv_title.setText("Lesson Requests");
 		listView = (ListView) findViewById(R.id.listView_lesson);
-		back = (ImageView) findViewById(R.id.back);
 		back_layout = (RelativeLayout) findViewById(R.id.back_layout);
 		parser = new TutorHelperParser(LessonRequestActivity.this);
 

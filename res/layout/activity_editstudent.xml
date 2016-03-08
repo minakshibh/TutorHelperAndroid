@@ -230,6 +230,9 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:background="@drawable/edittext_bg"
+            android:padding="10dp"
+            android:gravity="top|left"
+            android:hint="Enter notes"
             android:maxLines="2"
             android:minLines="2" />
 

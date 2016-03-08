@@ -8,6 +8,8 @@ import java.util.Calendar;
 import java.util.Date;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -52,7 +54,7 @@ public class MyLessonActivity extends Activity implements AsyncResponseForTutorH
 	private ListView listView;
 	private TutorHelperParser parser;
 	private TextView tv_title;
-	private ImageView back;
+
 	
 	
 	private String str_trigger="";
@@ -93,7 +95,6 @@ public class MyLessonActivity extends Activity implements AsyncResponseForTutorH
 
 	private void intializelayout() {
 		mylesson=new MyLesson();
-		back=(ImageView)findViewById(R.id.back);
 		tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
 		tv_title=(TextView)findViewById(R.id.title);
 		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
@@ -376,8 +377,6 @@ public class MyLessonActivity extends Activity implements AsyncResponseForTutorH
 		TextView studentnames=(TextView)convertView.findViewById(R.id.studentnames);
 		studentnames.setText(": "+studentname);
 		Button cancel=(Button)convertView.findViewById(R.id.cancel);
-		//myLesson = arraylist_mylesson.get(position);
-		//System.err.println("getLessonstart=="+myLesson.getStartTime());
 		System.err.println("date=="+myLessonobj.getLessonDate());
 		if(tutorPrefs.getString("mode", "").equalsIgnoreCase("parent"))
 		{
@@ -519,9 +518,27 @@ public void processFinish(String output, String methodName) {
 			}
 	else if(methodName.equals("request-lesson-cancellation"))
 	{
-		Util.alertMessage(MyLessonActivity.this, "cancellation request sent successfully");
-		
+		try {
+
+			JSONObject jsonChildNode = new JSONObject(output);
+
+		   String	result = jsonChildNode.getString("result").toString();
+			// greatest_last_updated =
+			// jsonChildNode.getString("greatest_last_updated").toString();
+			String message = jsonChildNode.getString("message").toString();
+
+			if (result.equals("0")) {
+				Util.alertMessage(MyLessonActivity.this, "cancellation request sent successfully");
 			}
+			else{
+				Util.alertMessage(MyLessonActivity.this, message);	
+				}
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			}
+		}
+			
 	
 	}
 	
@@ -560,11 +577,8 @@ public void processFinish(String output, String methodName) {
 		     { 
 		    	datecheck=2;
 		    	 System.out.println("date==="+datecheck);
-		    	/* if((myLessonobj.get!=null))  
-	    			{
-	    				dateCompare(myLessonobj.getLessonDate());  
-	    			}//date
-*/		     }
+		    
+		     }
 		     else
 		     {
 		    	//Util.alertMessage(AddLessonActivity.this, "Please select Greater date from current date");  

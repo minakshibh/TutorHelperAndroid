@@ -6,10 +6,8 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -28,28 +26,23 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupMenu;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
 import com.equiworx.lesson.Payment_Activity;
 import com.equiworx.model.FeeDetail;
 import com.equiworx.model.FeesDetail;
-import com.equiworx.model.Parent;
-import com.equiworx.tutor.ParentListActivity.ParentAdapter;
 import com.equiworx.tutorhelper.R;
 import com.equiworx.util.TutorHelperParser;
 import com.equiworx.util.Util;
 import com.equiworx.util.YearNode;
 
 public class HistoryDetails extends Activity implements	AsyncResponseForTutorHelper {
-	private ImageView back, rightmenu;
+	
 	private TextView tv_feescollect, tv_feedue, tv_outbal;
 	private ListView listview;
 	private LinearLayout lay_invoice, lay_addcredit, lay_payment,lay_statement;
@@ -61,10 +54,8 @@ public class HistoryDetails extends Activity implements	AsyncResponseForTutorHel
 	private TutorHelperParser parser;
 	private historyDetailByMonthAdapter historyDetailByMonthAdapter;
 	private HistoryDetailByParentAdapter historyDetailByParentAdapter;
-	private PopupMenu mPopupMenu;
-	private PopupWindow pwindo;
-	SharedPreferences pref;
-	RelativeLayout bymonth_layout, by_parents_layouts, menu_button,back_layout;
+	private SharedPreferences pref;
+	private RelativeLayout bymonth_layout, by_parents_layouts, menu_button,back_layout;
 	private AlertDialog levelDialog;
     private PopupMenu popup;
     
@@ -80,11 +71,9 @@ public class HistoryDetails extends Activity implements	AsyncResponseForTutorHel
 	private void intializelayout() {
 		parser = new TutorHelperParser(HistoryDetails.this);
 		tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
-		back = (ImageView) findViewById(R.id.back);
 		listview = (ListView) findViewById(R.id.listview);
 		tv_feescollect = (TextView) findViewById(R.id.fee_collected);
 		tv_feedue = (TextView) findViewById(R.id.fee_due);
-		rightmenu = (ImageView) findViewById(R.id.rightmenu);
 		tv_outbal = (TextView) findViewById(R.id.outstng_bal);
 		lay_invoice = (LinearLayout) findViewById(R.id.invoice);
 		lay_payment = (LinearLayout) findViewById(R.id.payment);
@@ -108,7 +97,7 @@ public class HistoryDetails extends Activity implements	AsyncResponseForTutorHel
 
 					FeesDetail ei = (FeesDetail) id;
 					String getLessonIds = ei.getLessonIds();
-					String getyear=ei.getYear();
+				//	String getyear=ei.getYear();
 					String getmonth=ei.getMonthName();
 					System.err.println("getyear"+getmonth);
 					
@@ -126,7 +115,7 @@ public class HistoryDetails extends Activity implements	AsyncResponseForTutorHel
 					FeesDetail ei1 = (FeesDetail) id1;
 					String getLessonIds = ei1.getLessonIds();
 				//	String getyear=ei1.getYear();
-					String getmonth=ei1.getMonthName();
+				//	String getmonth=ei1.getMonthName();
 					//System.err.println(getyear+getmonth);
 					
 					Editor ed=tutorPrefs.edit(); 
@@ -143,7 +132,7 @@ public class HistoryDetails extends Activity implements	AsyncResponseForTutorHel
 					FeesDetail ei = (FeesDetail) id;
 					String getLessonIds = ei.getLessonIds();
 					//String getyear=ei.getYear();
-					String getmonth=ei.getMonthName();
+					//String getmonth=ei.getMonthName();
 					//System.err.println(getyear+getmonth);
 					
 					Editor ed=tutorPrefs.edit(); 
@@ -572,10 +561,8 @@ public class HistoryDetails extends Activity implements	AsyncResponseForTutorHel
 	public class historyDetailByMonthAdapter extends BaseAdapter {
 		private Context context;
 		private TextView monthName, noLession, feeDue, outstandingBalance,
-				feeCollect, nolession_text, feeDue_text,outstnding_fess_text,
-				outstandingBalnce_text, feeCollect_text, yearname_text;
-		private ImageView call, email;
-		private FeeDetail historyNode;
+				feeCollect,outstnding_fess_text	, yearname_text;
+	
 		private ArrayList<FeeDetail> parentList = new ArrayList<FeeDetail>();
 		private LinearLayout yearname_layout;
 		private String byMonth;
@@ -658,10 +645,7 @@ public class HistoryDetails extends Activity implements	AsyncResponseForTutorHel
 	public class HistoryDetailByParentAdapter extends BaseAdapter {
 		private Context context;
 		private TextView monthName, noLession, feeDue, outstandingBalance,
-				feeCollect, nolession_text, feeDue_text,
-				outstandingBalnce_text, feeCollect_text, yearname_text,outstnding_fess_text;
-		private ImageView call, email;
-		private FeesDetail historyNode;
+				feeCollect,outstnding_fess_text;
 		private ArrayList<FeesDetail> parentList = new ArrayList<FeesDetail>();
 		private LinearLayout yearname_layout;
 		private String byMonth;

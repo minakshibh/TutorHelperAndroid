@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,7 +23,6 @@ import com.equiworx.model.Parent;
 import com.equiworx.model.StudentList;
 import com.equiworx.model.Tutor;
 import com.equiworx.parent.ParentDashBoard;
-import com.equiworx.student.MyStudentActivity;
 import com.equiworx.tutor.TutorDashboard;
 import com.equiworx.util.TutorHelperDatabaseHandler;
 import com.equiworx.util.TutorHelperParser;
@@ -160,13 +158,13 @@ public class LoginActivity extends Activity implements AsyncResponseForTutorHelp
 		if(methodName1.equals(methodName))
 		{
 		if(trigger.equals("tutor")){
-			String result="",message="";
+			String result="";
 			tutor = parser.parseTutorDetails(output);
 			try {
 			JSONObject jsonChildNode = new JSONObject(output);	
 			
 			result = jsonChildNode.getString("result").toString();
-			message = jsonChildNode.getString("message").toString();
+			
 			}
 			catch(Exception e)
 			{
@@ -200,13 +198,13 @@ public class LoginActivity extends Activity implements AsyncResponseForTutorHelp
 				finish();
 			}
 		}else if(methodName1.equals(methodName)){
-			String result="",message="";
+			String result="";
 			parent = parser.parseParentDetails(output);
 			try {
 				JSONObject jsonChildNode = new JSONObject(output);	
 				
 				result = jsonChildNode.getString("result").toString();
-				message = jsonChildNode.getString("message").toString();
+				
 				}
 				catch(Exception e)
 				{

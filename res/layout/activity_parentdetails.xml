@@ -169,6 +169,8 @@
                     android:background="@drawable/edittext_bg"
                     android:hint="Enter notes"
                     android:maxLines="2"
+                    android:padding="10dp"
+                    android:gravity="top|left"
                     android:minLines="2"
                     android:textColor="@color/black"
                     android:textSize="12sp" />

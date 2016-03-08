@@ -1,8 +1,6 @@
 package com.equiworx.student;
 
 import com.equiworx.tutorhelper.R;
-
-import android.R.color;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -66,7 +64,7 @@ protected void onCreate(Bundle savedInstanceState) {
 	}
 	private void fetchStudentDetails() {
 		
-		try{
+		
 		String str=getIntent().getStringExtra("email");
 		SpannableString content = new SpannableString(str);
 		content.setSpan(new UnderlineSpan(), 0, str.length(), 0);
@@ -78,31 +76,76 @@ protected void onCreate(Bundle savedInstanceState) {
 		SpannableString content1 = new SpannableString(str1);
 		content1.setSpan(new UnderlineSpan(), 0, str1.length(), 0);
 		contact.setText(content1);
-		if (getIntent().getStringExtra("isActiveInMonth").equalsIgnoreCase("0")) {
-			enable_layout.setVisibility(View.VISIBLE);
-			name.setTextColor(Color.parseColor("#000000"));
-			name.setText(""+getIntent().getStringExtra("name"));
-			studentid.setText("Student Id :"+getIntent().getStringExtra("studentid"));
-			studentid.setTextColor(Color.parseColor("#000000"));
-		}else{
-			name.setText(""+getIntent().getStringExtra("name"));
-			
-			name.setTextColor(Color.parseColor("#54c5d5"));
-			
-			enable_layout.setVisibility(View.GONE);
-			studentid.setText("Student Id :"+getIntent().getStringExtra("studentid"));
-			studentid.setTextColor(Color.parseColor("#54c5d5"));
+		name.setText(""+getIntent().getStringExtra("name"));
+		try{
+			if(getIntent().getStringExtra("fees")==null | getIntent().getStringExtra("fees").equalsIgnoreCase("null"))
+			{
+				fees.setText("");
+				}
+			else
+			{
+				fees.setText("$ "+getIntent().getStringExtra("fees"));
+			}
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			fees.setText("");
 		}
+		studentid.setText("Student Id :"+getIntent().getStringExtra("studentid"));
+		try{
+			if(getIntent().getStringExtra("parentid")==null | getIntent().getStringExtra("notes").equalsIgnoreCase("null")) 
+			{
+				parentame.setText("");
+				
+				}
+			else{
+				parentame.setText(""+getIntent().getStringExtra("parentid"));
+				}
+			}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			parentame.setText("");
+			}
+		
+	
+		try{
+		
+			if (getIntent().getStringExtra("isActiveInMonth").equalsIgnoreCase("0")) {
+				enable_layout.setVisibility(View.VISIBLE);
+				name.setTextColor(Color.parseColor("#000000"));
+				studentid.setTextColor(Color.parseColor("#000000"));
+			}
+			else{
+			
+				name.setTextColor(Color.parseColor("#54c5d5"));
+				enable_layout.setVisibility(View.GONE);
+				studentid.setTextColor(Color.parseColor("#54c5d5"));
+			}
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
-		}
+			}
 		//contact.setText(""+getIntent().getStringExtra("phone"));
-		fees.setText("$ "+getIntent().getStringExtra("fees"));
-		notes.setText(getIntent().getStringExtra("notes"));
-		parentame.setText(""+getIntent().getStringExtra("parentid"));
 		
+		try{
+		if (getIntent().getStringExtra("notes") == null | getIntent().getStringExtra("notes").equalsIgnoreCase("null")) {
+			
+			notes.setText("");
+			}
+		else
+		{
+			notes.setText(getIntent().getStringExtra("notes"));
+			
+			}
+		
+		
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			notes.setText("");
+		}
 		
 	}
 

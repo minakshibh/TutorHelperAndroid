@@ -155,9 +155,7 @@ public class ParentDashBoard extends FragmentActivity implements
 		tuterList.setText("My Tutors");
 		parentmerge = (TextView) findViewById(R.id.Parentmerge);
 		studentmerge = (TextView) findViewById(R.id.Studentmerge);
-		// tuterList.setVisibility(View.GONE);
-		// myProfile.setVisibility(View.GONE);
-
+	
 		txt_credit = (TextView) findViewById(R.id.txt_credit);
 		txt_credit.setVisibility(View.VISIBLE);
 

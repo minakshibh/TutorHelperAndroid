@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -23,7 +22,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
-import com.equiworx.lesson.LessonRequestActivity;
 import com.equiworx.model.StudentRequest;
 import com.equiworx.tutorhelper.R;
 import com.equiworx.util.TutorHelperParser;
@@ -37,9 +35,9 @@ public class StudentRequestActivity extends Activity implements AsyncResponseFor
 	private StudentAdapter adapter;
 	private ImageView back;
 	private String message;
-	SharedPreferences tutorPrefs;
+	private SharedPreferences tutorPrefs;
 	
-	private String parentId;
+
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
@@ -62,8 +60,7 @@ public class StudentRequestActivity extends Activity implements AsyncResponseFor
 		listview=(ListView)findViewById(R.id.list_request);
 		
 		tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
-		parentId = getIntent().getStringExtra("parentID");
-		
+				
 		if (Util.isNetworkAvailable(StudentRequestActivity.this)){
 			/*ParentId/TutorId
 			Trigger -- Parent/Tutor*///fetch-student-request.php

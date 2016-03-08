@@ -39,7 +39,7 @@ public class MyStudentActivity extends Activity implements AsyncResponseForTutor
 	private RelativeLayout back;
 	private StudentList studentlist;
 	private TextView title;
-	 private ArrayList<StudentList> arraylist_student=new ArrayList<StudentList>();
+	private ArrayList<StudentList> arraylist_student=new ArrayList<StudentList>();
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);	

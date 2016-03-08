@@ -12,13 +12,9 @@ import java.util.Formatter;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.TimeZone;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -35,15 +31,11 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.antonyt.infiniteviewpager.InfinitePagerAdapter;
 import com.antonyt.infiniteviewpager.InfiniteViewPager;
-import com.equiworx.student.AddStudent;
-import com.equiworx.tutor.ParentListActivity;
 import com.equiworx.tutorhelper.R;
 
 
@@ -133,7 +125,7 @@ public class CaldroidFragment extends DialogFragment{
 	 */
 	private RelativeLayout leftArrowButton;
 	
-	private RelativeLayout Rel_canlendarhomeback;
+	
 	private RelativeLayout rightArrowButton;
 	private TextView monthTitleTextView;
 	private GridView weekdayGridView;

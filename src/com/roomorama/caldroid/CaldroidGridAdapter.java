@@ -1,15 +1,10 @@
 package com.roomorama.caldroid;
 
 import hirondelle.date4j.DateTime;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.view.Gravity;
