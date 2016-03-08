@@ -63,9 +63,8 @@ public class HistoryDetails extends Activity implements	AsyncResponseForTutorHel
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_history_details);
-		intializelayout();
-		fetchHistoryDetails();
-		setOnClickListners();
+		
+		
 	}
 
 	private void intializelayout() {
@@ -147,7 +146,15 @@ public class HistoryDetails extends Activity implements	AsyncResponseForTutorHel
 			}
 		});
 	}
-
+@Override
+protected void onResume() {
+	// TODO Auto-generated method stub
+	super.onResume();
+	
+	intializelayout();
+	fetchHistoryDetails();
+	setOnClickListners();
+}
 	private void setOnClickListners() {
 		back_layout.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {

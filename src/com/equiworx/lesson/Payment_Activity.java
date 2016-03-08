@@ -25,7 +25,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -214,7 +213,7 @@ protected void onResume() {
 			}
 		});
 		
-		rightbutton.setOnClickListener(new OnClickListener() {
+		menu_button.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				if(check.equalsIgnoreCase("payment"))
 				{

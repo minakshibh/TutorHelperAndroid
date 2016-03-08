@@ -16,6 +16,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
@@ -39,6 +40,7 @@ public class LoginActivity extends Activity implements AsyncResponseForTutorHelp
 	private String trigger, methodName;
 	private Parent parent;
 	private ImageView imgview_back;
+	private RelativeLayout back_layout;
 	private TextView tv_title;
 	private TutorHelperDatabaseHandler dbHandler;
 	private ArrayList<StudentList>arraylist_student=new ArrayList<StudentList>();
@@ -82,7 +84,7 @@ public class LoginActivity extends Activity implements AsyncResponseForTutorHelp
 		password = (EditText)findViewById(R.id.password);
 		forgotpassword = (TextView)findViewById(R.id.forgotPassword);
 		regText = (TextView)findViewById(R.id.regText);
-		
+		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
 		tutor = new Tutor();
 		trigger = getIntent().getStringExtra("trigger");
 		if(trigger.equals("tutor")){
@@ -102,6 +104,12 @@ public class LoginActivity extends Activity implements AsyncResponseForTutorHelp
 		signUp.setOnClickListener(listener);
 		forgotpassword.setOnClickListener(listener);
 		imgview_back.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				finish();
+					
+				}
+			});
+		back_layout.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				finish();
 					

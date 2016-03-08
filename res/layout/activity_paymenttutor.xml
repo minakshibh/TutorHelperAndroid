@@ -18,90 +18,94 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical" >
 
-        <TextView 
+        <TextView
             android:id="@+id/parents_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:text="Parents :"
             android:textColor="@color/appBlue"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:layout_marginTop="30dp"/>
+            android:textStyle="bold" />
+
         <Spinner
             android:id="@+id/osversions"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/caldroid_white"
-            android:textColor="#000000"
-            android:paddingLeft="8dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-             />
-        
-         <TextView 
+            android:layout_marginTop="20dp"
+            android:background="@color/caldroid_white"
+            android:paddingLeft="8dp"
+            android:textColor="#000000" />
+
+        <TextView
             android:id="@+id/fess_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="Fees :"
             android:textColor="@color/appBlue"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:layout_marginTop="20dp"/>
+            android:textStyle="bold" />
 
-      
-         
-         <EditText 
-             android:id="@+id/fees_edit"
-             android:layout_width="match_parent"
-             android:layout_height="45dp"
-             android:text=""
-             android:textColor="#000000"
-             android:layout_marginTop="10dp"
-             android:textSize="16sp"
-             android:layout_marginLeft="10dp"
+        <EditText
+            android:id="@+id/fees_edit"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-             android:background="@color/caldroid_white"
-              android:inputType="number"
-             android:paddingLeft="15dp"
-             android:hint="Payment"/>
-         
-          <TextView 
+            android:layout_marginTop="10dp"
+            android:background="@color/caldroid_white"
+            android:hint="Payment"
+            android:inputType="number"
+            android:paddingLeft="15dp"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
             android:id="@+id/remarks_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Remarks :"
             android:textColor="@color/appBlue"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:layout_marginTop="10dp"/>
-         
-         <EditText 
-             android:id="@+id/remarks_edit"
-             android:layout_width="match_parent"
-             android:layout_height="45dp"
-             android:text=""
-             android:textColor="#000000"
-             android:layout_marginTop="10dp"
-             android:textSize="16sp"
-             android:layout_marginLeft="10dp"
-             android:layout_marginRight="10dp"
-             android:background="@color/caldroid_white"
-             android:paddingLeft="15dp"
-             android:hint="Remarks"/>
-         
-         <Button 
-             android:id="@+id/pay_credits"
-             android:layout_height="55dp"
-             android:layout_width="match_parent"
-             android:text=""
-             android:textStyle="bold"
-             android:textColor="#ffff"
-             android:textSize="18sp"
-             android:layout_marginLeft="10dp"
-             android:layout_marginRight="10dp"
-             android:background="@color/appBlue"
-             android:layout_marginTop="20dp"/>
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/remarks_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="2"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/caldroid_white"
+            android:hint="Remarks"
+            android:gravity="top|left"
+            android:paddingLeft="15dp"
+            android:singleLine="false"
+            android:inputType="text"
+            android:nextFocusForward="@+id/pay_credits"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/pay_credits"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/appBlue"
+            android:text=""
+            android:textColor="#ffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

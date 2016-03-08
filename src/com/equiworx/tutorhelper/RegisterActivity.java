@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
@@ -39,6 +40,7 @@ public class RegisterActivity extends Activity implements AsyncResponseForTutorH
 	private Tutor tutor;
 	private ImageView imgview_back;
 	private TextView tv_title;
+	private RelativeLayout back_layout;
 	private String zipcode="";
 	
 	@Override
@@ -58,6 +60,7 @@ public class RegisterActivity extends Activity implements AsyncResponseForTutorH
 		tv_title.setText("Tutor Helper");
 		imgview_back=(ImageView)findViewById(R.id.back);
 		
+		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
 		name = (EditText)findViewById(R.id.name);
 		email = (EditText)findViewById(R.id.email);
 		//userName = (EditText)findViewById(R.id.username);
@@ -101,6 +104,12 @@ public class RegisterActivity extends Activity implements AsyncResponseForTutorH
 				
 			}
 		});
+		back_layout.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				finish();
+					
+				}
+			});
 	}
 	
 	private String emptyFieldCheck(){

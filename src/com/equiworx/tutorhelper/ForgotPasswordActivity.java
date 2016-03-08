@@ -13,6 +13,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
@@ -25,6 +26,7 @@ public class ForgotPasswordActivity extends Activity implements AsyncResponseFor
 	private String trigger;
 	private ImageView imgview_back;
 	private TextView tv_title;
+	private RelativeLayout back_layout;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -42,7 +44,7 @@ public class ForgotPasswordActivity extends Activity implements AsyncResponseFor
 		imgview_back=(ImageView)findViewById(R.id.back);
 		recoverPassowrd = (Button)findViewById(R.id.recover);
 		userId = (EditText)findViewById(R.id.userId);
-		
+		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
 		trigger = getIntent().getStringExtra("trigger");
 	}
 
@@ -50,6 +52,12 @@ public class ForgotPasswordActivity extends Activity implements AsyncResponseFor
 		// TODO Auto-generated method stub
 		recoverPassowrd.setOnClickListener(listener);
 		imgview_back.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				finish();
+					
+				}
+			});
+		back_layout.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				finish();
 					

@@ -110,14 +110,15 @@ public class StudentRequestActivity extends Activity implements AsyncResponseFor
 			    convertView = inflater.inflate(R.layout.connection_row, parent, false);
 			}
 
-			studentRequest = arraylist_student.get(position);
+		
 			
 			tv_name = (TextView)convertView.findViewById(R.id.name);
 			tv_id = (TextView)convertView.findViewById(R.id.id);
 			iv_connect = (Button)convertView.findViewById(R.id.imageView_connect);
 			iv_reject = (Button)convertView.findViewById(R.id.imageView_reject);
-			iv_connect.setText("Approve");
+			iv_connect.setText("APPROVE");
 			
+			studentRequest = arraylist_student.get(position);
 			tv_id.setText("Student ID : "+studentRequest.getStudentId());
 			tv_name.setText(studentRequest.getTutorName()+" has added a student named "+studentRequest.getName()+" under your account. Below are the details: \n\nFees:    $"+studentRequest.getFees()
 					+"\nEmail:    "+studentRequest.getEmail()+"\nContact Info:    "+studentRequest.getContactInfo());
@@ -128,7 +129,7 @@ public class StudentRequestActivity extends Activity implements AsyncResponseFor
 					Trigger -- Parent/Tutor*/
 					message="Request accepted successfully";
 					ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-					nameValuePairs.add(new BasicNameValuePair("request_id", studentRequest.getRequestID()));
+					nameValuePairs.add(new BasicNameValuePair("request_id", arraylist_student.get(position).getStudentId()));
 					nameValuePairs.add(new BasicNameValuePair("status", "Approved"));
 					Log.e("approve", nameValuePairs.toString());
 					AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(StudentRequestActivity.this, "approve-student", nameValuePairs, true, "Please wait...");
@@ -146,7 +147,7 @@ public class StudentRequestActivity extends Activity implements AsyncResponseFor
 					if (Util.isNetworkAvailable(StudentRequestActivity.this)){
 						message="Request reject successfully";
 						ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-					nameValuePairs.add(new BasicNameValuePair("request_id", studentRequest.getRequestID()));
+					nameValuePairs.add(new BasicNameValuePair("request_id", arraylist_student.get(position).getStudentId()));
 					nameValuePairs.add(new BasicNameValuePair("status", "Rejected"));
 					Log.e("approve", nameValuePairs.toString());
 					AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(StudentRequestActivity.this, "approve-student", nameValuePairs, true, "Please wait...");
