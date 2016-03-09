@@ -110,21 +110,7 @@
                         android:textColor="@color/black"
                         android:textSize="18sp" />
                 </LinearLayout>
-                <!--
-             <TextView 
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="#dfdfdf"/>
-                -->
-                <!--
-             <ImageView 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"/>
-                -->
-
+               
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" >
@@ -248,12 +234,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:background="#dfdfdf" />
-                <!--
-             <ImageView 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"/>
-                -->
+             
 
                 <RelativeLayout
                     android:layout_width="fill_parent"

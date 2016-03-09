@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
+import android.text.method.HideReturnsTransformationMethod;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -142,6 +143,13 @@ public class ParentDetailActivity extends Activity implements
 
 			}
 		});
+		txtNotes.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				txtNotes.setCursorVisible(true);
+			}
+		});
 		button_update.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				if (txtNotes.getText().toString().equals("")) {
@@ -150,6 +158,9 @@ public class ParentDetailActivity extends Activity implements
 				} else {
 					if (Util.isNetworkAvailable(ParentDetailActivity.this)) {
 
+						txtNotes.setCursorVisible(false);
+						Util.hideKeyboard(ParentDetailActivity.this);
+						
 						ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 						nameValuePairs.add(new BasicNameValuePair("parent_id",
 								tutorPrefs.getString("p_parentId", "")));
@@ -235,7 +246,10 @@ public class ParentDetailActivity extends Activity implements
 		tutorId = tutorPrefs.getString("tutorID", "0");
 		txt_parentid.setText("Parent Id : " + parentId);
 
-		if (!tutorPrefs.getString("p_notes", "null").equalsIgnoreCase("null")) {
+		if (tutorPrefs.getString("p_notes", "null").equalsIgnoreCase("null")) {
+			txtNotes.setText("");
+		}
+		else{
 			txtNotes.setText(tutorPrefs.getString("p_notes", ""));
 		}
 	}

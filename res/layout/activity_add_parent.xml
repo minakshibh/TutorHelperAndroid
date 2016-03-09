@@ -41,7 +41,6 @@
             android:padding="5dp"
             android:text="DONE"
             android:textColor="@color/white" />
-       
     </RelativeLayout>
 
     <LinearLayout
@@ -213,16 +212,7 @@
                     android:text="Female" />
             </RadioGroup>
         </LinearLayout>
-        <!--
-             <Button 
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Done"
-            android:background="@color/appBlue"
-            android:padding="5dp"
-            android:id="@+id/done"/>
-        -->
+       
 
     </LinearLayout>
 

@@ -19,17 +19,6 @@
             android:text="name"
             android:textColor="@color/appBlue"
             android:textSize="18sp" />
-        <!--
-     <TextView
-        android:id="@+id/fees"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:textColor="@color/appBlue"
-    	android:layout_marginTop="-5dp"
-    	
-        android:text="fees" />
-        -->
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -142,15 +131,6 @@
                 android:text="Time"
                 android:textColor="@color/black" />
 
-            <!--
-                 <TextView
-        android:id="@+id/stime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="s time" />
-            -->
-
             <TextView
                 android:id="@+id/etime"
                 android:layout_width="wrap_content"
@@ -202,24 +182,7 @@
             android:orientation="horizontal"
             android:weightSum="2" >
 
-            <!--
-             <ImageView
-            android:id="@+id/imageView_connect"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/black"
-            android:src="@drawable/abc_ic_cab_done_holo_light" />
-
-        <ImageView
-            android:id="@+id/imageView_reject"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:background="@color/black"
-            android:src="@drawable/abc_ic_cab_done_holo_light" />
-            -->
+           
 
             <TextView
                 android:id="@+id/imageView_connect"

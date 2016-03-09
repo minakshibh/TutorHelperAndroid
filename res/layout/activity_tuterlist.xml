@@ -3,60 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-     <RelativeLayout 
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-   android:background="@color/black"
-    android:padding="2dp">
-    
-  <!--   <ImageView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/menu_btn"
-        android:id="@+id/menu"
-        android:layout_alignParentLeft="true"/> -->
-    
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tuter List"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_centerInParent="true"
-        android:textColor="#ffffff"
-        />
-    
-   <!--  <ImageView
-        android:id="@+id/rightmenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:layout_marginRight="5dp"
-        android:src="@drawable/menudot_icon"
-        android:visibility="gone" /> -->
 
-    <!-- <Button
-        android:id="@+id/button_done"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-    	android:padding="5dp"
-        android:background="@color/transparent"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:text="Done" /> -->
+        android:background="@color/black"
+        android:padding="2dp" >
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Tuter List"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-         android:background="@color/transparent" 
-        android:layout_height="wrap_content" >
-    </ListView>  
+        android:background="@color/transparent" >
+    </ListView>
 
 </LinearLayout>

@@ -150,7 +150,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Notes"
+                android:text="Notes:"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
@@ -165,10 +165,12 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerInParent="true"
+                    android:layout_marginRight="5dp"
                     android:layout_toLeftOf="@+id/button_update"
                     android:background="@drawable/edittext_bg"
                     android:hint="Enter notes"
                     android:maxLines="2"
+                    android:cursorVisible="false"
                     android:padding="10dp"
                     android:gravity="top|left"
                     android:minLines="2"

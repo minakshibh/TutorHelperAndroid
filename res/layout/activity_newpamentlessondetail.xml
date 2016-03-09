@@ -4,14 +4,13 @@
     android:layout_height="match_parent"
     android:background="@color/transparent"
     android:orientation="vertical" >
-    
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:background="@drawable/listview_bg"
         android:orientation="vertical"
-         android:layout_margin="5dp"
         android:padding="10dp" >
 
         <LinearLayout
@@ -19,21 +18,22 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:orientation="horizontal" >
- <TextView
-               android:layout_weight="4"
-              
+
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-5dp"
+                android:layout_weight="4"
                 android:singleLine="true"
                 android:text="Description"
                 android:textColor="@color/black" />
+
             <TextView
-                android:layout_weight="6"
                 android:id="@+id/description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-5dp"
+                android:layout_weight="6"
                 android:singleLine="true"
                 android:text="description"
                 android:textColor="@color/black" />
@@ -118,6 +118,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -145,7 +146,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-             android:layout_marginRight="5dp"
+            android:layout_marginRight="5dp"
             android:orientation="horizontal" >
 
             <TextView
@@ -239,8 +240,7 @@
                 android:layout_weight="6"
                 android:singleLine="true"
                 android:textColor="@color/black" />
-
         </LinearLayout>
     </LinearLayout>
-    
+
 </LinearLayout>
