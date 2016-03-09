@@ -2142,7 +2142,7 @@ public class AddLessonActivity extends Activity implements
 	}
 
 	public void processFinish(String output, String methodName) {
-		System.err.println(output);
+		System.err.println("output=="+output);
 		if (methodName.equals("create-lesson")) {
 			try {
 				// TutorLesson tutorLesson=new TutorLesson();

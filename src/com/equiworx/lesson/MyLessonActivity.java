@@ -528,7 +528,18 @@ public void processFinish(String output, String methodName) {
 			String message = jsonChildNode.getString("message").toString();
 
 			if (result.equals("0")) {
-				Util.alertMessage(MyLessonActivity.this, "cancellation request sent successfully");
+				
+				AlertDialog.Builder alert = new AlertDialog.Builder(MyLessonActivity.this);
+				alert.setTitle("Tutor Helper");
+				alert.setMessage("cancellation request sent successfully");
+				alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						
+						finish();
+					}
+				});	
+				alert.show();
 			}
 			else{
 				Util.alertMessage(MyLessonActivity.this, message);	

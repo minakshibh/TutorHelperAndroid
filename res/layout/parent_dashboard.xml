@@ -53,6 +53,7 @@
                 android:orientation="horizontal" >
 
                 <ImageView
+                     android:contentDescription="@null"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/circle1_small" />
@@ -73,6 +74,7 @@
                 android:orientation="horizontal" >
 
                 <ImageView
+                     android:contentDescription="@null"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/circle2_small" />
@@ -93,6 +95,7 @@
                 android:orientation="horizontal" >
 
                 <ImageView
+                     android:contentDescription="@null"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/circle3_small" />
@@ -113,6 +116,7 @@
                 android:orientation="horizontal" >
 
                 <ImageView
+                     android:contentDescription="@null"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/circle4_small" />
@@ -152,6 +156,7 @@
                     android:padding="10dp" >
 
                     <ImageView
+                        android:contentDescription="@null"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -187,6 +192,7 @@
                     android:padding="10dp" >
 
                     <ImageView
+                         android:contentDescription="@null"
                         android:layout_width="40dp"
                         android:layout_height="35dp"
                         android:focusable="false"

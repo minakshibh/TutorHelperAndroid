@@ -4,11 +4,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -26,7 +24,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -266,12 +263,13 @@ public class LessonRequestActivity extends Activity implements
 			approve.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
 					message = "Request accepted successfully";
-					LessionId=lesson.getRequestId();
+					LessionId=lesson.getLessonId();
 					lessonDes=lesson.getLessonDescription();
 					startTime=lesson.getLessonStartTime();
 					Startdate=lesson.getLessonDate();
+					
 					ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-					nameValuePairs.add(new BasicNameValuePair("request_id",	lesson.getRequestId()));
+					nameValuePairs.add(new BasicNameValuePair("request_id",	 arraylist_lesson.get(position).getRequestId()));
 					nameValuePairs.add(new BasicNameValuePair("trigger",str_trigger));
 					nameValuePairs.add(new BasicNameValuePair("response","Accepted"));
 					Log.e("approve", nameValuePairs.toString());
@@ -286,7 +284,7 @@ public class LessonRequestActivity extends Activity implements
 				public void onClick(View v) {
 					message = "Request reject successfully";
 					ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-					nameValuePairs.add(new BasicNameValuePair("request_id",	lesson.getRequestId()));
+					nameValuePairs.add(new BasicNameValuePair("request_id",	arraylist_lesson.get(position).getRequestId()));
 					nameValuePairs.add(new BasicNameValuePair("trigger",str_trigger));
 					nameValuePairs.add(new BasicNameValuePair("response","Rejected"));	
 					Log.e("approve", nameValuePairs.toString());

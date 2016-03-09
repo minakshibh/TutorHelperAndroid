@@ -155,7 +155,7 @@ public class Util {
 	       
 	         HttpEntity httpEntity = response.getEntity();
 	         responseString = EntityUtils.toString(httpEntity);
-	         Log.e(functionName, responseString);
+	         Log.e(functionName, "Output="+responseString);
 	         
 		} catch (ParseException e) {
 			e.printStackTrace();

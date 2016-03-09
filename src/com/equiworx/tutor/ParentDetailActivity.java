@@ -1,7 +1,6 @@
 package com.equiworx.tutor;
 
 import java.util.ArrayList;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
@@ -9,10 +8,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
-import android.text.method.HideReturnsTransformationMethod;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -246,11 +245,16 @@ public class ParentDetailActivity extends Activity implements
 		tutorId = tutorPrefs.getString("tutorID", "0");
 		txt_parentid.setText("Parent Id : " + parentId);
 
-		if (tutorPrefs.getString("p_notes", "null").equalsIgnoreCase("null")) {
-			txtNotes.setText("");
-		}
-		else{
-			txtNotes.setText(tutorPrefs.getString("p_notes", ""));
+		try{
+			if (tutorPrefs.getString("p_notes", "null").equalsIgnoreCase("null")) {
+				txtNotes.setText("");
+			}
+			else{
+				txtNotes.setText(tutorPrefs.getString("p_notes", ""));
+			}
+		}catch(Exception e)
+		{
+			e.printStackTrace();
 		}
 	}
 
@@ -306,6 +310,7 @@ public class ParentDetailActivity extends Activity implements
 
 			tv_name.setText(studentlist.getName());
 			tv_email.setText(": " + studentlist.getEmail());
+			try{
 			if (studentlist.getNotes() == null | studentlist.getNotes().equalsIgnoreCase("null")) {
 				tv_note.setText(": " );
 				}
@@ -314,6 +319,11 @@ public class ParentDetailActivity extends Activity implements
 				tv_note.setText(": " + studentlist.getNotes());
 				
 				}
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+				}
+			
 
 			// System.err.println("adpter name="+studentlist.getName());
 			img_edit.setOnClickListener(new View.OnClickListener() {
@@ -355,8 +365,13 @@ public class ParentDetailActivity extends Activity implements
 				String result = jsonChildNode.getString("result").toString();
 				String message = jsonChildNode.getString("message").toString();
 				if (result.equals("0")) {
+					
+					Editor editor=tutorPrefs.edit();
+					editor.putString("p_notes", txtNotes.getText().toString());
+					editor.commit();
+					
 					Util.alertMessage(ParentDetailActivity.this,
-							"Notes Update successfully");
+							"Notes update successfully");
 				} else {
 					Util.alertMessage(ParentDetailActivity.this, message);
 				}

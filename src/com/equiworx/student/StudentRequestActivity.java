@@ -129,7 +129,7 @@ public class StudentRequestActivity extends Activity implements AsyncResponseFor
 					Trigger -- Parent/Tutor*/
 					message="Request accepted successfully";
 					ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-					nameValuePairs.add(new BasicNameValuePair("request_id", arraylist_student.get(position).getStudentId()));
+					nameValuePairs.add(new BasicNameValuePair("request_id", arraylist_student.get(position).getRequestID()));
 					nameValuePairs.add(new BasicNameValuePair("status", "Approved"));
 					Log.e("approve", nameValuePairs.toString());
 					AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(StudentRequestActivity.this, "approve-student", nameValuePairs, true, "Please wait...");
@@ -147,7 +147,7 @@ public class StudentRequestActivity extends Activity implements AsyncResponseFor
 					if (Util.isNetworkAvailable(StudentRequestActivity.this)){
 						message="Request reject successfully";
 						ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-					nameValuePairs.add(new BasicNameValuePair("request_id", arraylist_student.get(position).getStudentId()));
+					nameValuePairs.add(new BasicNameValuePair("request_id", arraylist_student.get(position).getRequestID()));
 					nameValuePairs.add(new BasicNameValuePair("status", "Rejected"));
 					Log.e("approve", nameValuePairs.toString());
 					AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(StudentRequestActivity.this, "approve-student", nameValuePairs, true, "Please wait...");

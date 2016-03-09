@@ -5,6 +5,7 @@
     android:background="@drawable/main_bg" >
 
     <ImageView
+         android:contentDescription="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -35,6 +36,7 @@
                 android:gravity="center" >
 
                 <ImageView
+                     android:contentDescription="@null"
                     android:id="@+id/tutorReg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -55,6 +57,7 @@
                     android:gravity="center" >
 
                     <ImageView
+                         android:contentDescription="@null"
                         android:id="@+id/tutorLogin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -68,6 +71,7 @@
                     android:gravity="center" >
 
                     <ImageView
+                         android:contentDescription="@null"
                         android:id="@+id/parentLogin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
