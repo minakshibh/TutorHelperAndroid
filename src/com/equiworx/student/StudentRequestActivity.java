@@ -176,6 +176,7 @@ public class StudentRequestActivity extends Activity implements AsyncResponseFor
 				AlertDialog.Builder alert = new AlertDialog.Builder(StudentRequestActivity.this);
 				alert.setTitle("Tutor Helper");
 				alert.setMessage("no student requests");
+				alert.setCancelable(false);
 				alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface arg0, int arg1) {

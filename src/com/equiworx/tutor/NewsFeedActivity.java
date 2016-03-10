@@ -1,4 +1,4 @@
-package com.equiworx.tutor;
+			package com.equiworx.tutor;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -36,6 +36,7 @@ public class NewsFeedActivity extends Activity implements
 	private SharedPreferences tutorPrefs;
 	private String str_parentid;
 	private TutorHelperParser parser;
+	private TextView title;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class NewsFeedActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_mylesson);
+		
 		setUI();
 		getResponce();
 
@@ -77,6 +79,8 @@ public class NewsFeedActivity extends Activity implements
 		// TODO Auto-generated method stub
 		tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
 		parser = new TutorHelperParser(NewsFeedActivity.this);
+		title=(TextView)findViewById(R.id.title);
+		title.setText("News Feed");
 		newsfeedList = (ListView) findViewById(R.id.listView_mylesson);
 		back_layout = (RelativeLayout) findViewById(R.id.back_layout);
 

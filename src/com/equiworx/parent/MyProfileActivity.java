@@ -23,7 +23,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
@@ -41,7 +40,7 @@ public class MyProfileActivity extends Activity implements
 	private RelativeLayout back;
 	private TextView tv_edit;
 	private LinearLayout ley_confirmPassword, lay_altContactInfo;
-
+	private TextView textView_title;
 	private String result = "", jsonmessge = "";
 	private String gender = "", methodname = "";
 
@@ -288,6 +287,8 @@ public class MyProfileActivity extends Activity implements
 		female = (RadioButton) findViewById(R.id.female);
 		done = (Button) findViewById(R.id.done);
 		ley_confirmPassword.setVisibility(View.GONE);
+		textView_title=(TextView)findViewById(R.id.textView_title);
+		textView_title.setText(" My Profile");
 
 	}
 
@@ -405,6 +406,7 @@ public class MyProfileActivity extends Activity implements
 						MyProfileActivity.this);
 				alert.setTitle("Tutor Helper");
 				alert.setMessage("Profile update successfully");
+				alert.setCancelable(false);
 				alert.setPositiveButton("ok",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface arg0, int arg1) {

@@ -35,9 +35,11 @@
             android:id="@+id/textView_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+         
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:padding="8dp"
+            android:gravity="center"
             android:text="Tutor Helper"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -47,12 +49,15 @@
             android:id="@+id/edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/back_layout"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
+            android:layout_alignTop="@+id/textView_title"
             android:padding="8dp"
             android:text="EDIT"
+            android:gravity="center"
             android:textColor="@color/white"
             android:textSize="18sp" />
+
     </RelativeLayout>
 
     <ScrollView

@@ -26,6 +26,7 @@ import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
@@ -43,6 +44,7 @@ public class CancellationActivity extends Activity implements AsyncResponseForTu
 	private ListView listView;
 	private TuturRequestAdpter tuturRequestAdpter;
 	private ImageView back;
+	private RelativeLayout back_layout;
 	private TextView title;
 	private String message="";
 	private DateFormat timeformatter = new SimpleDateFormat("HH:mm:ss");  
@@ -66,6 +68,12 @@ public class CancellationActivity extends Activity implements AsyncResponseForTu
 				
 			}
 		});
+		back_layout.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				finish();
+						
+					}
+				});
 		
 	}
 
@@ -78,6 +86,7 @@ public class CancellationActivity extends Activity implements AsyncResponseForTu
 		tutorId = tutorPrefs.getString("tutorID", "0");
 		System.err.println("tutorId"+tutorId);
 		back=(ImageView)findViewById(R.id.back);
+		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
 	}
 
 	private void fetchTutorRequestList() {

@@ -806,6 +806,7 @@ public class AddLessonActivity extends Activity implements
 
 								// check date condition.........
 								resetCheckbox(); // reset check box
+								findDate();
 								try {
 									Calendar c = Calendar.getInstance();
 									System.out.println("Current date => "
@@ -2153,6 +2154,7 @@ public class AddLessonActivity extends Activity implements
 					AlertDialog.Builder alert = new AlertDialog.Builder(
 							AddLessonActivity.this);
 					alert.setTitle("Tutor Helper");
+					alert.setCancelable(false);
 					alert.setMessage("Lesson Request has sent successfully..!");
 					alert.setPositiveButton("ok",
 							new DialogInterface.OnClickListener() {

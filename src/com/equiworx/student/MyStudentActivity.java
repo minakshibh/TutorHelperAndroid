@@ -189,6 +189,7 @@ public class MyStudentActivity extends Activity implements AsyncResponseForTutor
 			{
 				AlertDialog.Builder alert = new AlertDialog.Builder(MyStudentActivity.this);
 				alert.setTitle("Tutor Helper");
+				alert.setCancelable(false);
 				alert.setMessage("no Students added yet now");
 				alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
 					@Override

@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
@@ -36,6 +37,7 @@ public class EditStudentActivity extends Activity implements
 	private Button add;
 	private TextView name, title, lblnotes;
 	private LinearLayout lay_address, lay_fees;
+	private RelativeLayout back_layout;
 
 	private String parentId = "0", tutorID, studentGender = "Male", trigger;
 
@@ -57,6 +59,7 @@ public class EditStudentActivity extends Activity implements
 		address = (EditText) findViewById(R.id.address);
 		address.setText(getIntent().getStringExtra("address"));
 		lay_address = (LinearLayout) findViewById(R.id.lay_address);
+		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
 		lay_fees = (LinearLayout) findViewById(R.id.lay_fees);
 		if (tutorPrefs.getString("mode", "").equals("parent")) {
 			trigger = "Parent";
@@ -145,6 +148,12 @@ public class EditStudentActivity extends Activity implements
 			}
 		});
 
+		back_layout.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				finish();
+
+			}
+		});
 		add.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				String check = emptyFieldCheck();
@@ -308,6 +317,7 @@ public class EditStudentActivity extends Activity implements
 					EditStudentActivity.this);
 			alert.setTitle("Tutor Helper");
 			alert.setMessage("update successfully..!");
+			alert.setCancelable(false);
 			alert.setPositiveButton("ok",
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface arg0, int arg1) {

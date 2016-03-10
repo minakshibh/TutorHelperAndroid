@@ -121,8 +121,8 @@ public class MergeStudentActivity extends Activity implements
 
 								AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 										MergeStudentActivity.this);
-								alertDialogBuilder
-										.setMessage("Are you sure, you want to merge Students ..?");
+								alertDialogBuilder.setMessage("Are you sure, you want to merge Students ..?");
+								alertDialogBuilder.setCancelable(false);
 								alertDialogBuilder.setPositiveButton("Yes",
 										new DialogInterface.OnClickListener() {
 											public void onClick(

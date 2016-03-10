@@ -463,7 +463,8 @@ public class AddStudent extends Activity implements AsyncResponseForTutorHelper 
 							AddStudent.this);
 					alert.setTitle("Congrats!!!");
 					alert.setMessage("Your request has been sent. We will notify you as soon as the Parent will approve the same.");
-					alert.setPositiveButton("Okay",
+					alert.setCancelable(false);
+					alert.setPositiveButton("Ok",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int which) {

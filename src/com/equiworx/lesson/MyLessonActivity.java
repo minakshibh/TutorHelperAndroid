@@ -414,7 +414,7 @@ public class MyLessonActivity extends Activity implements AsyncResponseForTutorH
 		}
 		cancel.setOnClickListener(new OnClickListener() {
 		public void onClick(View v) {
-			//cancallationLesson();
+			
 			LayoutInflater li = LayoutInflater.from(MyLessonActivity.this);
 			View promptsView = li.inflate(R.layout.dailog_layout, null);
 
@@ -437,10 +437,10 @@ public class MyLessonActivity extends Activity implements AsyncResponseForTutorH
 				    		}
 				    	else
 				    	{
-				    		str_lessonid=myLessonobj.getLessonId();
+				    		str_lessonid=arraylist_mylesson.get(position).getLessonId();//myLessonobj.getLessonId();
 				    		tutorPrefs.getString("parentID", "");
 				    		System.err.println("lessonId="+str_lessonid+"  "+tutorPrefs.getString("parentId", ""));
-				    		cancallationLesson();
+				    		cancallationLesson(str_lessonid);
 					    	
 					    	}
 				    }
@@ -464,7 +464,7 @@ public class MyLessonActivity extends Activity implements AsyncResponseForTutorH
 		}
 	}
 	
-	private void cancallationLesson()
+	private void cancallationLesson(String str_lessonid)
 	{
 		if (Util.isNetworkAvailable(MyLessonActivity.this)){
 			
@@ -492,6 +492,7 @@ public void processFinish(String output, String methodName) {
 			AlertDialog.Builder alert = new AlertDialog.Builder(MyLessonActivity.this);
 			alert.setTitle("Tutor Helper");
 			alert.setMessage("no lesson added yet now");
+			alert.setCancelable(false);
 			alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface arg0, int arg1) {
@@ -531,6 +532,7 @@ public void processFinish(String output, String methodName) {
 				
 				AlertDialog.Builder alert = new AlertDialog.Builder(MyLessonActivity.this);
 				alert.setTitle("Tutor Helper");
+				alert.setCancelable(false);
 				alert.setMessage("cancellation request sent successfully");
 				alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
 					@Override

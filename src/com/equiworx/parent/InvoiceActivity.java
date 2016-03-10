@@ -1,10 +1,8 @@
 package com.equiworx.parent;
 
 import java.util.ArrayList;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,14 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
-import com.equiworx.model.FeesDetail;
 import com.equiworx.model.InvoiceModel;
 import com.equiworx.tutorhelper.R;
 import com.equiworx.util.TutorHelperParser;

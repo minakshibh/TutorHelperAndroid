@@ -187,6 +187,7 @@ public class RegisterActivity extends Activity implements AsyncResponseForTutorH
 		if(tutor != null){
 			AlertDialog.Builder alert = new AlertDialog.Builder(RegisterActivity.this);
 			alert.setTitle("Tutor Helper");
+			alert.setCancelable(false);
 			alert.setMessage("Congrats!!! Your account has been registered with us. your tutor id is"+tutor.getTutorId());
 			alert.setPositiveButton("Get Started!", new DialogInterface.OnClickListener() {
 				@Override

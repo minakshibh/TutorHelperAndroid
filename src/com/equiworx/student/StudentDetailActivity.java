@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -21,6 +22,7 @@ public class StudentDetailActivity extends Activity{
 	private TextView name,email,fees,address,contact,notes,parentame,studentid,edit,lbl_notes;
 	private LinearLayout lay_call,lay_email,button_history,lay_fees,enable_layout;
 	private SharedPreferences tutorPrefs;
+	private RelativeLayout back_layout;
 	
 protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
@@ -49,6 +51,7 @@ protected void onCreate(Bundle savedInstanceState) {
 		lay_email=(LinearLayout)findViewById(R.id.lay_email);
 		lay_fees=(LinearLayout)findViewById(R.id.lay_fees);
 		enable_layout=(LinearLayout)findViewById(R.id.enable_layout);
+		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
 		button_history=(LinearLayout)findViewById(R.id.layout_history);
 		if(tutorPrefs.getString("mode", "").equalsIgnoreCase("tutor"))
 		{
@@ -173,6 +176,12 @@ protected void onCreate(Bundle savedInstanceState) {
 				
 			}
 		});	
+	back_layout.setOnClickListener(new View.OnClickListener() {
+		public void onClick(View v) {
+			finish();
+				
+			}
+		});
 	edit.setOnClickListener(new View.OnClickListener() {
 		public void onClick(View v) {
 	

@@ -307,7 +307,9 @@ public class LessonRequestActivity extends Activity implements
 			if (arraylist_lesson.size() == 0) {
 				AlertDialog.Builder alert = new AlertDialog.Builder(LessonRequestActivity.this);
 				alert.setTitle("Tutor Helper");
+				
 				alert.setMessage("no lesson requests");
+				alert.setCancelable(false);
 				alert.setPositiveButton("ok",
 						new DialogInterface.OnClickListener() {
 							@Override
@@ -394,6 +396,7 @@ public class LessonRequestActivity extends Activity implements
 					AlertDialog.Builder alert = new AlertDialog.Builder(LessonRequestActivity.this);
 					alert.setTitle("Tutor Helper");
 					alert.setMessage(message);
+					alert.setCancelable(false);
 					alert.setPositiveButton("ok",new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface arg0, int arg1) {

@@ -34,6 +34,7 @@ public class ConnectionRequests extends Activity implements
 	private ListView connection_listview;
 	private TutorHelperParser parser;
 	private RelativeLayout back_layout;
+	private TextView title;
 
 	private String parentId, trigger, message = "";
 
@@ -49,6 +50,8 @@ public class ConnectionRequests extends Activity implements
 
 	private void setOnClick() {
 		back_layout = (RelativeLayout) findViewById(R.id.back_layout);
+		title=(TextView)findViewById(R.id.title);
+		title.setText("Tutor Requests");
 		back_layout.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -143,8 +146,7 @@ public class ConnectionRequests extends Activity implements
 						 */
 						message = "Request approved successfully";
 						ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-						nameValuePairs.add(new BasicNameValuePair("request_id",
-								connection.getRequestId()));
+						nameValuePairs.add(new BasicNameValuePair("request_id",array_connection.get(position).getRequestId()));
 						nameValuePairs.add(new BasicNameValuePair("status",
 								"Approved"));
 						Log.e("approve", nameValuePairs.toString());
@@ -169,8 +171,7 @@ public class ConnectionRequests extends Activity implements
 						 */
 						message = "Request reject successfully";
 						ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-						nameValuePairs.add(new BasicNameValuePair("request_id",
-								connection.getRequestId()));
+						nameValuePairs.add(new BasicNameValuePair("request_id",array_connection.get(position).getRequestId()));
 						nameValuePairs.add(new BasicNameValuePair("status",
 								"Rejected"));
 						Log.e("approve", nameValuePairs.toString());
@@ -202,7 +203,8 @@ public class ConnectionRequests extends Activity implements
 				AlertDialog.Builder alert = new AlertDialog.Builder(
 						ConnectionRequests.this);
 				alert.setTitle("Tutor Helper");
-				alert.setMessage("no connection requests");
+				alert.setMessage("No tutor requests");
+				alert.setCancelable(false);
 				alert.setPositiveButton("ok",
 						new DialogInterface.OnClickListener() {
 							@Override
