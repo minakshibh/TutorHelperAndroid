@@ -19,7 +19,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/search_bg"
-        android:hint="Search by Tutor Id or Tutor Name"
+        android:hint="Search by Parent Id or Parent Name"
         android:maxLines="1"
         android:paddingLeft="40dp"
      

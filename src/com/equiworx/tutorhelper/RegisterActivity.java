@@ -201,6 +201,7 @@ public class RegisterActivity extends Activity implements AsyncResponseForTutorH
 					Editor editor = tutorPrefs.edit();
 					editor.putString("tutorID", tutor.getTutorId());
 					editor.putString("mode", "tutor");
+					editor.putString("tutorname", tutor.getName());
 					editor.putString("tutorpass", password.getText().toString());
 					editor.commit();
 					

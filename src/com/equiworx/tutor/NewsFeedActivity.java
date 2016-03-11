@@ -144,7 +144,7 @@ public class NewsFeedActivity extends Activity implements
 				convertView = inflater.inflate(
 						R.layout.activity_newsfeed_singleui, parent, false);
 			}
-			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Calendar cal = Calendar.getInstance();
 			System.out.println(dateFormat.format(cal.getTime()));
 			String getcuurentdate=dateFormat.format(cal.getTime());
@@ -157,6 +157,7 @@ public class NewsFeedActivity extends Activity implements
 			message_name.setText(newfeed.getMessage());
 			
 			String getDate=newfeed.getLast_updated();
+			System.err.println("Date="+getDate);
 			
 			try {
 				String[] parts = getDate.split(" ");
@@ -166,6 +167,7 @@ public class NewsFeedActivity extends Activity implements
 				System.out.println(part1);
 			} catch (Exception e) {
 				// TODO: handle exception
+				e.printStackTrace();
 			}
 			
 		if (getcuurentdate.equalsIgnoreCase(getDate)) {

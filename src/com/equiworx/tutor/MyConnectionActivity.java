@@ -121,7 +121,7 @@ public class MyConnectionActivity extends Activity implements
 
 		parser = new TutorHelperParser(MyConnectionActivity.this);
 		title = (TextView) findViewById(R.id.title);
-		title.setText("My Tutors");
+		title.setText("My Connections");
 
 		tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
 		listView = (ListView) findViewById(R.id.listview);

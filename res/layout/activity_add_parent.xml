@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_field_right"
                 android:hint="Name"
+                android:inputType="textCapWords" 
                 android:maxLines="1"
                 android:paddingLeft="10dp"
                 android:singleLine="true" />

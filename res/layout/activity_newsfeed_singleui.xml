@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:background="@drawable/listview_bg"
         android:orientation="horizontal" >
 
@@ -19,7 +19,7 @@
             android:layout_marginRight="10dp"
             android:text=""
             android:textColor="@color/appBlue"
-            android:textSize="15dp" />
+            android:textSize="14sp" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -30,13 +30,12 @@
                 android:id="@+id/message_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_marginLeft="15dp"
                 android:lines="3"
                 android:scrollbars="vertical"
                 android:text="eswgsa"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
         </ScrollView>
     </RelativeLayout>
 

@@ -399,6 +399,7 @@ public class MyProfileActivity extends Activity implements
 
 				Editor ed = tutorPrefs.edit();
 				ed.putString("tutorpass", txt_password.getText().toString());
+				ed.putString("tutorname", tutor.getName());
 				ed.commit();
 
 				setTutor();

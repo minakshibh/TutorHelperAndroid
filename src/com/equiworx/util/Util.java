@@ -156,14 +156,17 @@ public class Util {
 	         HttpEntity httpEntity = response.getEntity();
 	         responseString = EntityUtils.toString(httpEntity);
 	         Log.e(functionName, "Output="+responseString);
-	         
+	        
+	       
 		} catch (ParseException e) {
 			e.printStackTrace();
 			Util.alertMessage(context, "Something went wrong. Please try again later.");
 		} catch (IOException e) {
 			e.printStackTrace();
+			Util.alertMessage(context, "Something went wrong. Please try again later.");
 		}
 		
-		return responseString;
+		  return responseString;
+		
 	}
 }

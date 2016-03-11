@@ -103,6 +103,7 @@
                     android:background="@drawable/input_field_right"
                     android:hint="Name"
                     android:paddingLeft="10dp"
+                    android:inputType="textCapWords" 
                     android:singleLine="true"
                     android:textColor="#000000" />
             </LinearLayout>

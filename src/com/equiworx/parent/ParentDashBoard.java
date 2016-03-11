@@ -132,7 +132,7 @@ public class ParentDashBoard extends FragmentActivity implements
 		name.setText(tutorPrefs.getString("parentname", ""));
 		// newLessonLayout = (LinearLayout)findViewById(R.id.addLessonLayout);
 		connectionRequests = (TextView) findViewById(R.id.connectionRequests);
-		connectionRequests.setText("Tutor Requests");
+		connectionRequests.setText("Connection Requests");
 		studentRequests = (TextView) findViewById(R.id.studentRequests);
 		lessonRequests = (TextView) findViewById(R.id.lessonRequests);
 		// student=(TextView)findViewById(R.id.student);
@@ -147,7 +147,7 @@ public class ParentDashBoard extends FragmentActivity implements
 		myStudent = (TextView) findViewById(R.id.mystu);
 		myProfile = (TextView) findViewById(R.id.myProfile);
 		tuterList = (TextView) findViewById(R.id.tuterList);
-		tuterList.setText("My Tutors");
+		tuterList.setText("My Connections");
 		parentmerge = (TextView) findViewById(R.id.Parentmerge);
 		studentmerge = (TextView) findViewById(R.id.Studentmerge);
 	

@@ -51,7 +51,7 @@ public class ConnectionRequests extends Activity implements
 	private void setOnClick() {
 		back_layout = (RelativeLayout) findViewById(R.id.back_layout);
 		title=(TextView)findViewById(R.id.title);
-		title.setText("Tutor Requests");
+		title.setText("Connection Requests");
 		back_layout.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -203,7 +203,7 @@ public class ConnectionRequests extends Activity implements
 				AlertDialog.Builder alert = new AlertDialog.Builder(
 						ConnectionRequests.this);
 				alert.setTitle("Tutor Helper");
-				alert.setMessage("No tutor requests");
+				alert.setMessage("No connection requests");
 				alert.setCancelable(false);
 				alert.setPositiveButton("ok",
 						new DialogInterface.OnClickListener() {

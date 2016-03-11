@@ -155,7 +155,7 @@ public class TutorDashboard extends FragmentActivity implements
 		myLesson = (TextView) findViewById(R.id.myLesson);
 		myProfile = (TextView) findViewById(R.id.myProfile);
 		tuterList = (TextView) findViewById(R.id.tuterList);
-		tuterList.setText("My Clients");
+		tuterList.setText("My Connections");
 		activeStudentsLayout = (LinearLayout) findViewById(R.id.activeStudentsLayout);
 		feesLayout = (LinearLayout) findViewById(R.id.feesLayout);
 		newStudentLayout = (LinearLayout) findViewById(R.id.addStudentlayout);
@@ -398,7 +398,7 @@ public class TutorDashboard extends FragmentActivity implements
 				Intent intent = new Intent(TutorDashboard.this,
 						ParentListActivity.class);
 				Editor editor = tutorPrefs.edit();
-				editor.putString("ptitle", "My Clients");
+				editor.putString("ptitle", "My Connections");
 				editor.commit();
 				startActivity(intent);
 				menuLayoutGone();

@@ -76,7 +76,7 @@ public class LoginActivity extends Activity implements AsyncResponseForTutorHelp
 		// TODO Auto-generated method stub
 		dbHandler = new TutorHelperDatabaseHandler(LoginActivity.this);
 		tv_title=(TextView)findViewById(R.id.title);
-		tv_title.setText("Tutor Helper");
+		
 		imgview_back=(ImageView)findViewById(R.id.back);
 		logIn = (Button)findViewById(R.id.logIn);
 		signUp = (Button)findViewById(R.id.signUp);
@@ -88,9 +88,11 @@ public class LoginActivity extends Activity implements AsyncResponseForTutorHelp
 		tutor = new Tutor();
 		trigger = getIntent().getStringExtra("trigger");
 		if(trigger.equals("tutor")){
+			tv_title.setText("Tutor Log In");
 			methodName = "login";
 			userId.setHint("Tutor Email/Tutor Id");
 		}else{
+			tv_title.setText("Parent Log In");
 			methodName = "parent-login";
 			regText.setVisibility(View.GONE);
 			signUp.setVisibility(View.GONE);
