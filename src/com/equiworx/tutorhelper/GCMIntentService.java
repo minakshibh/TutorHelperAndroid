@@ -180,7 +180,7 @@ public class GCMIntentService extends GCMBaseIntentService{
 					//Mrs. test3 have Accepted the request for lesson on 
 					if(message.contains("Parent"))
 					{
-						goToParent(message);
+						goToTutor(message);
 						}
 					}
 				else if(message.contains("Rejected the request for lesson"))	//reject lesson  //issue
@@ -189,7 +189,7 @@ public class GCMIntentService extends GCMBaseIntentService{
 				
 					if(message.contains("Parent"))
 					{
-						goToParent(message);
+						goToTutor(message);
 						}
 					}
 				/*else if(message.contains("connection request"))	//connection request  //done

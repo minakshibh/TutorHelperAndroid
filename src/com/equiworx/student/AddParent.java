@@ -19,7 +19,7 @@ import com.equiworx.util.Util;
 
 public class AddParent extends Activity implements AsyncResponseForTutorHelper {
 
-	private EditText name, email, contactInfo, address;
+	private EditText name, email, contactInfo, address,ContactInfo_countryCode;
 	private Button done, cancel;
 	private SharedPreferences tutorPrefs;
 	private RadioButton male, female;
@@ -43,7 +43,8 @@ public class AddParent extends Activity implements AsyncResponseForTutorHelper {
 		name = (EditText) findViewById(R.id.name);
 		email = (EditText) findViewById(R.id.email);
 		contactInfo = (EditText) findViewById(R.id.contactInfo);
-		contactInfo.setText(zipcode);
+		ContactInfo_countryCode =(EditText) findViewById(R.id.ContactInfo_countryCode);
+		ContactInfo_countryCode.setText(zipcode);
 		address = (EditText) findViewById(R.id.address);
 		done = (Button) findViewById(R.id.done);
 		cancel = (Button) findViewById(R.id.cancel);
@@ -112,6 +113,7 @@ public class AddParent extends Activity implements AsyncResponseForTutorHelper {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			if (v == done) {
+				
 				String result = emptyFieldCheck();
 				if (result.equals("success")) {
 					Util.hideKeyboard(AddParent.this);
@@ -119,10 +121,9 @@ public class AddParent extends Activity implements AsyncResponseForTutorHelper {
 					Editor editor = tutorPrefs.edit();
 					editor.putString("name", name.getText().toString().trim());
 					editor.putString("email", email.getText().toString().trim());
-					editor.putString("contact", contactInfo.getText()
-							.toString().trim());
-					editor.putString("address", address.getText().toString()
-							.trim());
+					editor.putString("contact",ContactInfo_countryCode.getText().toString().trim()+ 
+							contactInfo.getText().toString().trim());
+					editor.putString("address", address.getText().toString().trim());
 					editor.putString("gender", gender);
 					editor.putString("newparentID", "-1");
 

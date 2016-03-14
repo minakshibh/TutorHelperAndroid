@@ -28,7 +28,7 @@ import android.widget.TextView;
 public class TutorDetailActivity extends Activity {
 
 
-	private TextView name, email,  address, contact, studentid;
+	private TextView name, email,  address, contact, studentid,no_of_Student,title;
 	private TutorHelperDatabaseHandler dbHandler;
 	private StudentAdapter adapter;
 	private ListView listview;
@@ -57,7 +57,10 @@ public class TutorDetailActivity extends Activity {
 		address = (TextView) findViewById(R.id.address);
 		contact = (TextView) findViewById(R.id.contact);
 		studentid = (TextView) findViewById(R.id.studentid);
+		no_of_Student=(TextView)findViewById(R.id.no_of_Student);
 		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
+		title=(TextView)findViewById(R.id.title);
+		title.setText("Tutor Details");
 
 	}
 	private void onclickListenser() {
@@ -119,6 +122,8 @@ public class TutorDetailActivity extends Activity {
 		contact.setText(content1);
 
 		studentid.setText("Tutor Id :" + getIntent().getStringExtra("tutorid"));
+		
+		no_of_Student.setText(getIntent().getStringExtra("nostudent")+" Students");
 	}
 
 	private void fetchlStudentList() {
@@ -132,6 +137,7 @@ public class TutorDetailActivity extends Activity {
 				System.err.println("data=="+dbHandler.getStudentDetails("single", MyConnectionActivity.array_studentIDs.get(i)));
 		
 				array.add(dbHandler.getStudentDetails("single", MyConnectionActivity.array_studentIDs.get(i)));
+				
 				if(array.get(i).getName()!=null)
 				{
 					arraylist_student.add(dbHandler.getStudentDetails("single", MyConnectionActivity.array_studentIDs.get(i)));

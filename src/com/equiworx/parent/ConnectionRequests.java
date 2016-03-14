@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
 import com.equiworx.model.Connection;
+import com.equiworx.model.StudentRequest;
 import com.equiworx.tutorhelper.R;
 import com.equiworx.util.TutorHelperParser;
 import com.equiworx.util.Util;
@@ -169,7 +171,7 @@ public class ConnectionRequests extends Activity implements
 						/*
 						 * ParentId/TutorId Trigger -- Parent/Tutor
 						 */
-						message = "Request reject successfully";
+						message = "Request rejected successfully";
 						ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 						nameValuePairs.add(new BasicNameValuePair("request_id",array_connection.get(position).getRequestId()));
 						nameValuePairs.add(new BasicNameValuePair("status",
@@ -236,13 +238,38 @@ public class ConnectionRequests extends Activity implements
 							ConnectionRequests.this);
 					alert.setTitle("Tutor Helper");
 					alert.setMessage(message);
+					alert.setCancelable(false);
 					alert.setPositiveButton("ok",
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface arg0,
 										int arg1) {
 
-									finish();
+									if(message.equalsIgnoreCase("Request approved successfully"))
+										{
+											AlertDialog.Builder alert = new AlertDialog.Builder(
+													ConnectionRequests.this);
+											alert.setTitle("Tutor Helper");
+											alert.setMessage("Congrats!!! Your connection process completed,Now approved student requests");
+											alert.setCancelable(false);
+											alert.setPositiveButton("ok",
+													new DialogInterface.OnClickListener() {
+														@Override
+														public void onClick(DialogInterface arg0,
+																int arg1) {
+											
+														Intent intent=new Intent(ConnectionRequests.this,StudentRequest.class);
+														startActivity(intent);
+														finish();
+															
+														}
+													});
+											alert.show();
+										}
+									else{
+									
+										finish();
+									}
 								}
 							});
 					alert.show();

@@ -33,7 +33,8 @@ import com.equiworx.util.Util;
 
 public class RegisterActivity extends Activity implements AsyncResponseForTutorHelper{
 
-	private EditText name, email, password, confirmPassword, contactNumber, alternateContactNumber, address;
+	private EditText name, email, password, confirmPassword, contactNumber, alternateContactNumber,
+	contactInfo_countryCode,altContactInfo_countryCode, address;
 	private Button register;
 	private RadioButton male, female;
 	private String trigger, gender="Male", tutor_id="";
@@ -66,10 +67,13 @@ public class RegisterActivity extends Activity implements AsyncResponseForTutorH
 		//userName = (EditText)findViewById(R.id.username);
 		password = (EditText)findViewById(R.id.password);
 		confirmPassword = (EditText)findViewById(R.id.confirmPassword);
+		contactInfo_countryCode= (EditText)findViewById(R.id.contactInfo_countryCode);
+		contactInfo_countryCode.setText(zipcode);
 		contactNumber = (EditText)findViewById(R.id.contactInfo);
-		contactNumber.setText(zipcode);
 		alternateContactNumber = (EditText)findViewById(R.id.altContactInfo);
-		alternateContactNumber.setText(zipcode);
+		altContactInfo_countryCode= (EditText)findViewById(R.id.altContactInfo_countryCode);
+		altContactInfo_countryCode.setText(zipcode);
+		
 		address = (EditText)findViewById(R.id.address);
 		male = (RadioButton)findViewById(R.id.male);
 		female = (RadioButton)findViewById(R.id.female);
@@ -141,6 +145,10 @@ public class RegisterActivity extends Activity implements AsyncResponseForTutorH
 			if(v == register){
 				String result = emptyFieldCheck();
 				if(result.equals("success")){
+					
+					String strContactNumber=contactInfo_countryCode.getText().toString().trim()+contactNumber.getText().toString().trim();
+					String alertNumber=altContactInfo_countryCode.getText().toString().trim()+alternateContactNumber.getText().toString().trim();
+					
 					if (Util.isNetworkAvailable(RegisterActivity.this)){
 						
 						ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
@@ -148,8 +156,8 @@ public class RegisterActivity extends Activity implements AsyncResponseForTutorH
 						nameValuePairs.add(new BasicNameValuePair("email",email.getText().toString().trim()));
 						//nameValuePairs.add(new BasicNameValuePair("username", userName.getText().toString().trim()));
 						nameValuePairs.add(new BasicNameValuePair("password",password.getText().toString().trim()));
-						nameValuePairs.add(new BasicNameValuePair("phone", contactNumber.getText().toString().trim()));
-						nameValuePairs.add(new BasicNameValuePair("alternate_phone",alternateContactNumber.getText().toString().trim()));
+						nameValuePairs.add(new BasicNameValuePair("phone", strContactNumber));
+						nameValuePairs.add(new BasicNameValuePair("alternate_phone",alertNumber));
 						nameValuePairs.add(new BasicNameValuePair("address", address.getText().toString().trim()));
 						nameValuePairs.add(new BasicNameValuePair("trigger",trigger));
 						nameValuePairs.add(new BasicNameValuePair("gender",gender));

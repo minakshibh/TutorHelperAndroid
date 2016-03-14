@@ -81,7 +81,7 @@
                     android:id="@+id/outstandinge_esxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lessons Taught this Month"
+                    android:text="Lessons taught till now"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"

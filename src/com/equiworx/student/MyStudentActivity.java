@@ -70,6 +70,7 @@ public class MyStudentActivity extends Activity implements AsyncResponseForTutor
 				i.putExtra("gender", studentlist.getGender());
 				i.putExtra("parentid", studentlist.getParentId());
 				i.putExtra("studentid", studentlist.getStudentId());
+				i.putExtra("isActiveInMonth", studentlist.getIsActiveInMonth());
 				startActivity(i);
 				
 			}

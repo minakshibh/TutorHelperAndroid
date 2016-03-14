@@ -219,18 +219,40 @@ public class AddLessonActivity extends Activity implements
 
 		lay_starttime_edit.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-
+		//////////get time from text view set as timer picker//////
+			String gettime=btn_editst.getText().toString();
+				try {
+					
+					String[] separated = gettime.split(":");
+					mHour= Integer.parseInt(separated[0]); 
+					mMinute=Integer.parseInt(separated[1]); 
+				} catch (Exception e) {
+					e.printStackTrace();
+					}
 				TimePickerDialog tpd = new TimePickerDialog(
 						AddLessonActivity.this,
 						new TimePickerDialog.OnTimeSetListener() {
 							public void onTimeSet(TimePicker view,
 									int hourOfDay, int minute) {
+								
+							
+								/*try {
+									
+									String[] separated = gettime.split(":");
+									mHour= Integer.parseInt(separated[0]); 
+									mMinute=Integer.parseInt(separated[1]); 
+								} catch (Exception e) {
+									e.printStackTrace();
+									mHour = hourOfDay;
+									mMinute = minute;
+								}*/
+								
+						////////////////
 								minute = mintuecheck(minute);
 
 								String stime = hourOfDay + ":" + minute;
 								String etime = hourOfDay + 1 + ":" + minute;
-								mHour = hourOfDay;
-								mMinute = minute;
+							
 								Date date = null, date1 = null;
 								try {
 									date = (Date) timeformatter.parse(stime);
@@ -310,18 +332,32 @@ public class AddLessonActivity extends Activity implements
 		btn_editet.setText(str_endtime);
 		lay_endtime_edit.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+		//////////get time from text view set as timer picker//////
+				String gettime=btn_editet.getText().toString();
+				try {
+					
+					String[] separated = gettime.split(":");
+					mHour= Integer.parseInt(separated[0]); 
+					mMinute=Integer.parseInt(separated[1]); 
+				} catch (Exception e) {
+					e.printStackTrace();
+					}
+		////////////////////////////////	
+				
 				TimePickerDialog tpd = new TimePickerDialog(
 						AddLessonActivity.this,
 						new TimePickerDialog.OnTimeSetListener() {
 
-							public void onTimeSet(TimePicker view,
-									int hourOfDay, int minute) {
+							public void onTimeSet(TimePicker view,int hourOfDay, int minute) {
 								// Display Selected time in textbox
 								minute = mintuecheck(minute);
 
-								String stime = hourOfDay + ":" + minute;
+								
 								mHour = hourOfDay;
 								mMinute = minute;
+								
+								String stime = hourOfDay + ":" + minute;
+							
 								Date date = null;
 								try {
 									date = (Date) timeformatter.parse(stime);
@@ -778,6 +814,19 @@ public class AddLessonActivity extends Activity implements
 		lay_Lessondate.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 
+		//////////get time from text view set as timer picker//////
+						String getdate=ed_lessondate.getText().toString();
+						try {
+							
+							String[] separated = getdate.split("-");
+							mYear= Integer.parseInt(separated[0]); 
+							mMonth=Integer.parseInt(separated[1])-1; 
+							mDay=Integer.parseInt(separated[2]); 
+						} catch (Exception e) {
+							e.printStackTrace();
+							}
+				////////////////////////////////
+				
 				DatePickerDialog dpd = new DatePickerDialog(
 						AddLessonActivity.this,
 						new DatePickerDialog.OnDateSetListener() {
@@ -909,6 +958,19 @@ public class AddLessonActivity extends Activity implements
 		lay_Lessonenddate.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 
+				
+		//////////get date from text view set as date picker//////
+					String getdate=ed_Lessonenddate.getText().toString();
+					try {
+						
+						String[] separated = getdate.split("-");
+						mYear= Integer.parseInt(separated[0]); 
+						mMonth=Integer.parseInt(separated[1])-1; 
+						mDay=Integer.parseInt(separated[2]); 
+					} catch (Exception e) {
+						e.printStackTrace();
+						}
+						////////////////////////////////
 				// Launch Date Picker Dialog
 				DatePickerDialog dpd = new DatePickerDialog(
 						AddLessonActivity.this,
@@ -2155,7 +2217,7 @@ public class AddLessonActivity extends Activity implements
 							AddLessonActivity.this);
 					alert.setTitle("Tutor Helper");
 					alert.setCancelable(false);
-					alert.setMessage("Lesson Request has sent successfully..!");
+					alert.setMessage("Lesson request has been sent successfully..!");
 					alert.setPositiveButton("ok",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface arg0,

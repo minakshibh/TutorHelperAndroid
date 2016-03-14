@@ -396,9 +396,13 @@ public class Payment_FulllessonDetialsActivity extends Activity implements
 
 				try {
 
+					if(Payment_LessonsDetailsActivity.arraylist_studentlist
+							.get(k).getStudentfee()!=null)
+					{
 					fees = Integer
 							.parseInt(Payment_LessonsDetailsActivity.arraylist_studentlist
 									.get(k).getStudentfee());
+					}
 					totalfess = totalfess + fees;
 					System.err.println(totalfess);
 				} catch (Exception e) {

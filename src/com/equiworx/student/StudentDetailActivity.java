@@ -115,15 +115,16 @@ protected void onCreate(Bundle savedInstanceState) {
 		try{
 		
 			if (getIntent().getStringExtra("isActiveInMonth").equalsIgnoreCase("0")) {
-				enable_layout.setVisibility(View.VISIBLE);
-				name.setTextColor(Color.parseColor("#000000"));
-				studentid.setTextColor(Color.parseColor("#000000"));
-			}
-			else{
-			
+				
 				name.setTextColor(Color.parseColor("#54c5d5"));
 				enable_layout.setVisibility(View.GONE);
 				studentid.setTextColor(Color.parseColor("#54c5d5"));
+			}
+			else{
+			
+				enable_layout.setVisibility(View.VISIBLE);
+				name.setTextColor(Color.parseColor("#000000"));
+				studentid.setTextColor(Color.parseColor("#000000"));
 			}
 		}
 		catch(Exception e)

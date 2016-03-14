@@ -24,7 +24,7 @@
             android:id="@+id/topLayout"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_below="@+id/headerLayout"
+           
             android:layout_marginTop="10dp"
             android:layout_weight=".3"
             android:orientation="horizontal" >

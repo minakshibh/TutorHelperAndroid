@@ -66,12 +66,11 @@ public class MyConnectionActivity extends Activity implements
 					int position, long arg3) {
 				array_studentIDs.clear();
 				tutor = tutorList.get(position);
-				Intent intent = new Intent(MyConnectionActivity.this,
-						TutorDetailActivity.class);
+				Intent intent = new Intent(MyConnectionActivity.this,TutorDetailActivity.class);
 				intent.putExtra("name", tutor.getName());
 				intent.putExtra("email", tutor.getEmail());
 				intent.putExtra("address", tutor.getAddress());
-				intent.putExtra("phone", tutor.getAltContactNumber());
+				intent.putExtra("phone", tutor.getContactNumber());
 				intent.putExtra("notes", tutor.getNotes());
 				intent.putExtra("tutorid", tutor.getTutorId());
 				System.err.println("students=" + tutor.getStudent().size());
@@ -81,7 +80,7 @@ public class MyConnectionActivity extends Activity implements
 					array_studentIDs.add(tutor.getStudent().get(i)
 							.getStudentid());
 				}
-
+				intent.putExtra("nostudent", ""+array_studentIDs.size());
 				startActivity(intent);
 
 			}

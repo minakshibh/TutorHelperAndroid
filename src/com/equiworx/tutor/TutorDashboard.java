@@ -395,8 +395,7 @@ public class TutorDashboard extends FragmentActivity implements
 				startActivity(intent);
 				menuLayoutGone();
 			} else if (v == myconnections_layouts | v == tuterList) {
-				Intent intent = new Intent(TutorDashboard.this,
-						ParentListActivity.class);
+				Intent intent = new Intent(TutorDashboard.this,ParentListActivity.class);
 				Editor editor = tutorPrefs.edit();
 				editor.putString("ptitle", "My Connections");
 				editor.commit();

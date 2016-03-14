@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
@@ -31,6 +32,7 @@ import com.equiworx.model.Lesson_Booked;
 import com.equiworx.tutorhelper.R;
 import com.equiworx.util.TutorHelperParser;
 import com.equiworx.util.Util;
+import com.lowagie.text.RtfElementInterface;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
@@ -42,6 +44,7 @@ public class TutorCalenderView extends FragmentActivity implements
 	private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 	private ArrayList<String> value = new ArrayList<String>();
 	private ImageView back;
+	private RelativeLayout back_layout;
 	private ArrayList<Lesson_Booked> array_lessonbooked = new ArrayList<Lesson_Booked>();
 	private int timeslot = 0;
 	private TextView title;
@@ -70,12 +73,21 @@ public class TutorCalenderView extends FragmentActivity implements
 				finish();
 			}
 		});
+		back_layout.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 	}
 
 	private void initializelayout() {
 		title = (TextView) findViewById(R.id.title);
-		title.setText("Tutors Calendar");
+		title.setText("Tutor's Calendar");
 		back = (ImageView) findViewById(R.id.back);
+		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
 	}
 
 	private void calenderInitialize() {

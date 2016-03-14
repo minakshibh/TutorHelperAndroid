@@ -25,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -39,6 +40,7 @@ public class StudentHistoryActivity extends Activity implements
 	private HistoryAdapter adapter;
 	private TutorHelperParser parser;
 	private MyLesson mylesson;
+	private RelativeLayout back_layout;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -57,11 +59,19 @@ public class StudentHistoryActivity extends Activity implements
 		title = (TextView) findViewById(R.id.title);
 		title.setText("Student History");
 		back = (ImageView) findViewById(R.id.back);
+		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
 	}
 
 	private void onclickListenser() {
 
 		back.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+
+				finish();
+
+			}
+		});
+		back_layout.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 
 				finish();
