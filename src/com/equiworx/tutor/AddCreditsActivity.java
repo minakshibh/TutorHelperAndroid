@@ -133,7 +133,7 @@ public class AddCreditsActivity extends Activity implements
 					remark = remarks.getText().toString();
 					en_remark = URLEncoder.encode(remark, "utf-8");
 					encode_payment = URLEncoder.encode(payment, "utf-8");
-					Log.d("", "encode_payment" + encode_payment);
+					Log.d("", "encode_payment" + encode_payment +en_remark);
 					Log.d("", "encode_payment" + encode_payment);
 					Log.d("", "encode_payment" + encode_payment);
 					System.out.print("fkhdsfpayment no" + encode_payment);
@@ -148,7 +148,7 @@ public class AddCreditsActivity extends Activity implements
 						nameValuePairs.add(new BasicNameValuePair("amount",
 								encode_payment));
 						nameValuePairs.add(new BasicNameValuePair("remarks",
-								en_remark));
+								remark));
 					} else if (makepayment.equalsIgnoreCase("PayFees")) {
 
 						nameValuePairs = new ArrayList<NameValuePair>();
@@ -161,7 +161,7 @@ public class AddCreditsActivity extends Activity implements
 						nameValuePairs.add(new BasicNameValuePair("amount",
 								encode_payment));
 						nameValuePairs.add(new BasicNameValuePair("remarks",
-								en_remark));
+								remark));
 					}
 
 					AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(

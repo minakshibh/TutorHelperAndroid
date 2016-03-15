@@ -146,37 +146,48 @@ public class NewsFeedActivity extends Activity implements
 			}
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Calendar cal = Calendar.getInstance();
-			System.out.println(dateFormat.format(cal.getTime()));
+			//System.out.println(dateFormat.format(cal.getTime()));
 			String getcuurentdate=dateFormat.format(cal.getTime());
 
 			newfeed = parentList.get(position);
 			TextView message_date = (TextView) convertView.findViewById(R.id.message_date);
 
-			TextView message_name = (TextView) convertView.findViewById(R.id.message_name);
+			final TextView message_name = (TextView) convertView.findViewById(R.id.message_name);
 			message_name.setMovementMethod(new ScrollingMovementMethod());
 			message_name.setText(newfeed.getMessage());
 			
 			String getDate=newfeed.getLast_updated();
-			System.err.println("Date="+getDate);
+			//System.err.println("Date="+getDate);
 			
 			try {
 				String[] parts = getDate.split(" ");
-				 part1 = parts[0]; // 004
-				 part2 = parts[1]; 
-				System.out.println(part2);
-				System.out.println(part1);
+				 part1 = parts[0]; // date
+				 part2 = parts[1]; //time
+				
+				//System.out.println(part1);
+				//System.out.println(part2);
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
 			
-		if (getcuurentdate.equalsIgnoreCase(getDate)) {
+			//System.out.println("cu="+getcuurentdate);
+			//System.out.println("get="+part1);
+		if (getcuurentdate.equalsIgnoreCase(part1)) {
 			
 			message_date.setText(part2);
 		}else{
 			
 		   message_date.setText(part1);
 		}
+		message_name.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				message_name.setMaxLines(Integer.MAX_VALUE);
+			}
+		});
 			return convertView;
 		}
 

@@ -107,7 +107,7 @@ public class MyStudentActivity extends Activity implements AsyncResponseForTutor
 	public class StudentAdapter extends BaseAdapter
 	{			
 		private Context context;
-		private TextView tv_name, tv_email,tv_note,tv_contactno,id,lbl_id;
+		private TextView tv_name, tv_email,tv_note,tv_contactno,id,lbl_id,student_fees_text,outstandingBalnce;
 		private ImageView img_edit;
 		private StudentList studentlist;
 		
@@ -146,8 +146,14 @@ public class MyStudentActivity extends Activity implements AsyncResponseForTutor
 			
 			id = (TextView)convertView.findViewById(R.id.id);
 			lbl_id= (TextView)convertView.findViewById(R.id.lbl_id);
-			lbl_id.setVisibility(View.VISIBLE);
-			id.setVisibility(View.VISIBLE);
+			lbl_id.setVisibility(View.GONE);
+			id.setVisibility(View.GONE);
+			
+			student_fees_text =(TextView)convertView.findViewById(R.id.student_fees_text);
+			student_fees_text.setVisibility(View.VISIBLE);
+			outstandingBalnce=(TextView)convertView.findViewById(R.id.outstandingBalnce);
+			outstandingBalnce.setVisibility(View.VISIBLE);
+			
 			tv_name = (TextView)convertView.findViewById(R.id.studentname);
 			tv_email = (TextView)convertView.findViewById(R.id.Email);
 			tv_note = (TextView)convertView.findViewById(R.id.Notes);
@@ -158,7 +164,15 @@ public class MyStudentActivity extends Activity implements AsyncResponseForTutor
 			tv_contactno.setText(": "+studentlist.getContactInfo());
 			tv_email.setText(": "+studentlist.getEmail());
 			tv_note.setText(": "+studentlist.getAddress());
-			tv_name.setText(studentlist.getName());
+			tv_name.setText(studentlist.getName()+"("+studentlist.getStudentId()+")");
+			if(studentlist.getFees()==null | studentlist.getFees().equalsIgnoreCase("null"))
+			{
+				
+				outstandingBalnce.setText(": $"+"0");
+				}
+			else{
+				outstandingBalnce.setText(": $"+studentlist.getFees());
+			}
 			
 			img_edit.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {

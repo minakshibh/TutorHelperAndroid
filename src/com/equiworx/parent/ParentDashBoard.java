@@ -5,11 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -181,6 +180,14 @@ public class ParentDashBoard extends FragmentActivity implements
 		t.replace(R.id.calendar1, caldroidFragment);
 		t.commit();
 		// selectdates();
+		SharedPreferences tutorPassword = getSharedPreferences("tutorPassword", MODE_PRIVATE);
+		if(tutorPassword.getString("firstPassword", "").equals(""))
+		{
+			changePasswordPrompt();
+			Editor editor=tutorPassword.edit();
+			editor.putString("firstPassword", "12345");
+			editor.commit();
+			}
 		getbasicDetail();
 	}
 
@@ -563,6 +570,26 @@ public class ParentDashBoard extends FragmentActivity implements
 		super.onResume();
 		System.err.println("onresume");
 		getbasicDetail();
+	}
+	private void changePasswordPrompt()
+	{
+		AlertDialog.Builder alert = new AlertDialog.Builder(ParentDashBoard.this);
+		alert.setTitle("Tutor Helper");
+		alert.setCancelable(false);
+		alert.setMessage("Do you want to change password ?");
+		alert.setPositiveButton("Yes",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface arg0,
+							int arg1) {
+						
+						Intent intent=new Intent(ParentDashBoard.this,MyProfileActivity.class);
+						startActivity(intent);
+						
+						}
+					
+				});
+		alert.setNegativeButton("No",null);
+		alert.show();
 	}
 }
 // 8.

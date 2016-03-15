@@ -1,6 +1,7 @@
 package com.equiworx.asynctasks;
 
 
+import java.security.Principal;
 import java.util.ArrayList;
 
 import org.apache.http.NameValuePair;
@@ -34,13 +35,21 @@ public class AsyncTaskForTutorHelper extends AsyncTask<String, Void, String> {
 	protected void onPreExecute() {
 		// TODO Auto-generated method stub
 		super.onPreExecute();
-
+		
 		if(displayProgress){
-			pDialog = new ProgressDialog(activity);
-			pDialog.setTitle("Tutor Helper");
-			pDialog.setMessage(message);
-			pDialog.setCancelable(false);
-			pDialog.show();
+			try{
+				pDialog = new ProgressDialog(activity);
+				pDialog.setTitle("Tutor Helper");
+				pDialog.setMessage(message);
+				pDialog.setCancelable(false);
+				
+				pDialog.show();
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				
+			}
 		}
 	}
 
@@ -55,7 +64,12 @@ public class AsyncTaskForTutorHelper extends AsyncTask<String, Void, String> {
 		// TODO Auto-generated method stub
 		super.onPostExecute(result);
 		if(displayProgress)
+			try{
 			pDialog.dismiss();
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
 		
 		Log.e(methodName,result);
 		delegate.processFinish(result, methodName);

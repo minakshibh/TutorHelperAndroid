@@ -2217,7 +2217,7 @@ public class AddLessonActivity extends Activity implements
 							AddLessonActivity.this);
 					alert.setTitle("Tutor Helper");
 					alert.setCancelable(false);
-					alert.setMessage("Lesson request has been sent successfully..!");
+					alert.setMessage("Your Lesson added successfully.");
 					alert.setPositiveButton("ok",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface arg0,

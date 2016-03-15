@@ -77,11 +77,9 @@ public class ParentDetailActivity extends Activity implements
 		layout_history.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				Intent intetn = new Intent(ParentDetailActivity.this,
-						MakePayment_SelectParentActivity.class);
-				intetn.putExtra("parentId",
-						tutorPrefs.getString("p_parentId", "0"));
-				startActivity(intetn);
+				Intent intent = new Intent(ParentDetailActivity.this,MakePayment_SelectParentActivity.class);
+				intent.putExtra("parentId",tutorPrefs.getString("p_parentId", "0"));
+				startActivity(intent);
 			}
 		});
 		txt_contactno.setOnClickListener(new View.OnClickListener() {

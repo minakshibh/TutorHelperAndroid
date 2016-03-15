@@ -24,6 +24,7 @@ import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
 import com.equiworx.model.Connection;
 import com.equiworx.model.StudentRequest;
+import com.equiworx.student.StudentRequestActivity;
 import com.equiworx.tutorhelper.R;
 import com.equiworx.util.TutorHelperParser;
 import com.equiworx.util.Util;
@@ -232,7 +233,7 @@ public class ConnectionRequests extends Activity implements
 				String jsonmessage = jsonChildNode.getString("message")
 						.toString();
 				if (result.equalsIgnoreCase("0")) {
-					Log.e("lesson request", output);
+					/*Log.e("lesson request", output);
 
 					AlertDialog.Builder alert = new AlertDialog.Builder(
 							ConnectionRequests.this);
@@ -243,14 +244,14 @@ public class ConnectionRequests extends Activity implements
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface arg0,
-										int arg1) {
+										int arg1) {*/
 
 									if(message.equalsIgnoreCase("Request approved successfully"))
 										{
 											AlertDialog.Builder alert = new AlertDialog.Builder(
 													ConnectionRequests.this);
 											alert.setTitle("Tutor Helper");
-											alert.setMessage("Congrats!!! Your connection process completed,Now approved student requests");
+											alert.setMessage("Your connection request approved successfully,Now please approve corresponding student requests.");
 											alert.setCancelable(false);
 											alert.setPositiveButton("ok",
 													new DialogInterface.OnClickListener() {
@@ -258,7 +259,7 @@ public class ConnectionRequests extends Activity implements
 														public void onClick(DialogInterface arg0,
 																int arg1) {
 											
-														Intent intent=new Intent(ConnectionRequests.this,StudentRequest.class);
+														Intent intent=new Intent(ConnectionRequests.this,StudentRequestActivity.class);
 														startActivity(intent);
 														finish();
 															
@@ -268,11 +269,26 @@ public class ConnectionRequests extends Activity implements
 										}
 									else{
 									
-										finish();
+										AlertDialog.Builder alert = new AlertDialog.Builder(
+												ConnectionRequests.this);
+										alert.setTitle("Tutor Helper");
+										alert.setMessage("Your connection request rejected successfully.");
+										alert.setCancelable(false);
+										alert.setPositiveButton("ok",
+												new DialogInterface.OnClickListener() {
+													@Override
+													public void onClick(DialogInterface arg0,
+															int arg1) {
+										
+														finish();
+														
+													}
+												});
+										alert.show();
 									}
-								}
+							/*	}
 							});
-					alert.show();
+					alert.show();*/
 				} else {
 					Util.alertMessage(ConnectionRequests.this, jsonmessage);
 				}

@@ -16,7 +16,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -584,8 +583,6 @@ protected void onResume() {
 
 		public int getCount() {
 			// TODO Auto-generated method stub
-			Log.d("", "sizexxx" + parentList.size());
-
 			return parentList.size();
 		}
 
@@ -668,7 +665,7 @@ protected void onResume() {
 
 		public int getCount() {
 			// TODO Auto-generated method stub
-			Log.d("", "sizexxx" + parentList.size());
+		
 
 			return parentList.size();
 		}

@@ -55,14 +55,12 @@ public class MakePayment_SelectParentActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_history_details);
-		setUI();
-		getParentId();
+		
+		
+		
 	}
 
-	private void getParentId() {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 	private void setUI() {
 		// TODO Auto-generated method stub
@@ -118,7 +116,12 @@ public class MakePayment_SelectParentActivity extends Activity implements
 			}
 		});
 	}
-
+@Override
+protected void onResume() {
+	// TODO Auto-generated method stub
+	super.onResume();
+	setUI();
+}
 	private void getTutorDetails(Boolean value) {
 
 		if (Util.isNetworkAvailable(MakePayment_SelectParentActivity.this)) {

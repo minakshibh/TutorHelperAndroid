@@ -258,7 +258,7 @@ public class LessonRequestActivity extends Activity implements
 			}
 			studentname_new.setText("Date");
 			TextView studentnames = (TextView) convertView.findViewById(R.id.studentnames);
-			studentnames.setText(": " + lesson.getLessonDate() + " - "+ lesson.getEnddate());
+			studentnames.setText(":" + lesson.getLessonDate() + "-"+ lesson.getEnddate());
 
 			approve.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
@@ -282,7 +282,7 @@ public class LessonRequestActivity extends Activity implements
 			});
 			reject.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
-					message = "Request reject successfully";
+					message = "Request rejected successfully";
 					ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 					nameValuePairs.add(new BasicNameValuePair("request_id",	arraylist_lesson.get(position).getRequestId()));
 					nameValuePairs.add(new BasicNameValuePair("trigger",str_trigger));
@@ -395,7 +395,7 @@ public class LessonRequestActivity extends Activity implements
 					Log.e("lesson request", output);
 					AlertDialog.Builder alert = new AlertDialog.Builder(LessonRequestActivity.this);
 					alert.setTitle("Tutor Helper");
-					alert.setMessage(message);
+					alert.setMessage("Your lesson "+message);
 					alert.setCancelable(false);
 					alert.setPositiveButton("ok",new DialogInterface.OnClickListener() {
 								@Override
