@@ -96,7 +96,7 @@ protected void onCreate(Bundle savedInstanceState) {
 		}
 		studentid.setText("Student Id :"+getIntent().getStringExtra("studentid"));
 		try{
-			if(getIntent().getStringExtra("parentid")==null | getIntent().getStringExtra("notes").equalsIgnoreCase("null")) 
+			if(getIntent().getStringExtra("parentid")==null | getIntent().getStringExtra("parentid").equalsIgnoreCase("null")) 
 			{
 				parentame.setText("");
 				
@@ -114,7 +114,7 @@ protected void onCreate(Bundle savedInstanceState) {
 	
 		try{
 		
-			if (getIntent().getStringExtra("isActiveInMonth").equalsIgnoreCase("0")) {
+			if (getIntent().getStringExtra("isActiveInMonth").equalsIgnoreCase("true")) {
 				
 				name.setTextColor(Color.parseColor("#54c5d5"));
 				enable_layout.setVisibility(View.GONE);

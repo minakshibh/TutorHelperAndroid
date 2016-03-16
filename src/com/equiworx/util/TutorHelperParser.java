@@ -1430,6 +1430,11 @@ public class TutorHelperParser {
 						studentList.setAddress(jsonObj11.getString("student_address"));
 						studentList.setStudentfee(jsonObj11.getString("student_fee"));
 						studentList.setContactInfo(jsonObj11.getString("student_contact_info"));
+						
+						studentList.setGender(jsonObj11.getString("gender"));
+						studentList.setIsActiveInMonth(jsonObj11.getString("isactive"));
+						studentList.setNotes(jsonObj11.getString("notes"));
+						studentList.setParentId(jsonObj11.getString("parent_id"));
 						historyPaymentParents1.add(studentList);
 					}
 					myLesson.setStudebtlist(historyPaymentParents1);

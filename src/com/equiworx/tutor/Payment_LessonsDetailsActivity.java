@@ -115,10 +115,11 @@ public class Payment_LessonsDetailsActivity extends Activity implements
 					studentlist.setAddress(mylesson.getStudebtlist().get(i).getAddress());
 					studentlist.setContactInfo(mylesson.getStudebtlist().get(i).getContactInfo());
 					studentlist.setEmail(mylesson.getStudebtlist().get(i).getEmail());
-					// studentlist.setNotes(mylesson.getArray_studentlist().get(i).getNotes());
+					studentlist.setNotes(mylesson.getStudebtlist().get(i).getNotes());
 					studentlist.setStudentfee(mylesson.getStudebtlist().get(i).getStudentfee());
-					//studentlist.setIsActiveInMonth(mylesson.getStudebtlist().get(i).getIsActiveInMonth());
-					//System.err.println(mylesson.getStudebtlist().get(i).getIsActiveInMonth()+ " student fee"+mylesson.getArray_studentlist().get(i).getStudentfee());
+					studentlist.setIsActiveInMonth(mylesson.getStudebtlist().get(i).getIsActiveInMonth());
+					studentlist.setParentId(mylesson.getStudebtlist().get(i).getParentId());
+					System.err.println("month=="+mylesson.getStudebtlist().get(i).getIsActiveInMonth());
 					arraylist_studentlist.add(studentlist);
 				}
 				startActivity(intent);
@@ -139,7 +140,7 @@ public class Payment_LessonsDetailsActivity extends Activity implements
 			// BasicNameValuePair("parent_id",tutorPrefs.getString("tutorpass",
 			// "")));
 
-			Log.e("get lesson detail", nameValuePairs.toString());// /get-lesson-detail.php
+			Log.e("get-lesson-detail-month", nameValuePairs.toString());// 
 			AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(
 					Payment_LessonsDetailsActivity.this,
 					"get-lesson-detail-month", nameValuePairs, true,
