@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -475,6 +476,7 @@ protected void onResume() {
 			nameValuePairs.add(new BasicNameValuePair("parent_id", ""));
 			nameValuePairs.add(new BasicNameValuePair("trigger", "ByMonth"));
 
+			Log.e("fetch-payment-history", nameValuePairs.toString());
 			AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(
 					HistoryDetails.this, "fetch-payment-history",
 					nameValuePairs, true, "Please wait...");

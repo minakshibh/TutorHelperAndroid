@@ -165,7 +165,7 @@ public class Payment_LessonsDetailsActivity extends Activity implements
 			arrayLesson = arraylist_mylesson;
 		}
 
-		public int getCount() {
+		public int getCount() {             
 			// TODO Auto-generated method stub
 			return arrayLesson.size();
 		}
@@ -176,7 +176,7 @@ public class Payment_LessonsDetailsActivity extends Activity implements
 		}
 
 		public long getItemId(int position) {
-			// TODO Auto-generated method stub
+			// TODO Auto-generated method stub0
 			return position;
 		}
 
@@ -184,7 +184,7 @@ public class Payment_LessonsDetailsActivity extends Activity implements
 				ViewGroup parent) {
 			LayoutInflater inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+      
 			if (convertView == null) {
 				convertView = inflater.inflate(
 						R.layout.activity_newpamentlessondetail, parent, false);

@@ -124,7 +124,7 @@ public class ParentListActivity extends Activity implements
 			ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 			nameValuePairs.add(new BasicNameValuePair("last_updated_date", ""));
 			nameValuePairs.add(new BasicNameValuePair("tutor_id", tutorId));
-			Log.e("connection", nameValuePairs.toString());
+			Log.e("fetch-parent", nameValuePairs.toString());
 			AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(
 					ParentListActivity.this, "fetch-parent", nameValuePairs,
 					true, "Please wait...");

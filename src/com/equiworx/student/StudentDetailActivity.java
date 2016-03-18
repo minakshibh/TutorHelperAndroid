@@ -113,8 +113,8 @@ protected void onCreate(Bundle savedInstanceState) {
 		
 	
 		try{
-		
-			if (getIntent().getStringExtra("isActiveInMonth").equalsIgnoreCase("true")) {
+		//true=0;
+			if (getIntent().getStringExtra("isActiveInMonth").equalsIgnoreCase("0")) {
 				
 				name.setTextColor(Color.parseColor("#54c5d5"));
 				enable_layout.setVisibility(View.GONE);

@@ -339,8 +339,7 @@ public class TutorDashboard extends FragmentActivity implements
 	private View.OnClickListener listener = new View.OnClickListener() {
 		public void onClick(View v) {
 			if (v == activeStudentsLayout) {
-				Intent intent = new Intent(TutorDashboard.this,
-						ParentListActivity.class);
+				Intent intent = new Intent(TutorDashboard.this,	ParentListActivity.class);
 				// intent.putExtra("title", "Student Management");
 				Editor editor = tutorPrefs.edit();
 				editor.putString("ptitle", "Student Management");
