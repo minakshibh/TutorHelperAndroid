@@ -462,8 +462,14 @@ public class AddStudent extends Activity implements AsyncResponseForTutorHelper 
 					AlertDialog.Builder alert = new AlertDialog.Builder(
 							AddStudent.this);
 					alert.setTitle("Congrats!!!");
-					alert.setMessage("Your request has been sent. We will notify you as soon as the Parent will approve the same.");
-					alert.setCancelable(false);
+					if(trigger.equalsIgnoreCase("tutor"))
+					{
+						alert.setMessage("Your request has been sent. We will notify you as soon as the Parent will approve the same.");
+						
+					}
+					else{
+						alert.setMessage("New student added successfully.");	
+					}alert.setCancelable(false);
 					alert.setPositiveButton("Ok",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,

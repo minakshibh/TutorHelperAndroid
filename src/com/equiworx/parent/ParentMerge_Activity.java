@@ -227,7 +227,7 @@ public class ParentMerge_Activity extends Activity implements
 				AlertDialog.Builder alert = new AlertDialog.Builder(
 						ParentMerge_Activity.this);
 				alert.setTitle("Tutor Helper");
-				alert.setMessage("Parent ids merge successful..!");
+				alert.setMessage("Parent Ids merge successfully.");
 				alert.setPositiveButton("ok",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface arg0, int arg1) {

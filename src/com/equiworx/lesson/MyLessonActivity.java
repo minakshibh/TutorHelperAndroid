@@ -533,7 +533,7 @@ public void processFinish(String output, String methodName) {
 				AlertDialog.Builder alert = new AlertDialog.Builder(MyLessonActivity.this);
 				alert.setTitle("Tutor Helper");
 				alert.setCancelable(false);
-				alert.setMessage("cancellation request sent successfully");
+				alert.setMessage("Your request to cancel lesson has been submit successfully.");
 				alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface arg0, int arg1) {

@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -99,25 +100,25 @@ public class InvoiceActivity extends Activity implements
 	public class InvoiceAdapter extends BaseAdapter {
 		private Context context;
 		private TextView monthName, yearname_text, txtInvoiveUrl;
-		private ArrayList<InvoiceModel> parentList = new ArrayList<InvoiceModel>();
+		private ArrayList<InvoiceModel> arrayList = new ArrayList<InvoiceModel>();
 
 		public InvoiceAdapter(Context ctx,
 				ArrayList<InvoiceModel> invoiceArrayList) {
 			context = ctx;
-			this.parentList = invoiceArrayList;
+			this.arrayList = invoiceArrayList;
 		}
 
 		public int getCount() {
 			// TODO Auto-generated method stub
-			Log.d("", "sizexxx" + parentList.size());
+			Log.d("", "sizexxx" + arrayList.size());
 
-			return parentList.size();
+			return arrayList.size();
 		}
 
 		public Object getItem(int position) {
 			// TODO Auto-generated method st
 
-			return parentList.get(position);
+			return arrayList.get(position);
 		}
 
 		public long getItemId(int position) {
@@ -134,21 +135,50 @@ public class InvoiceActivity extends Activity implements
 				convertView = inflater.inflate(
 						R.layout.template_invoice_details, group, false);
 			}
+		
+			LinearLayout myLayout = (LinearLayout)convertView.findViewById(R.id.lay_row);
+			/* if (convertView == null) {
+	                if (getItemViewType(position) == 0) {
+	                    convertView = LayoutInflater.from(context).inflate(R.layout.template_item_selected_asset_header, parent, false);
+	                    TextView tv = (TextView) convertView.findViewById(R.id.selected_assets_item_header_textview);
 
-			InvoiceModel ei = parentList.get(position);
+	                    sectionHolder = new SectionHolder(tv);
+	                    convertView.setTag(sectionHolder);
+	                }
+	                else {
+	                    convertView = LayoutInflater.from(context).inflate(R.layout.template_item_selected_asset, parent, false);
+	                    TextView tv1 = (TextView) convertView.findViewById(R.id.selected_assets_item_cell_textview1);
+	                    TextView tv2 = (TextView) convertView.findViewById(R.id.selected_assets_item_cell_textview2);
 
-			monthName = (TextView) convertView.findViewById(R.id.txtMonthName);
-			yearname_text = (TextView) convertView
-					.findViewById(R.id.yearname_text);
-			txtInvoiveUrl = (TextView) convertView
-					.findViewById(R.id.txtInvoiveUrl);
+	                    rowHolder = new RowHolder(tv1, tv2);
+	                    convertView.setTag(rowHolder);
+	                }
+	            }*/
+			InvoiceModel invoiceModel = arrayList.get(position);
 
-			yearname_text.setText(ei.getYearName());
-			monthName.setText(ei.getMonthName());
-			txtInvoiveUrl.setText(ei.getInvoiceUrl());
+			
+			yearname_text = (TextView) convertView.findViewById(R.id.yearname_text);
+		   yearname_text.setText(invoiceModel.getYearName());
+			System.err.println("size="+invoiceModel.getArrayList().size());
+			for(int i=0;i<invoiceModel.getArrayList().size();i++)
+			{
+				
+                View hiddenInfo = getLayoutInflater().inflate(R.layout.row_invoicemonth, myLayout, false);
+                monthName = (TextView)hiddenInfo.findViewById(R.id.txtMonthName);
+            	txtInvoiveUrl = (TextView)hiddenInfo.findViewById(R.id.txtInvoiveUrl);
+				monthName.setText(invoiceModel.getArrayList().get(i).getMonth());
+				txtInvoiveUrl.setText(invoiceModel.getArrayList().get(i).getInvoicelink());
+				myLayout.addView(hiddenInfo);
+				}
+			
 
 			return convertView;
+			
 		}
 
 	}
 }
+/*TextView tv = new TextView(InvoiceActivity.this);
+tv.setText(invoiceModel.getArrayList().get(i).getMonth());
+tv.setPadding(10, 10, 10, 10);
+tv.setTextSize(20);*/

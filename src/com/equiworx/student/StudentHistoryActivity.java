@@ -166,7 +166,11 @@ public class StudentHistoryActivity extends Activity implements
 			// time.setVisibility(View.GONE);
 			Button cancel = (Button) convertView.findViewById(R.id.cancel);
 			cancel.setVisibility(View.GONE);
-
+			TextView txtNoOfStudent  = (TextView) convertView.findViewById(R.id.txtNoOfStudent);
+			TextView studentname_new = (TextView) convertView.findViewById(R.id.studentname_new);
+			studentname_new.setVisibility(View.GONE);
+		
+			txtNoOfStudent.setText("Date");
 			TextView name = (TextView) convertView.findViewById(R.id.name);
 			TextView description = (TextView) convertView
 					.findViewById(R.id.description);
@@ -185,7 +189,7 @@ public class StudentHistoryActivity extends Activity implements
 			name.setText(adapter_MyLesson.getTutor_name()
 					+ " has send you lesson request for ");
 			name.setVisibility(View.GONE);
-			description.setText("Description  : "
+			description.setText(": "
 					+ adapter_MyLesson.getLessonDescription());
 			description.setMaxLines(1);
 			// fees.setText("Fees : "+myLesson.getFees());
@@ -240,8 +244,8 @@ public class StudentHistoryActivity extends Activity implements
 			}
 			TextView duration = (TextView) convertView
 					.findViewById(R.id.duration);
-			duration.setText("Duration : " + adapter_MyLesson.getDuration());
-			time.setText("Date : " + adapter_MyLesson.getLessonDate() + " - "
+			duration.setText(": " + adapter_MyLesson.getDuration());
+			time.setText(":" + adapter_MyLesson.getLessonDate() + "-"
 					+ adapter_MyLesson.getLessonenddate());
 
 			return convertView;

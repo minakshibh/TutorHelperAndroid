@@ -369,7 +369,7 @@ public class ParentDetailActivity extends Activity implements
 					editor.commit();
 					
 					Util.alertMessage(ParentDetailActivity.this,
-							"Notes update successfully");
+							"Your note updated successfully.");
 				} else {
 					Util.alertMessage(ParentDetailActivity.this, message);
 				}

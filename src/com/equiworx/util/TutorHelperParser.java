@@ -19,6 +19,7 @@ import com.equiworx.model.Connection;
 import com.equiworx.model.DialogC;
 import com.equiworx.model.FeeDetail;
 import com.equiworx.model.FeesDetail;
+import com.equiworx.model.InvoiceDetail;
 import com.equiworx.model.InvoiceModel;
 import com.equiworx.model.Lesson;
 import com.equiworx.model.LessonDetails;
@@ -1694,7 +1695,7 @@ public class TutorHelperParser {
 			message= jsonChildNode.getString("message").toString();
 		
 			if (result.equals("0")) {
-				
+				ArrayList<InvoiceDetail> arrayList = new ArrayList<InvoiceDetail>();
 				JSONArray jsonArrayInvoices = new JSONArray(jsonChildNode.getString("invoices"));
 		        
 				for (int i = 0; i < jsonArrayInvoices.length(); i++) {
@@ -1703,15 +1704,18 @@ public class TutorHelperParser {
 					JSONObject jsonObj1 = jsonArrayInvoices.getJSONObject(i);
 					invoice.setYearName(jsonObj1.getString("year").toString());
 					JSONArray jsonArraymonths = new JSONArray(jsonObj1.getString("months"));
-			        
+					arrayList.clear();
 					for (int j = 0; j < jsonArraymonths.length(); j++) {
-						JSONObject jsonObj2 = jsonArraymonths.getJSONObject(j);
-						invoice.setMonthName(jsonObj2.getString("month").toString());
-						invoice.setInvoiceUrl(jsonObj2.getString("invoicelink").toString());
-						}
-				
-					
 										
+						JSONObject jsonObj2 = jsonArraymonths.getJSONObject(j);
+						
+						InvoiceDetail invoiceDetail=new InvoiceDetail();
+						invoiceDetail.setMonth(jsonObj2.getString("month").toString());
+						invoiceDetail.setInvoicelink(jsonObj2.getString("invoicelink").toString());
+						arrayList.add(invoiceDetail);
+						}
+					invoice.setArrayList(arrayList);
+					
 					getbasicdetailStatement.add(invoice);
 				}
 			}

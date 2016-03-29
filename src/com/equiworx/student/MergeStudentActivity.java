@@ -121,7 +121,7 @@ public class MergeStudentActivity extends Activity implements
 
 								AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 										MergeStudentActivity.this);
-								alertDialogBuilder.setMessage("Are you sure, you want to merge Students ..?");
+								alertDialogBuilder.setMessage("Are you sure, you want to merge Students ?");
 								alertDialogBuilder.setCancelable(false);
 								alertDialogBuilder.setPositiveButton("Yes",
 										new DialogInterface.OnClickListener() {
@@ -228,7 +228,7 @@ public class MergeStudentActivity extends Activity implements
 			arraylist_student = parser.getStudentlistwithoutNote(output);
 			dbHandler.deleteStudentDetails();
 			dbHandler.updateStudentDetails(arraylist_student);
-			Util.alertMessage(MergeStudentActivity.this, "Merge successful");
+			Util.alertMessage(MergeStudentActivity.this, "Students merge successfully.");
 			finish();
 
 		}

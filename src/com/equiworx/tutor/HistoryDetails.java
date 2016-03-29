@@ -694,7 +694,8 @@ protected void onResume() {
 			}
 			month_layout = (LinearLayout) convertView.findViewById(R.id.month_layout);
 			yearname_layout = (LinearLayout) convertView.findViewById(R.id.yearname_layout);
-			FeesDetail ei = parentList.get(position);yearname_layout.setVisibility(View.GONE);
+			FeesDetail ei = parentList.get(position);
+			yearname_layout.setVisibility(View.GONE);
 			month_layout.setVisibility(View.VISIBLE);
 			outstnding_fess_text= (TextView) convertView.findViewById(R.id.outstnding_fess_text);
 			monthName = (TextView) convertView.findViewById(R.id.studentname);

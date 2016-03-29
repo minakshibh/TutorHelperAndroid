@@ -316,7 +316,7 @@ public class EditStudentActivity extends Activity implements
 			AlertDialog.Builder alert = new AlertDialog.Builder(
 					EditStudentActivity.this);
 			alert.setTitle("Tutor Helper");
-			alert.setMessage("update successfully..!");
+			alert.setMessage("Student edit successfully.");
 			alert.setCancelable(false);
 			alert.setPositiveButton("ok",
 					new DialogInterface.OnClickListener() {
