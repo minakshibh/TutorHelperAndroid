@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+       android:background="@drawable/main_bg"
     android:orientation="vertical" >
 
     <include
         android:id="@+id/headerLayout"
         layout="@layout/header_layout" />
 
-    <ListView
+  <!--   <ListView
         android:id="@+id/invoiceList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,6 +17,11 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="8dp" >
         
-    </ListView>
+    </ListView> -->
+     <ExpandableListView
+        android:id="@+id/invoiceList"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"/>
 
 </LinearLayout>

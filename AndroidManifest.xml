@@ -128,6 +128,8 @@
           android:theme="@android:style/Theme.Holo.Light" android:screenOrientation="portrait"/> 
             <activity android:name="com.equiworx.tutor.InvoiceActivity"   android:windowSoftInputMode="stateHidden" 
           android:theme="@android:style/Theme.Holo.Light" android:screenOrientation="portrait"/>  
+           <activity android:name="com.equiworx.parent.InvoicePDFActivity"
+          android:theme="@android:style/Theme.Holo.Light" android:screenOrientation="portrait"/> 
         <!-- Broadcast receiver -->
         <receiver   android:name=".AlarmManagerBroadcastReceiver"></receiver>
          </application>

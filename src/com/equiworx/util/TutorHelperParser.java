@@ -1695,29 +1695,33 @@ public class TutorHelperParser {
 			message= jsonChildNode.getString("message").toString();
 		
 			if (result.equals("0")) {
-				ArrayList<InvoiceDetail> arrayList = new ArrayList<InvoiceDetail>();
+			
 				JSONArray jsonArrayInvoices = new JSONArray(jsonChildNode.getString("invoices"));
-		        
+				
 				for (int i = 0; i < jsonArrayInvoices.length(); i++) {
 
 					InvoiceModel invoice = new InvoiceModel();
 					JSONObject jsonObj1 = jsonArrayInvoices.getJSONObject(i);
 					invoice.setYearName(jsonObj1.getString("year").toString());
+					System.err.println("year="+jsonObj1.getString("year").toString());
 					JSONArray jsonArraymonths = new JSONArray(jsonObj1.getString("months"));
-					arrayList.clear();
+					ArrayList<InvoiceDetail> arrayList = new ArrayList<InvoiceDetail>();
 					for (int j = 0; j < jsonArraymonths.length(); j++) {
-										
+						 				
 						JSONObject jsonObj2 = jsonArraymonths.getJSONObject(j);
 						
 						InvoiceDetail invoiceDetail=new InvoiceDetail();
+						
+						System.err.println("month="+jsonObj2.getString("month").toString());
 						invoiceDetail.setMonth(jsonObj2.getString("month").toString());
 						invoiceDetail.setInvoicelink(jsonObj2.getString("invoicelink").toString());
 						arrayList.add(invoiceDetail);
+						
 						}
 					invoice.setArrayList(arrayList);
-					
 					getbasicdetailStatement.add(invoice);
 				}
+				
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

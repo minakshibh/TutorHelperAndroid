@@ -3,33 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <RelativeLayout 
+    <LinearLayout 
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_marginTop="5dp" >
+            android:layout_margin="5dp" >
             
         <TextView 
             android:id="@+id/txtMonthName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="4"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_centerInParent="true"
-            android:layout_alignParentLeft="true"
             android:textSize="20sp"
             android:textColor="#000000"
             android:text="Jan"/>
         
         <TextView 
             android:id="@+id/txtInvoiveUrl"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="6"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:layout_marginRight="10dp"
             android:textColor="#000000"
             android:singleLine="true"
-              android:textSize="15sp"
+            android:textSize="15sp"
             android:text="Url"/>
-        </RelativeLayout>
+        </LinearLayout>
 
 </LinearLayout>
