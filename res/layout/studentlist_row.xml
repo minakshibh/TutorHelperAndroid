@@ -3,8 +3,7 @@
     android:id="@+id/student_row"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:layout_marginBottom="4dp"
+    android:layout_margin="5dp"
     android:background="@drawable/listview_bg"
     android:orientation="vertical" >
 

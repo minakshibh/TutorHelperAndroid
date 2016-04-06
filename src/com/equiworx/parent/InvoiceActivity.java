@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-
 import android.app.Activity;
-import android.app.ExpandableListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,10 +16,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
 import com.equiworx.model.InvoiceDetail;
@@ -38,7 +34,6 @@ public class InvoiceActivity extends Activity implements
 	private TutorHelperParser parser;
 	private ArrayList<InvoiceModel> invoiceArrayList;
 	private RelativeLayout back_layout;
-	private boolean setValue=true;
 	private ArrayList<InvoiceDetail> childinvoiceArrayList;
 	private TextView title;
 

@@ -103,27 +103,52 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical" >
 
+                     <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >  
+                    <TextView
+                       
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
                     <TextView
                         android:id="@+id/contactno"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text=":no"
+                        android:text="no"
+                        android:singleLine="true"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
-
+                    </LinearLayout>
+    		<LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >  
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=": "
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
                     <TextView
                         android:id="@+id/email"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="balnce"
+                         android:singleLine="true"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/studentno"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="lession"
+                         android:singleLine="true"
                         android:textColor="@color/black"
                         android:textSize="13sp" />
 
@@ -133,6 +158,7 @@
                         android:layout_height="wrap_content"
                         android:text="balance"
                         android:textColor="@color/black"
+                         android:singleLine="true"
                         android:textSize="13sp" />
 
                     <TextView

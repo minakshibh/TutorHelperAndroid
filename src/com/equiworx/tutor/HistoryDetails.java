@@ -294,8 +294,7 @@ protected void onResume() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				 popup = new PopupMenu(HistoryDetails.this,
-						menu_button);
+				 popup = new PopupMenu(HistoryDetails.this,menu_button);
 				// Inflating the Popup using xml file
 				popup.getMenuInflater().inflate(R.menu.chat_list_item_popup,
 						popup.getMenu());
@@ -306,8 +305,8 @@ protected void onResume() {
 
 						if (item.getTitle().equals("Filters")) {
 
-							final CharSequence[] items = { "Outstanding balance >0 " };
-
+							final CharSequence[] items = { "Outstanding balance >0" };
+							
 							// Creating and Building the Dialog
 							AlertDialog.Builder builder = new AlertDialog.Builder(
 									HistoryDetails.this);
