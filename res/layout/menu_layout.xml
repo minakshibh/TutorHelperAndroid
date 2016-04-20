@@ -202,12 +202,24 @@
                             android:textSize="13sp" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/user_menuud3"
+                   <LinearLayout
+                      
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".20"
-                        android:orientation="horizontal" >
+                        android:orientation="vertical" >
+                         <TextView
+                            android:id="@+id/connectionRequests_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:layout_gravity="center|end"
+                            android:gravity="end"
+                            android:padding="3dp"
+                            android:text="11"
+                            android:background="@drawable/notification_redicon"
+                            android:textColor="#ffffff"
+                            android:textSize="10sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -228,7 +240,7 @@
                         android:orientation="horizontal" >
 
                         <ImageView
-                            android:id="@+id/_img"
+                           
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -262,7 +274,19 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".20"
-                        android:orientation="horizontal" >
+                        android:orientation="vertical" >
+                         <TextView
+                            android:id="@+id/studentRequests_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:layout_gravity="center|end"
+                            android:gravity="end"
+                            android:padding="3dp"
+                            android:text="11"
+                            android:background="@drawable/notification_redicon"
+                            android:textColor="#ffffff"
+                            android:textSize="10sp" />
                     </LinearLayout>
                 </LinearLayout>
 <LinearLayout
@@ -275,14 +299,14 @@
                     android:orientation="horizontal" >
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                       
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".15"
                         android:orientation="horizontal" >
 
                         <ImageView
-                            android:id="@+id/_img"
+                         
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -294,7 +318,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                      
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".65"
@@ -312,11 +336,23 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                     
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".2"
-                        android:orientation="horizontal" >
+                        android:orientation="vertical" >
+                          <TextView
+                            android:id="@+id/can_request_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:layout_gravity="center|end"
+                            android:gravity="end"
+                            android:padding="3dp"
+                            android:text="11"
+                            android:background="@drawable/notification_redicon"
+                            android:textColor="#ffffff"
+                            android:textSize="10sp" />
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -336,7 +372,7 @@
                         android:orientation="horizontal" >
 
                         <ImageView
-                            android:id="@+id/_img"
+                         
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -365,12 +401,24 @@
                             android:textSize="13sp" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/user_menuu"
+                   <LinearLayout
+                     
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight=".20"
-                        android:orientation="horizontal" >
+                        android:layout_weight=".2"
+                        android:orientation="vertical" >
+                          <TextView
+                            android:id="@+id/lessonRequests_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:layout_gravity="center|end"
+                            android:gravity="end"
+                            android:padding="3dp"
+                            android:text="11"
+                            android:background="@drawable/notification_redicon"
+                            android:textColor="#ffffff"
+                            android:textSize="10sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -384,14 +432,14 @@
                     android:orientation="horizontal" >
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                       
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".15"
                         android:orientation="horizontal" >
 
                         <ImageView
-                            android:id="@+id/_img"
+                          
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -403,7 +451,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                     
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".65"
@@ -421,7 +469,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                       
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".20"
@@ -429,6 +477,67 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                
+                
+              <LinearLayout
+                    android:id="@+id/Pending_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/without_separator_menu"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                      
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".15"
+                        android:orientation="horizontal" >
+
+                        <ImageView
+                         
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/news_menu"
+                            android:contentDescription="@null"
+                            android:textColor="#ffffff"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                       
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".65"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/pending_Text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:focusable="false"
+                            android:gravity="center_vertical"
+                            android:text="Pending Request"
+                            android:textColor="#ffffff"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                    
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".20"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </LinearLayout>
+                
+                       
+                       
+                
                 <LinearLayout
                     android:id="@+id/myacount_layout"
                     android:layout_width="match_parent"
@@ -508,14 +617,14 @@
                     android:orientation="horizontal" >
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                       
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".15"
                         android:orientation="horizontal" >
 
                         <ImageView
-                            android:id="@+id/_img"
+                           
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -527,7 +636,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                     
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".65"
@@ -545,7 +654,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                      
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".20"
@@ -579,7 +688,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                      
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".65"
@@ -597,7 +706,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                      
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".20"
@@ -723,7 +832,7 @@
                         android:orientation="horizontal" >
 
                         <ImageView
-                            android:id="@+id/_img"
+                          
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -735,7 +844,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                      
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".65"
@@ -753,7 +862,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                       
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".20"
@@ -771,14 +880,14 @@
                     android:orientation="horizontal" >
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                       
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".15"
                         android:orientation="horizontal" >
 
                         <ImageView
-                            android:id="@+id/_img"
+                          
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -790,7 +899,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                      
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".65"
@@ -808,7 +917,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                     
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".20"
@@ -831,14 +940,14 @@
                     android:visibility="visible" >
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                      
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".15"
                         android:orientation="horizontal" >
 
                         <ImageView
-                            android:id="@+id/_img"
+                           
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -850,7 +959,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                      
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".65"
@@ -869,7 +978,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                      
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".20"
@@ -888,14 +997,14 @@
                     android:visibility="gone" >
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                       
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".15"
                         android:orientation="horizontal" >
 
                         <ImageView
-                            android:id="@+id/_img"
+                          
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -944,14 +1053,14 @@
                     android:orientation="horizontal" >
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                    
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".15"
                         android:orientation="horizontal" >
 
                         <ImageView
-                            android:id="@+id/_img"
+                           
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -963,7 +1072,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                       
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".65"
@@ -981,7 +1090,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/user_menuu"
+                        
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight=".20"

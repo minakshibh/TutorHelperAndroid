@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class ConnectionRequests extends Activity implements
 	private TutorHelperParser parser;
 	private RelativeLayout back_layout;
 	private TextView title;
+	private SharedPreferences tutorPrefs;
 
 	private String parentId, trigger, message = "";
 
@@ -65,7 +67,7 @@ public class ConnectionRequests extends Activity implements
 	}
 
 	private void fetchlConnectionList() {
-
+		tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
 		parser = new TutorHelperParser(ConnectionRequests.this);
 		connection_listview = (ListView) findViewById(R.id.list_request);
 
@@ -73,13 +75,20 @@ public class ConnectionRequests extends Activity implements
 			/*
 			 * ParentId/TutorId Trigger -- Parent/Tutor
 			 */
-			parentId = getIntent().getStringExtra("parentID");
+			
 			trigger = getIntent().getStringExtra("trigger");
 
+			if(trigger.equalsIgnoreCase("Tutor"))
+			{
+				parentId = tutorPrefs.getString("tutorID","");
+			}
+			else{
+				parentId = tutorPrefs.getString("parentID","");
+			}
 			ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 			nameValuePairs.add(new BasicNameValuePair("parent_id", parentId));
 			nameValuePairs.add(new BasicNameValuePair("trigger", trigger));
-			Log.e("connection", nameValuePairs.toString());
+			Log.e("fetch-connection-request", nameValuePairs.toString());
 			AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(
 					ConnectionRequests.this, "fetch-connection-request",
 					nameValuePairs, true, "Please wait...");
@@ -130,15 +139,26 @@ public class ConnectionRequests extends Activity implements
 
 			tv_name = (TextView) convertView.findViewById(R.id.name);
 			tv_id = (TextView) convertView.findViewById(R.id.id);
-			iv_connect = (Button) convertView
-					.findViewById(R.id.imageView_connect);
-			iv_connect.setText("CONNECT");
-			iv_reject = (Button) convertView
-					.findViewById(R.id.imageView_reject);
+			iv_connect = (Button) convertView.findViewById(R.id.imageView_connect);
+			iv_reject = (Button) convertView.findViewById(R.id.imageView_reject);
+			if(trigger.equalsIgnoreCase("tutor"))
+			{
+				iv_connect.setVisibility(View.INVISIBLE);
+				iv_reject.setText("RESEND");
+				tv_id.setText("Parent ID : " + connection.getParentId());
+			}
+			else{
+				iv_connect.setVisibility(View.VISIBLE);	
+				iv_connect.setText("CONNECT");
+				tv_id.setText("Tuter ID : " + connection.getTutorId());
+			}
+			
+			
 
-			tv_id.setText("Tuter ID : " + connection.getTutorId());
+		
 			tv_name.setText(connection.getParentName()
 					+ " has sent you a connection request.");
+			
 			iv_connect.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
@@ -165,30 +185,51 @@ public class ConnectionRequests extends Activity implements
 					}
 				}
 			});
+			
 			iv_reject.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					if (Util.isNetworkAvailable(ConnectionRequests.this)) {
-						/*
-						 * ParentId/TutorId Trigger -- Parent/Tutor
-						 */
-						message = "Request rejected successfully";
-						ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-						nameValuePairs.add(new BasicNameValuePair("request_id",array_connection.get(position).getRequestId()));
-						nameValuePairs.add(new BasicNameValuePair("status",
-								"Rejected"));
-						Log.e("approve", nameValuePairs.toString());
-						AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(
-								ConnectionRequests.this,
-								"approve-connection-request", nameValuePairs,
-								true, "Please wait...");
-						mLogin.delegate = (AsyncResponseForTutorHelper) ConnectionRequests.this;
-						mLogin.execute();
-					} else {
-						Util.alertMessage(ConnectionRequests.this,
-								"Please check your internet connection");
+					
+					
+						if (Util.isNetworkAvailable(ConnectionRequests.this)) {
+							
+							if(trigger.equalsIgnoreCase("tutor"))
+							{
+							
+								
+								ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+								nameValuePairs.add(new BasicNameValuePair("pin",array_connection.get(position).getParentId()));
+							
+								Log.e("resend-parent-details", nameValuePairs.toString());
+								
+								AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(
+										ConnectionRequests.this,
+										"resend-parent-details", nameValuePairs,
+										true, "Please wait...");
+								mLogin.delegate = (AsyncResponseForTutorHelper) ConnectionRequests.this;
+								mLogin.execute();
+							}
+							else{
+								
+								
+								ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+								nameValuePairs.add(new BasicNameValuePair("request_id",array_connection.get(position).getRequestId()));
+								nameValuePairs.add(new BasicNameValuePair("status",
+										"Rejected"));
+								Log.e("approve", nameValuePairs.toString());
+								AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(
+										ConnectionRequests.this,
+										"approve-connection-request", nameValuePairs,
+										true, "Please wait...");
+								mLogin.delegate = (AsyncResponseForTutorHelper) ConnectionRequests.this;
+								mLogin.execute();
+								
+								
+							}
+						} else {
+							Util.alertMessage(ConnectionRequests.this,"Please check your internet connection");
+						}
 					}
-				}
+				
 			});
 			return convertView;
 		}
@@ -297,6 +338,10 @@ public class ConnectionRequests extends Activity implements
 			}
 
 		}
+		else if(methodName.equalsIgnoreCase("resend-parent-details"))
+		{
+			finish();
+				}
 
 	}
 }

@@ -7,6 +7,8 @@ import java.util.Calendar;
 import java.util.Date;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -77,6 +79,8 @@ public class ParentDashBoard extends FragmentActivity implements
 	private String str_date;
 	private ArrayList<Parent> arraybasicDetail = new ArrayList<Parent>();
 	private TutorHelperDatabaseHandler dbHandler;
+	private boolean dashboardProgress=true;
+	private TextView connectionRequests_count,studentRequests_count,can_request_count,lessonRequests_count;
 	// SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy");
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -153,6 +157,17 @@ public class ParentDashBoard extends FragmentActivity implements
 		txt_credit = (TextView) findViewById(R.id.txt_credit);
 		txt_credit.setVisibility(View.VISIBLE);
 
+		
+		connectionRequests_count=(TextView)findViewById(R.id.connectionRequests_count);
+		studentRequests_count=(TextView)findViewById(R.id.studentRequests_count);
+		can_request_count=(TextView)findViewById(R.id.can_request_count);
+		can_request_count.setVisibility(View.GONE);
+		lessonRequests_count=(TextView)findViewById(R.id.lessonRequests_count);
+		
+		
+		
+		
+		
 		SharedPreferences tutorPrefs = getSharedPreferences("tutor_prefs",MODE_PRIVATE);
 		parentId = tutorPrefs.getString("parentID", "0");
 
@@ -180,13 +195,13 @@ public class ParentDashBoard extends FragmentActivity implements
 		t.replace(R.id.calendar1, caldroidFragment);
 		t.commit();
 		// selectdates();
-		SharedPreferences tutorPassword = getSharedPreferences("tutorPassword", MODE_PRIVATE);
-		if(tutorPassword.getString("firstPassword", "").equals(""))
+	
+		if(tutorPrefs.getString("is_first", "").equals("0"))
 		{
+			Editor ed = tutorPrefs.edit();
+			ed.putString("is_first", "1");
+			ed.commit();
 			changePasswordPrompt();
-			Editor editor=tutorPassword.edit();
-			editor.putString("firstPassword", "12345");
-			editor.commit();
 			}
 		getbasicDetail();
 	}
@@ -306,16 +321,17 @@ public class ParentDashBoard extends FragmentActivity implements
 	public void getbasicDetail() {
 		if (Util.isNetworkAvailable(ParentDashBoard.this)) {
 
+			
 			ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 			nameValuePairs.add(new BasicNameValuePair("parent_id", tutorPrefs.getString("parentID", "0")));
 			//nameValuePairs.add(new BasicNameValuePair("password", tutorPrefs	.getString("tutorpass", "")));
 
 			Log.e("date select", nameValuePairs.toString());
 			AsyncTaskForTutorHelper mLogin = new AsyncTaskForTutorHelper(
-					ParentDashBoard.this, "getbasicdetail-parent", nameValuePairs, false,
-					"Please wait...");
+					ParentDashBoard.this, "getbasicdetail-parent", nameValuePairs, dashboardProgress,"Please wait...");
 			mLogin.delegate = (AsyncResponseForTutorHelper) ParentDashBoard.this;
 			mLogin.execute();
+			dashboardProgress=false;
 		} else {
 			Util.alertMessage(ParentDashBoard.this,
 					"Please check your internet connection");
@@ -459,6 +475,7 @@ public class ParentDashBoard extends FragmentActivity implements
 	@Override
 	public void processFinish(String output, String methodName) {
 		// TODO Auto-generated method stub
+		String result="1";
 		arraybasicDetail=new ArrayList<Parent>();
 		Parent parent=new Parent();
 		if (methodName.equals("getbasicdetail-parent")) {
@@ -467,6 +484,113 @@ public class ParentDashBoard extends FragmentActivity implements
 			
 			arraybasicDetail = parser.getParentBasicdetail(output);
 			//adapter = new NewsFeedAdapter(NewsFeedActivity.this,getNewsfeed);;
+			try {
+				JSONObject jsonChildNode = new JSONObject(output);
+				 result = jsonChildNode.getString("result").toString();
+				
+				if(result.equalsIgnoreCase("0"))
+				{
+					String fees_due= jsonChildNode.getString("fee_due").toString();
+					String activeStudents= jsonChildNode.getString("no of active students").toString();
+					
+					
+					
+					
+				
+					
+					
+					String connectionRequest = jsonChildNode.getString("no of connection request").toString();
+					try{
+						int cannCount= Integer.parseInt(connectionRequest);
+						if(cannCount==0){
+							connectionRequests_count.setVisibility(View.GONE);
+							connectionRequests_count.setPadding(7, 2, 7, 2);
+						}
+						else if(connectionRequest.length()==1)
+						{
+							connectionRequests_count.setPadding(7, 2, 7, 2);
+							//TxtNotiCount.setPadding(left, top, right, bottom)
+							connectionRequests_count.setText(""+cannCount);
+							System.err.println("one");
+							}
+						else if(connectionRequest.length()==2)
+						{
+							connectionRequests_count.setText(""+cannCount);
+							connectionRequests_count.setPadding(3, 2, 3, 2);
+							System.err.println("two");
+							}
+						else 
+						{
+							connectionRequests_count.setPadding(2, 2, 1, 2);
+							connectionRequests_count.setText("99+");
+							connectionRequests_count.setTextSize(8);
+						}
+						
+					}catch(Exception e){}
+					
+					String lessonRequest = jsonChildNode.getString("no of lesson request").toString();
+					try{
+						int lessonCount= Integer.parseInt(lessonRequest);
+						if(lessonCount==0){
+							lessonRequests_count.setVisibility(View.GONE);
+							lessonRequests_count.setPadding(7, 2, 7, 2);
+						}
+						else if(lessonRequest.length()==1)
+						{
+							lessonRequests_count.setPadding(7, 2, 7, 2);
+							//lessonRequests_count.setPadding(left, top, right, bottom)
+							lessonRequests_count.setText(""+lessonCount);
+							System.err.println("lesson one");
+							}
+						else if(lessonRequest.length()==2)
+						{
+							lessonRequests_count.setText(""+lessonCount);
+							lessonRequests_count.setPadding(3, 2, 3, 2);
+							System.err.println(" lesson two");
+							}
+						else 
+						{
+							System.err.println("lesson three");
+							lessonRequests_count.setPadding(1, 2, 1, 2);
+							lessonRequests_count.setText("99+");
+							}
+						
+					}catch(Exception e){}
+					
+					
+					String studentRequest= jsonChildNode.getString("no of student request").toString();
+					try{
+						int studentCount= Integer.parseInt(studentRequest);
+						if(studentCount==0){
+							studentRequests_count.setVisibility(View.GONE);
+							studentRequests_count.setPadding(7, 2, 7, 2);
+						}
+						else if(connectionRequest.length()==1)
+						{
+							studentRequests_count.setPadding(7, 2, 7, 2);
+							//lessonRequests_count.setPadding(left, top, right, bottom)
+							studentRequests_count.setText(""+studentCount);
+							System.err.println("one");
+							}
+						else if(connectionRequest.length()==2)
+						{
+							studentRequests_count.setText(""+studentCount);
+							studentRequests_count.setPadding(3, 2, 3, 2);
+							System.err.println("two");
+							}
+						else 
+						{
+							studentRequests_count.setPadding(1, 2, 1, 2);
+							studentRequests_count.setText("99+");
+						}
+						
+					}catch(Exception e){}
+					
+					}
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
 			
 			dbHandler.deleteLessonbooked();
 			array_lessonbooked= parser.getLessonBooked(output);

@@ -18,16 +18,32 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="hello"
+            android:visibility="gone"
             android:textColor="@color/appBlue"
-            android:textSize="18sp" />
-
+            android:textSize="13sp" />
+ <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+          android:layout_gravity="right"
+        android:orientation="horizontal" >
+         <TextView
+            android:id="@+id/view_fee_Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="View Fees"
+            android:padding="3dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/appBlue"
+            android:textSize="14sp" />
+     
         <CheckBox
             android:id="@+id/checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:gravity="center_horizontal"
+           android:gravity="center_horizontal"
             android:layout_marginTop="-10dp" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout

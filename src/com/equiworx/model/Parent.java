@@ -3,8 +3,14 @@ package com.equiworx.model;
 public class Parent {
 
 	private String parentId, name, email, contactNumber, altContactNumber, address, credits, gender, pin, studentCount, lessonCount, 
-	outstandingBalance, notes,activestudents,block_out_time_for_fullday,block_out_time_for_halfday,no_of_lessons,lesson_date;
+	outstandingBalance, notes,activestudents,block_out_time_for_fullday,block_out_time_for_halfday,no_of_lessons,lesson_date,is_first;
 
+	public String getIs_first() {
+		return is_first;
+	}
+	public void setIs_first(String is_first) {
+		this.is_first = is_first;
+	}
 	public String getLesson_date() {
 		return lesson_date;
 	}

@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +20,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -73,6 +77,14 @@ public class MyConnectionActivity extends Activity implements
 				intent.putExtra("phone", tutor.getContactNumber());
 				intent.putExtra("notes", tutor.getNotes());
 				intent.putExtra("tutorid", tutor.getTutorId());
+				
+				intent.putExtra("feecollect",tutorList.get(position).getFeeCollect());
+				intent.putExtra("feedue",tutorList.get(position).getFeeDue());
+				intent.putExtra("outstand",	tutorList.get(position).getOutstanding_balance());
+				intent.putExtra("feeoutstand",tutorList.get(position).getFee_outstanding());
+				
+				
+				
 				System.err.println("students=" + tutor.getStudent().size());
 				for (int i = 0; i < tutor.getStudent().size(); i++) {
 					System.err.println("student id="
@@ -148,7 +160,7 @@ public class MyConnectionActivity extends Activity implements
 
 	public class ParentAdapter extends BaseAdapter {
 		private Context context;
-		private TextView tutor_id, email_id, notes_text, tutor_name;
+		private TextView tutor_id, email_id, notes_text, tutor_name,view_fee_Detail;
 		private CheckBox checkbox;
 		// private ImageView call, email;
 		private Tutor tutor;
@@ -199,6 +211,13 @@ public class MyConnectionActivity extends Activity implements
 
 			tutor = tutorList.get(position);
 
+			view_fee_Detail=(TextView)convertView.findViewById(R.id.view_fee_Detail);
+			String view_fee=view_fee_Detail.getText().toString();
+					
+			SpannableString content1 = new SpannableString(view_fee);
+			content1.setSpan(new UnderlineSpan(), 0, view_fee.length(), 0);
+			view_fee_Detail.setText(content1);
+			
 			tutor_id = (TextView) convertView.findViewById(R.id.tutor_id);
 			email_id = (TextView) convertView.findViewById(R.id.email_id);
 			notes_text = (TextView) convertView.findViewById(R.id.notes_text);
@@ -240,8 +259,98 @@ public class MyConnectionActivity extends Activity implements
 			 * 
 			 * } });
 			 */
+			view_fee_Detail.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					CustomDailogViewFees(
+							tutorList.get(position).getFeeCollect(),
+							tutorList.get(position).getFeeDue(),
+							tutorList.get(position).getOutstanding_balance(),
+							tutorList.get(position).getFee_outstanding());
+							
+				}
+			});
 			return convertView;
 		}
+		 private void CustomDailogViewFees(String feeCollect,String feeDue,String outBal,String fee_outstanding)
+		    {
+		        // custom dialog
+		        final Dialog dialog = new Dialog(MyConnectionActivity.this);
+		       // dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		        dialog.setTitle("Fee Details");
+		        dialog.setContentView(R.layout.parent_feesview);
+		        dialog.setCancelable(false);
+		        Window window = dialog.getWindow();
+		        window.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		        // set the custom dialog components - text view
+		        TextView fee_collected = (TextView) dialog.findViewById(R.id.fee_collected);
+		        TextView fee_due = (TextView) dialog.findViewById(R.id.fee_due);
+		        TextView outstng_bal = (TextView) dialog.findViewById(R.id.outstng_bal);
+		        TextView txtOk = (TextView) dialog.findViewById(R.id.txtOk);
+		        TextView  txt_fee_outstanding=(TextView) dialog.findViewById(R.id.fee_outstanding);
+		      try{  
+			        if(feeCollect==null)
+				        {
+				        	  fee_collected.setText("$"+"0");
+				        }else{
+				        
+				        	fee_collected.setText("$"+feeCollect);
+				        }
+		      	}catch(Exception e){  
+		      	}
+		      /////////////////
+		      try{
+		        if(feeDue==null)
+		        { 
+		        	fee_due.setText("$"+"0");
+		        	
+		        }
+		        else{
+		        	 fee_due.setText("$"+feeDue);
+		        }
+		      }catch(Exception e){
+		    	  
+		      }
+		      ///////////////////
+		       try{
+		        if(outBal==null)
+		        { 
+		        	outstng_bal.setText("$"+"0");
+		        	
+		        }
+		        else{
+		        	 outstng_bal.setText("$"+outBal);
+		        }
+		      }catch(Exception e){
+		    	  
+		      }
+		       
+		       
+		       //////////////
+		       try{
+			        if(fee_outstanding==null)
+			        { 
+			        	txt_fee_outstanding.setText("$"+"0");
+			        	
+			        }
+			        else{
+			        	txt_fee_outstanding.setText("$"+fee_outstanding);
+			        }
+			      }catch(Exception e){
+			    	  
+			      }
+		       
+		        txtOk.setOnClickListener(new View.OnClickListener() {
+		            @Override
+		            public void onClick(View v) {
+		                dialog.dismiss();
+		              
+		            }
+		        });
+		       
+		        dialog.show();
+		    }
 	}
 
 }

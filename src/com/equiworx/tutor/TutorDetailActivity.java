@@ -8,6 +8,7 @@ import com.equiworx.parent.TutorCalenderView;
 import com.equiworx.tutorhelper.R;
 import com.equiworx.util.TutorHelperDatabaseHandler;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -24,11 +25,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.FrameLayout.LayoutParams;
 
 public class TutorDetailActivity extends Activity {
 
 
-	private TextView name, email,  address, contact, studentid,no_of_Student,title;
+	private TextView name, email,  address, contact, studentid,no_of_Student,title,view_fee_Detail;
 	private TutorHelperDatabaseHandler dbHandler;
 	private StudentAdapter adapter;
 	private ListView listview;
@@ -59,6 +61,11 @@ public class TutorDetailActivity extends Activity {
 		studentid = (TextView) findViewById(R.id.studentid);
 		no_of_Student=(TextView)findViewById(R.id.no_of_Student);
 		back_layout=(RelativeLayout)findViewById(R.id.back_layout);
+		view_fee_Detail=(TextView)findViewById(R.id.view_fee_Detail);
+		String view_fee =view_fee_Detail.getText().toString();
+		SpannableString content1 = new SpannableString(view_fee);
+		content1.setSpan(new UnderlineSpan(), 0, view_fee.length(), 0);
+		view_fee_Detail.setText(content1);
 		title=(TextView)findViewById(R.id.title);
 		title.setText("Tutor Details");
 
@@ -104,8 +111,98 @@ public class TutorDetailActivity extends Activity {
 				
 			}
 		});
+		view_fee_Detail.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				String feeCollect=getIntent().getStringExtra("feecollect");
+				String feeDue=getIntent().getStringExtra("feedue");
+				String outBal=getIntent().getStringExtra("outstand");
+				String fee_outstanding=getIntent().getStringExtra("feeoutstand");
+						
+				CustomDailogViewFees(feeCollect,feeDue,outBal,fee_outstanding);
+			}
+		});
 	}
-
+	 private void CustomDailogViewFees(String feeCollect,String feeDue,String outBal,String fee_outstanding)
+	    {
+	        // custom dialog
+	        final Dialog dialog = new Dialog(TutorDetailActivity.this);
+	       // dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+	        dialog.setTitle("Fee Details");
+	        dialog.setContentView(R.layout.parent_feesview);
+	        dialog.setCancelable(false);
+	        Window window = dialog.getWindow();
+	        window.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+	        // set the custom dialog components - text view
+	        TextView fee_collected = (TextView) dialog.findViewById(R.id.fee_collected);
+	        TextView fee_due = (TextView) dialog.findViewById(R.id.fee_due);
+	        TextView outstng_bal = (TextView) dialog.findViewById(R.id.outstng_bal);
+	        TextView txtOk = (TextView) dialog.findViewById(R.id.txtOk);
+	        TextView  txt_fee_outstanding=(TextView) dialog.findViewById(R.id.fee_outstanding);
+	      try{  
+		        if(feeCollect==null)
+			        {
+			        	  fee_collected.setText("$"+"0");
+			        }else{
+			        
+			        	fee_collected.setText("$"+feeCollect);
+			        }
+	      	}catch(Exception e){  
+	      	}
+	      /////////////////
+	      try{
+	        if(feeDue==null)
+	        { 
+	        	fee_due.setText("$"+"0");
+	        	
+	        }
+	        else{
+	        	 fee_due.setText("$"+feeDue);
+	        }
+	      }catch(Exception e){
+	    	  
+	      }
+	      ///////////////////
+	       try{
+	        if(outBal==null)
+	        { 
+	        	outstng_bal.setText("$"+"0");
+	        	
+	        }
+	        else{
+	        	 outstng_bal.setText("$"+outBal);
+	        }
+	      }catch(Exception e){
+	    	  
+	      }
+	       
+	       
+	       //////////////
+	       try{
+		        if(fee_outstanding==null)
+		        { 
+		        	txt_fee_outstanding.setText("$"+"0");
+		        	
+		        }
+		        else{
+		        	txt_fee_outstanding.setText("$"+fee_outstanding);
+		        }
+		      }catch(Exception e){
+		    	  
+		      }
+	       
+	        txtOk.setOnClickListener(new View.OnClickListener() {
+	            @Override
+	            public void onClick(View v) {
+	                dialog.dismiss();
+	              
+	            }
+	        });
+	       
+	        dialog.show();
+	    }
 	private void fetchTutorDetails() {
 		name.setText("" + getIntent().getStringExtra("name"));
 

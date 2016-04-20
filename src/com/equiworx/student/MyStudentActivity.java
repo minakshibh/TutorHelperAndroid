@@ -150,9 +150,9 @@ public class MyStudentActivity extends Activity implements AsyncResponseForTutor
 			id.setVisibility(View.GONE);
 			
 			student_fees_text =(TextView)convertView.findViewById(R.id.student_fees_text);
-			student_fees_text.setVisibility(View.VISIBLE);
+			student_fees_text.setVisibility(View.GONE);
 			outstandingBalnce=(TextView)convertView.findViewById(R.id.outstandingBalnce);
-			outstandingBalnce.setVisibility(View.VISIBLE);
+			outstandingBalnce.setVisibility(View.GONE);
 			
 			tv_name = (TextView)convertView.findViewById(R.id.studentname);
 			tv_email = (TextView)convertView.findViewById(R.id.Email);
@@ -165,6 +165,7 @@ public class MyStudentActivity extends Activity implements AsyncResponseForTutor
 			tv_email.setText(": "+studentlist.getEmail());
 			tv_note.setText(": "+studentlist.getAddress());
 			tv_name.setText(studentlist.getName()+"("+studentlist.getStudentId()+")");
+		
 			if(studentlist.getFees()==null | studentlist.getFees().equalsIgnoreCase("null"))
 			{
 				

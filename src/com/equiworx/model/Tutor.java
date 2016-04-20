@@ -8,8 +8,84 @@ import android.os.Parcelable;
 
 public class Tutor implements Parcelable{
 	private String tutorId, name, email, contactNumber, altContactNumber, address, gender,notes,studentid,fee,nolessoin,duefee,feeCollect,outStandingBalance,parentId,lessonIds;
+	
+	String yearname,feeDue,fee_collected, outstanding_balance,fee_outstanding;
 
-	String yearname;
+	public String getNolessoin() {
+		return nolessoin;
+	}
+	public void setNolessoin(String nolessoin) {
+		this.nolessoin = nolessoin;
+	}
+	public String getDuefee() {
+		return duefee;
+	}
+	public void setDuefee(String duefee) {
+		this.duefee = duefee;
+	}
+	public String getOutStandingBalance() {
+		return outStandingBalance;
+	}
+	public void setOutStandingBalance(String outStandingBalance) {
+		this.outStandingBalance = outStandingBalance;
+	}
+	public String getLessonIds() {
+		return lessonIds;
+	}
+	public void setLessonIds(String lessonIds) {
+		this.lessonIds = lessonIds;
+	}
+	public String getYearname() {
+		return yearname;
+	}
+	public void setYearname(String yearname) {
+		this.yearname = yearname;
+	}
+	public String getFee_collected() {
+		return fee_collected;
+	}
+	public void setFee_collected(String fee_collected) {
+		this.fee_collected = fee_collected;
+	}
+	public String getOutstanding_balance() {
+		return outstanding_balance;
+	}
+	public void setOutstanding_balance(String outstanding_balance) {
+		this.outstanding_balance = outstanding_balance;
+	}
+	public String getFee_outstanding() {
+		return fee_outstanding;
+	}
+	public void setFee_outstanding(String fee_outstanding) {
+		this.fee_outstanding = fee_outstanding;
+	}
+	public String getTotal_Feedue() {
+		return Total_Feedue;
+	}
+	public void setTotal_Feedue(String total_Feedue) {
+		Total_Feedue = total_Feedue;
+	}
+	public String getTotal_Fee_Collected() {
+		return Total_Fee_Collected;
+	}
+	public void setTotal_Fee_Collected(String total_Fee_Collected) {
+		Total_Fee_Collected = total_Fee_Collected;
+	}
+	public String getTotal_OutstandingBalance() {
+		return Total_OutstandingBalance;
+	}
+	public void setTotal_OutstandingBalance(String total_OutstandingBalance) {
+		Total_OutstandingBalance = total_OutstandingBalance;
+	}
+	public String getParentId() {
+		return parentId;
+	}
+	public static Parcelable.Creator<Tutor> getCreator() {
+		return CREATOR;
+	}
+	public void setFeeDue(String feeDue) {
+		this.feeDue = feeDue;
+	}
 
 	ArrayList<StudentIdFee> student;
 	public String getStudentid() {

@@ -82,7 +82,7 @@ public class LessonDetailsActivity extends Activity {
 				TextView	lbl_notes =(TextView)convertView.findViewById(R.id.lbl_notes);
 				lbl_notes.setVisibility(View.GONE);
 				TextView outstandingBalnce =(TextView)convertView.findViewById(R.id.outstandingBalnce);
-				outstandingBalnce.setVisibility(View.GONE);
+				outstandingBalnce.setVisibility(View.VISIBLE);
 				lbl_notes.setText("Address");
 				TextView	lbl_address =(TextView)convertView.findViewById(R.id.lbl_address);
 				//lbl_address.setVisibility(View.GONE);
@@ -98,8 +98,9 @@ public class LessonDetailsActivity extends Activity {
 				tv_name.setText(studentlist.getName());
 				tv_email.setText(": "+studentlist.getEmail());
 				tv_note.setText(": "+studentlist.getAddress());
-				student_fees_text.setVisibility(View.GONE);
-				student_fees_text.setText(": "+studentlist.getStudentfee());
+				student_fees_text.setVisibility(View.VISIBLE);
+				student_fees_text.setText("Fees");
+				outstandingBalnce.setText(": "+studentlist.getStudentfee());
 				main_layout.addView(convertView);
 			
 			}

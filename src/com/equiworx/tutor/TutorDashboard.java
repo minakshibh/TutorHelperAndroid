@@ -32,6 +32,7 @@ import com.equiworx.model.Lesson_Booked;
 import com.equiworx.model.MyLesson;
 import com.equiworx.model.Parent;
 import com.equiworx.notification.NotificationTutorActivity;
+import com.equiworx.parent.ConnectionRequests;
 import com.equiworx.parent.MyProfileActivity;
 import com.equiworx.student.AddStudent;
 import com.equiworx.tutorhelper.HomeAcitivity;
@@ -74,7 +75,8 @@ public class TutorDashboard extends FragmentActivity implements
 	private LinearLayout can_request_layout, connection_request_alout,
 			student_re_layout, lesson_request_layout, mystudent_layout,
 			mylesson_layout, myprofile_layout, myconnections_layouts,
-			merg_student_layout, credit_layout, logout_layout, addstudent;
+			merg_student_layout, credit_layout, logout_layout, addstudent,Pending_layout;
+	private TextView connectionRequests_count,studentRequests_count,can_request_count,lessonRequests_count;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +123,7 @@ public class TutorDashboard extends FragmentActivity implements
 		addstudent = (LinearLayout) findViewById(R.id.addstudent_layout);
 		addstudent.setVisibility(View.GONE);
 		credit_layout = (LinearLayout) findViewById(R.id.credit_layout);
-		connection_request_alout.setVisibility(View.GONE);
+		connection_request_alout.setVisibility(View.VISIBLE);
 		student_re_layout.setVisibility(View.GONE);
 		merge_layout.setVisibility(View.GONE);
 		merg_student_layout.setVisibility(View.GONE);
@@ -138,7 +140,7 @@ public class TutorDashboard extends FragmentActivity implements
 		System.out.print("tutpr name" + tutorPrefs.getString("tutorname", ""));
 		tutorname.setText(tutorPrefs.getString("tutorname", ""));
 
-		connectionRequests.setVisibility(View.GONE);
+		connectionRequests.setVisibility(View.VISIBLE);
 		studentRequests.setVisibility(View.GONE);
 		mystudent = (TextView) findViewById(R.id.mystu);
 		mystudent.setVisibility(View.GONE);
@@ -156,6 +158,7 @@ public class TutorDashboard extends FragmentActivity implements
 		myProfile = (TextView) findViewById(R.id.myProfile);
 		tuterList = (TextView) findViewById(R.id.tuterList);
 		tuterList.setText("My Connections");
+		
 		activeStudentsLayout = (LinearLayout) findViewById(R.id.activeStudentsLayout);
 		feesLayout = (LinearLayout) findViewById(R.id.feesLayout);
 		newStudentLayout = (LinearLayout) findViewById(R.id.addStudentlayout);
@@ -178,6 +181,8 @@ public class TutorDashboard extends FragmentActivity implements
 		myconnections_layouts = (LinearLayout) findViewById(R.id.myconnections_layouts);
 		merg_student_layout = (LinearLayout) findViewById(R.id.merg_student_layout);
 		can_request_layout = (LinearLayout) findViewById(R.id.can_request_layout);
+		Pending_layout= (LinearLayout) findViewById(R.id.Pending_layout);
+		Pending_layout.setVisibility(View.GONE);
 		can_request_layout.setVisibility(View.VISIBLE);
 		credit_layout.setVisibility(View.GONE);
 		merg_student_layout.setVisibility(View.GONE);
@@ -185,6 +190,13 @@ public class TutorDashboard extends FragmentActivity implements
 
 		credit_layout = (LinearLayout) findViewById(R.id.credit_layout);
 		logout_layout = (LinearLayout) findViewById(R.id.logout_layout);
+		
+		connectionRequests_count=(TextView)findViewById(R.id.connectionRequests_count);
+		connectionRequests_count.setVisibility(View.GONE);
+		studentRequests_count=(TextView)findViewById(R.id.studentRequests_count);
+		studentRequests_count.setVisibility(View.GONE);
+		can_request_count=(TextView)findViewById(R.id.can_request_count);
+		lessonRequests_count=(TextView)findViewById(R.id.lessonRequests_count);
 
 	}
 
@@ -256,6 +268,8 @@ public class TutorDashboard extends FragmentActivity implements
 		lesson_request_layout.setOnClickListener(listener);
 		tutor_requests.setOnClickListener(listener);
 		myprofile_layout.setOnClickListener(listener);
+		connectionRequests.setOnClickListener(listener);
+		connection_request_alout.setOnClickListener(listener);
 		tutordashboard.setOnTouchListener(new View.OnTouchListener() {
 			public boolean onTouch(View v, MotionEvent event) {
 				menuLayoutGone();
@@ -422,6 +436,14 @@ public class TutorDashboard extends FragmentActivity implements
 						NewsFeedActivity.class);
 				startActivity(intent);
 			}
+			else if (v == connectionRequests | v==connection_request_alout) {
+
+				Intent intent = new Intent(TutorDashboard.this,ConnectionRequests.class);
+				intent.putExtra("trigger", "Tutor");
+				startActivity(intent);
+				menuLayoutGone();
+			}
+			
 		}
 	};
 
@@ -448,21 +470,81 @@ public class TutorDashboard extends FragmentActivity implements
 					activestudents.setText(str_activestudents);
 				}
 
-				String str_feesdue = jsonChildNode.getString("fee_due")
-						.toString();
+				String str_feesdue = jsonChildNode.getString("fee_due").toString();
 				if (str_feesdue.equals("null")) {
 					feesdue.setText("$ 0");
 				} else {
 					feesdue.setText("$ " + str_feesdue);
 				}
-				String c_fees = jsonChildNode.getString("fee_collected")
-						.toString();
+				String c_fees = jsonChildNode.getString("fee_collected").toString();
 				if (c_fees.equals("null")) {
 					feesCollected.setText("$" + "0");
 				} else {
 					feesCollected.setText("$" + c_fees);
 				}
 
+			
+				
+				String cancellationRequest = jsonChildNode.getString("no of cancellation request").toString();
+				
+				try{
+					int canCount= Integer.parseInt(cancellationRequest);
+					if(canCount==0){
+						can_request_count.setVisibility(View.GONE);
+						can_request_count.setPadding(7, 2, 7, 2);
+					}
+					else if(cancellationRequest.length()==1)
+					{
+						can_request_count.setPadding(7, 2, 7, 2);
+						//TxtNotiCount.setPadding(left, top, right, bottom)
+						can_request_count.setText(""+canCount);
+						System.err.println("one");
+						}
+					else if(cancellationRequest.length()==2)
+					{
+						can_request_count.setText(""+canCount);
+						can_request_count.setPadding(3, 2, 3, 2);
+						System.err.println("two");
+						}
+					else 
+					{
+						can_request_count.setPadding(1, 2, 1, 2);
+						can_request_count.setText("99+");
+					}
+					
+				}catch(Exception e){}
+				
+				String lessonRequest = jsonChildNode.getString("no of lesson request").toString();
+				
+				try{
+					int lessonCount= Integer.parseInt(lessonRequest);
+					if(lessonCount==0){
+						lessonRequests_count.setVisibility(View.GONE);
+						lessonRequests_count.setPadding(7, 2, 7, 2);
+					}
+					else if(cancellationRequest.length()==1)
+					{
+						lessonRequests_count.setPadding(7, 2, 7, 2);
+						//TxtNotiCount.setPadding(left, top, right, bottom)
+						lessonRequests_count.setText(""+lessonCount);
+						System.err.println("one");
+						}
+					else if(cancellationRequest.length()==2)
+					{
+						lessonRequests_count.setText(""+lessonCount);
+						lessonRequests_count.setPadding(3, 2, 3, 2);
+						System.err.println("two");
+						}
+					else 
+					{
+						lessonRequests_count.setPadding(1, 2, 1, 2);
+						lessonRequests_count.setText("99+");
+					}
+					
+				}catch(Exception e){}
+				
+				
+				//String c_fees = jsonChildNode.getString("fee_collected").toString();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

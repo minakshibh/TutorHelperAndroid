@@ -142,6 +142,8 @@ public class TutorHelperParser {
 				parent.setCredits(jsonChildNode.getString("credits").toString());
 				parent.setGender(jsonChildNode.getString("gender").toString());
 				parent.setPin(jsonChildNode.getString("pin").toString());
+				parent.setIs_first(jsonChildNode.getString("is_first").toString());
+				
 			} else {
 				parent = null;
 				showAlert("ParentId or password you entered do not match.");
@@ -710,7 +712,10 @@ public class TutorHelperParser {
 								"student_address").toString());
 						studentList.setContactInfo(jsonObj.getString(
 								"student_contact_info").toString());
-						// studentList.setStudentfee(jsonObj.getString("student_fee").toString());
+						try{
+						 studentList.setStudentfee(jsonObj.getString("student_fee").toString());
+						
+					}catch(Exception e){}
 						arraylist.add(studentList);
 
 					}
@@ -850,12 +855,9 @@ public class TutorHelperParser {
 			tutorLesson.setResult(result);
 			message = jsonChildNode.getString("message").toString();
 			tutorLesson.setMessage(message);
-			tutorLesson.setActive_students(jsonChildNode.getString(
-					"no of active students").toString());
-			tutorLesson.setFee_due(jsonChildNode.getString("fee_due")
-					.toString());
-			tutorLesson.setFee_collected(jsonChildNode.getString(
-					"fee_collected").toString());
+			tutorLesson.setActive_students(jsonChildNode.getString("no of active students").toString());
+			tutorLesson.setFee_due(jsonChildNode.getString("fee_due").toString());
+			tutorLesson.setFee_collected(jsonChildNode.getString("fee_collected").toString());
 
 			if (result.equals("0")) {
 				JSONArray jsonArray = new JSONArray(
@@ -1007,13 +1009,17 @@ public class TutorHelperParser {
 					tutor.setName(jsonObj.getString("name").toString());
 
 					tutor.setEmail(jsonObj.getString("email").toString());
-					tutor.setContactNumber(jsonObj.getString("contact_number")
-							.toString());
-					tutor.setAltContactNumber(jsonObj.getString("alt_c_number")
-							.toString());
+					tutor.setContactNumber(jsonObj.getString("contact_number").toString());
+					tutor.setAltContactNumber(jsonObj.getString("alt_c_number").toString());
 					tutor.setAddress(jsonObj.getString("address").toString());
 					String note = jsonObj.getString("notes").toString();
 					tutor.setNotes(note);
+					
+					tutor.setFeeDue(jsonObj.getString("feeDue").toString());
+					tutor.setFee_collected(jsonObj.getString("fee_collected").toString());
+					tutor.setOutstanding_balance(jsonObj.getString("outstanding_balance").toString());
+					tutor.setFee_outstanding(jsonObj.getString("fee_outstanding").toString());
+					
 					arraylist_tuterlist.add(tutor);
 
 					JSONObject jsonChildNode1 = jsonArray.getJSONObject(i);
@@ -1576,13 +1582,20 @@ public class TutorHelperParser {
 
 	public ArrayList<Parent> getParentBasicdetail(String output) {
 		// TODO Auto-generated method stub
-		String result, message,pageToken,fees_due,fee_collected;
+		String result, message,pageToken,fees_due,fee_collected,
+		lessonRequest,studentRequest,connectionRequest,activeStudents;
 		ArrayList<Parent> getbasicdetailParent = new ArrayList<Parent>();
 		
 		try {
 			JSONObject jsonChildNode = new JSONObject(output);
 			result = jsonChildNode.getString("result").toString();
 			fees_due= jsonChildNode.getString("fee_due").toString();
+			
+			lessonRequest = jsonChildNode.getString("no of lesson request").toString();
+			studentRequest= jsonChildNode.getString("no of student request").toString();
+			connectionRequest = jsonChildNode.getString("no of connection request").toString();
+			activeStudents= jsonChildNode.getString("no of active students").toString();
+			
 			fee_collected= jsonChildNode.getString("fee_collected").toString();
 			if (result.equals("0")) {
 				String str_lesson_data = jsonChildNode.getString("lesson_list");

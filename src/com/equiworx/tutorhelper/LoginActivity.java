@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.equiworx.asynctasks.AsyncResponseForTutorHelper;
 import com.equiworx.asynctasks.AsyncTaskForTutorHelper;
 import com.equiworx.model.Parent;
@@ -167,50 +169,10 @@ public class LoginActivity extends Activity implements AsyncResponseForTutorHelp
 		TutorHelperParser parser = new TutorHelperParser(LoginActivity.this);
 		if(methodName1.equals(methodName))
 		{
-		if(trigger.equals("tutor")){
-			String result="";
-			tutor = parser.parseTutorDetails(output);
-			try {
-			JSONObject jsonChildNode = new JSONObject(output);	
-			
-			result = jsonChildNode.getString("result").toString();
-			
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-			if(result.equalsIgnoreCase("0")){
-//				Util.alertMessage(LoginActivity.this, "Welcome "+tutor.getName());
-				
-				SharedPreferences tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
-				Editor editor = tutorPrefs.edit();
-				editor.putString("tutorID", tutor.getTutorId());
-				editor.putString("tutorpass", password.getText().toString().trim());
-				editor.putString("tutorname", tutor.getName());
-				editor.putString("mode", "tutor");
-				editor.commit();
-				try{
-				for(int i = 0; i<HomeAcitivity.cacheActivities.size(); i++){
-					HomeAcitivity.cacheActivities.get(i).finish();
-				}
-				}
-				catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				
-				ServerUtilities sUtil = new ServerUtilities();
-				sUtil.deviceRegister(LoginActivity.this);
-				
-				Intent intent = new Intent(LoginActivity.this, TutorDashboard.class);
-				startActivity(intent);
-				finish();
-			}
-		}else if(methodName1.equals(methodName)){
-			String result="";
-			parent = parser.parseParentDetails(output);
-			try {
+			if(trigger.equals("tutor")){
+				String result="";
+				tutor = parser.parseTutorDetails(output);
+				try {
 				JSONObject jsonChildNode = new JSONObject(output);	
 				
 				result = jsonChildNode.getString("result").toString();
@@ -220,34 +182,82 @@ public class LoginActivity extends Activity implements AsyncResponseForTutorHelp
 				{
 					e.printStackTrace();
 				}
-			if(result.equalsIgnoreCase("0")){
-//				Util.alertMessage(LoginActivity.this, "Welcome "+parent.getName());
-				try{
-					for(int i = 0; i<HomeAcitivity.cacheActivities.size(); i++){
-					HomeAcitivity.cacheActivities.get(i).finish();
-					}
-				}
-				catch(Exception e)
-				{
-					e.printStackTrace();
+				if(result.equalsIgnoreCase("0")){
+	//				Util.alertMessage(LoginActivity.this, "Welcome "+tutor.getName());
 					
+					SharedPreferences tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
+					Editor editor = tutorPrefs.edit();
+					editor.putString("tutorID", tutor.getTutorId());
+					editor.putString("tutorpass", password.getText().toString().trim());
+					editor.putString("tutorname", tutor.getName());
+					editor.putString("mode", "tutor");
+					editor.commit();
+					try{
+					for(int i = 0; i<HomeAcitivity.cacheActivities.size(); i++){
+						HomeAcitivity.cacheActivities.get(i).finish();
+					}
+					}
+					catch(Exception e)
+					{
+						e.printStackTrace();
+					}
+					
+					ServerUtilities sUtil = new ServerUtilities();
+					sUtil.deviceRegister(LoginActivity.this);
+					
+					Intent intent = new Intent(LoginActivity.this, TutorDashboard.class);
+					startActivity(intent);
+					finish();
 				}
-				
-				SharedPreferences tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
-				Editor editor = tutorPrefs.edit();
-				editor.putString("parentID", parent.getParentId());
-				editor.putString("parentpass", password.getText().toString().trim());
-				editor.putString("parentname", parent.getName());
-				editor.putString("mode", "parent");
-				editor.commit();
-				
-				ServerUtilities sUtil = new ServerUtilities();
-				sUtil.deviceRegister(LoginActivity.this);
-			
-				fetchStudentList();
-			
+				/*else{
+					Toast.makeText(LoginActivity.this, "something went wrong, please try again", Toast.LENGTH_SHORT).show();
+				}*/
 			}
-		}
+		else{
+				String result="";
+				parent = parser.parseParentDetails(output);
+				try {
+					JSONObject jsonChildNode = new JSONObject(output);	
+					
+					result = jsonChildNode.getString("result").toString();
+					
+					}
+					catch(Exception e)
+					{
+						e.printStackTrace();
+					}
+				if(result.equalsIgnoreCase("0")){
+	//				Util.alertMessage(LoginActivity.this, "Welcome "+parent.getName());
+					try{
+						for(int i = 0; i<HomeAcitivity.cacheActivities.size(); i++){
+						HomeAcitivity.cacheActivities.get(i).finish();
+						}
+					}
+					catch(Exception e)
+					{
+						e.printStackTrace();
+						
+					}
+					
+					SharedPreferences tutorPrefs = getSharedPreferences("tutor_prefs", MODE_PRIVATE);
+					Editor editor = tutorPrefs.edit();
+					editor.putString("parentID", parent.getParentId());
+					editor.putString("parentpass", password.getText().toString().trim());
+					editor.putString("parentname", parent.getName());
+					editor.putString("mode", "parent");
+					editor.putString("is_first", parent.getIs_first());
+					editor.commit();
+					
+					ServerUtilities sUtil = new ServerUtilities();
+					sUtil.deviceRegister(LoginActivity.this);
+				
+					fetchStudentList();
+				
+				}
+				/*else{
+					Toast.makeText(LoginActivity.this, "something went wrong, please try again", Toast.LENGTH_SHORT).show();
+				}*/
+			}
 		}
 		else if(methodName1.equals("fetch-student"))
 		{
