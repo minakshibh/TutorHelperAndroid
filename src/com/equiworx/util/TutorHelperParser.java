@@ -356,9 +356,9 @@ public class TutorHelperParser {
 							.toString());
 					connection.setRequestId(jsonObj.getString("request_id")
 							.toString());
-					connection.setParentName(jsonObj.getString("tutor_name")
+					connection.setTutorName(jsonObj.getString("tutor_name")
 							.toString());
-					connection.setTutorName(jsonObj.getString("parent_name")
+					connection.setParentName(jsonObj.getString("parent_name")
 							.toString());
 
 					connectionlist.add(connection);

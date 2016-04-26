@@ -85,7 +85,7 @@
         <activity android:name="com.equiworx.tutor.TutorDashboard" android:screenOrientation="portrait" android:theme="@style/AppBaseTheme"></activity>
         <activity android:name="com.equiworx.tutor.ParentListActivity"   android:windowSoftInputMode="adjustPan" android:screenOrientation="portrait"></activity>
         <activity android:name="com.equiworx.tutor.ParentDetailActivity"   android:windowSoftInputMode="adjustPan" android:screenOrientation="portrait"></activity>
-   		<activity android:name="com.equiworx.tutor.MyConnectionActivity"   android:windowSoftInputMode="stateHidden" android:screenOrientation="portrait"></activity>
+   		<activity android:name="com.equiworx.tutor.MyConnectionActivity"   android:theme="@style/AppBaseTheme"  android:windowSoftInputMode="stateHidden" android:screenOrientation="portrait"></activity>
         <activity android:name="com.equiworx.tutor.TutorDetailActivity"  android:windowSoftInputMode="stateHidden"  android:screenOrientation="portrait"></activity> 
    		<activity android:name="com.equiworx.tutor.HistoryParentsActivity"  android:windowSoftInputMode="stateHidden"  android:screenOrientation="portrait"></activity>  
         <activity android:name="com.equiworx.tutor.HistoryDetails"  android:theme="@android:style/Theme.Light" android:windowSoftInputMode="stateHidden"  android:screenOrientation="portrait"></activity>  
@@ -129,6 +129,8 @@
             <activity android:name="com.equiworx.tutor.InvoiceActivity"   android:windowSoftInputMode="stateHidden" 
           android:theme="@android:style/Theme.Holo.Light" android:screenOrientation="portrait"/>  
            <activity android:name="com.equiworx.parent.InvoicePDFActivity"
+          android:theme="@android:style/Theme.Holo.Light" android:screenOrientation="portrait"/> 
+           <activity android:name="com.equiworx.tutor.PendingConnReqActivity"
           android:theme="@android:style/Theme.Holo.Light" android:screenOrientation="portrait"/> 
         <!-- Broadcast receiver -->
         <receiver   android:name=".AlarmManagerBroadcastReceiver"></receiver>

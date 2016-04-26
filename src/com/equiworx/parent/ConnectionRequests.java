@@ -146,18 +146,20 @@ public class ConnectionRequests extends Activity implements
 				iv_connect.setVisibility(View.INVISIBLE);
 				iv_reject.setText("RESEND");
 				tv_id.setText("Parent ID : " + connection.getParentId());
+				tv_name.setText( "you has sent to "+connection.getParentName()+" a connection request.");
 			}
 			else{
 				iv_connect.setVisibility(View.VISIBLE);	
 				iv_connect.setText("CONNECT");
 				tv_id.setText("Tuter ID : " + connection.getTutorId());
+				tv_name.setText(connection.getTutorName()
+						+ " has sent you a connection request.");
 			}
 			
 			
 
 		
-			tv_name.setText(connection.getParentName()
-					+ " has sent you a connection request.");
+			
 			
 			iv_connect.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {

@@ -192,7 +192,7 @@ public class TutorDashboard extends FragmentActivity implements
 		logout_layout = (LinearLayout) findViewById(R.id.logout_layout);
 		
 		connectionRequests_count=(TextView)findViewById(R.id.connectionRequests_count);
-		connectionRequests_count.setVisibility(View.GONE);
+		//connectionRequests_count.setVisibility(View.GONE);
 		studentRequests_count=(TextView)findViewById(R.id.studentRequests_count);
 		studentRequests_count.setVisibility(View.GONE);
 		can_request_count=(TextView)findViewById(R.id.can_request_count);
@@ -484,7 +484,38 @@ public class TutorDashboard extends FragmentActivity implements
 				}
 
 			
+				// for connection request count
+				String connectionRequest = jsonChildNode.getString("no of connection request").toString();
 				
+				try{
+					int canCount= Integer.parseInt(connectionRequest);
+					if(canCount==0){
+						connectionRequests_count.setVisibility(View.GONE);
+						connectionRequests_count.setPadding(7, 2, 7, 2);
+					}
+					else if(connectionRequest.length()==1)
+					{
+						connectionRequests_count.setPadding(7, 2, 7, 2);
+						//TxtNotiCount.setPadding(left, top, right, bottom)
+						connectionRequests_count.setText(""+canCount);
+						System.err.println("one");
+						}
+					else if(connectionRequest.length()==2)
+					{
+						connectionRequests_count.setText(""+canCount);
+						connectionRequests_count.setPadding(3, 2, 3, 2);
+						System.err.println("two");
+						}
+					else 
+					{
+						System.err.println("three");
+						connectionRequests_count.setPadding(1, 2, 1, 2);
+						connectionRequests_count.setText("99+");
+						}
+					
+				}catch(Exception e){}
+				
+				// for cancellation request count
 				String cancellationRequest = jsonChildNode.getString("no of cancellation request").toString();
 				
 				try{
@@ -514,6 +545,7 @@ public class TutorDashboard extends FragmentActivity implements
 					
 				}catch(Exception e){}
 				
+				// for lesson request count
 				String lessonRequest = jsonChildNode.getString("no of lesson request").toString();
 				
 				try{
