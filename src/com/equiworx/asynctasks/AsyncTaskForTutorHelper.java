@@ -38,12 +38,13 @@ public class AsyncTaskForTutorHelper extends AsyncTask<String, Void, String> {
 		
 		if(displayProgress){
 			try{
+				if(activity!= null && !activity.isFinishing()){
 				pDialog = new ProgressDialog(activity);
 				pDialog.setTitle("Tutor Helper");
 				pDialog.setMessage(message);
 				pDialog.setCancelable(false);
-				
-				pDialog.show();
+			    pDialog.show();
+				}
 			}
 			catch(Exception e)
 			{
@@ -74,5 +75,6 @@ public class AsyncTaskForTutorHelper extends AsyncTask<String, Void, String> {
 		Log.e(methodName,result);
 		delegate.processFinish(result, methodName);
 	}
+	
 	
 }

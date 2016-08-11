@@ -78,8 +78,8 @@ public class MyConnectionActivity extends Activity implements
 				intent.putExtra("notes", tutor.getNotes());
 				intent.putExtra("tutorid", tutor.getTutorId());
 				
-				intent.putExtra("feecollect",tutorList.get(position).getFeeCollect());
-				intent.putExtra("feedue",tutorList.get(position).getFeeDue());
+				intent.putExtra("feecollect",tutorList.get(position).getFee_collected());
+				intent.putExtra("feedue",tutorList.get(position).getFee_Due());
 				intent.putExtra("outstand",	tutorList.get(position).getOutstanding_balance());
 				intent.putExtra("feeoutstand",tutorList.get(position).getFee_outstanding());
 				
@@ -264,8 +264,8 @@ public class MyConnectionActivity extends Activity implements
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					CustomDailogViewFees(
-							tutorList.get(position).getFeeCollect(),
-							tutorList.get(position).getFeeDue(),
+							tutorList.get(position).getFee_collected(),
+							tutorList.get(position).getFee_Due(),
 							tutorList.get(position).getOutstanding_balance(),
 							tutorList.get(position).getFee_outstanding());
 							

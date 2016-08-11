@@ -193,6 +193,7 @@ public class Payment_Activity  extends Activity implements AsyncResponseForTutor
 			mLogin.delegate = Payment_Activity.this;
 			mLogin.execute();
 		}else {
+			
 			Util.alertMessage(Payment_Activity.this,"Please check your internet connection");
 		}
 		

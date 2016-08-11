@@ -9,8 +9,15 @@ import android.os.Parcelable;
 public class Tutor implements Parcelable{
 	private String tutorId, name, email, contactNumber, altContactNumber, address, gender,notes,studentid,fee,nolessoin,duefee,feeCollect,outStandingBalance,parentId,lessonIds;
 	
-	String yearname,feeDue,fee_collected, outstanding_balance,fee_outstanding;
+	String yearname,fee_Due,fee_collected, outstanding_balance,fee_outstanding;
 
+	
+	public String getFee_Due() {
+		return fee_Due;
+	}
+	public void setFee_Due(String fee_Due) {
+		this.fee_Due = fee_Due;
+	}
 	public String getNolessoin() {
 		return nolessoin;
 	}
@@ -83,9 +90,7 @@ public class Tutor implements Parcelable{
 	public static Parcelable.Creator<Tutor> getCreator() {
 		return CREATOR;
 	}
-	public void setFeeDue(String feeDue) {
-		this.feeDue = feeDue;
-	}
+	
 
 	ArrayList<StudentIdFee> student;
 	public String getStudentid() {

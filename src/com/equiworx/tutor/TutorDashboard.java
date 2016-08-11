@@ -388,6 +388,7 @@ public class TutorDashboard extends FragmentActivity implements
 				finish();
 				menuLayoutGone();
 			} else if (v == menuIcon) {
+				getTutorDetails(false);
 				if (menuLayout.getVisibility() == View.GONE)
 					menuLayout.setVisibility(View.VISIBLE);
 				else

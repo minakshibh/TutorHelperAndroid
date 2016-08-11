@@ -379,6 +379,9 @@ public class ParentDashBoard extends FragmentActivity implements
 				startActivity(intent);
 				menuLayoutGone();
 			} else if (v == menuIcon) {
+				
+					getbasicDetail();
+				
 				if (menuLayout.getVisibility() == View.GONE)
 					menuLayout.setVisibility(View.VISIBLE);
 				else

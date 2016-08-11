@@ -1015,7 +1015,7 @@ public class TutorHelperParser {
 					String note = jsonObj.getString("notes").toString();
 					tutor.setNotes(note);
 					
-					tutor.setFeeDue(jsonObj.getString("feeDue").toString());
+					tutor.setFee_Due(jsonObj.getString("feeDue").toString());
 					tutor.setFee_collected(jsonObj.getString("fee_collected").toString());
 					tutor.setOutstanding_balance(jsonObj.getString("outstanding_balance").toString());
 					tutor.setFee_outstanding(jsonObj.getString("fee_outstanding").toString());

@@ -100,7 +100,7 @@ public class LessonDetailsActivity extends Activity {
 				tv_note.setText(": "+studentlist.getAddress());
 				student_fees_text.setVisibility(View.VISIBLE);
 				student_fees_text.setText("Fees");
-				outstandingBalnce.setText(": "+studentlist.getStudentfee());
+				outstandingBalnce.setText(": $"+studentlist.getStudentfee());
 				main_layout.addView(convertView);
 			
 			}
